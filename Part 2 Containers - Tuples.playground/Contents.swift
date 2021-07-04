@@ -14,5 +14,3 @@ let anotherConstTuple: (time: Int, place: String, work: String) = (12, "Moscow",
 print(anotherConstTuple.place)
 let anotherAnotherConstTuple = (money: 16, percentage: 0.24)
 print(anotherAnotherConstTuple.percentage)
-
-
