@@ -225,6 +225,6 @@ mainLoop: for i in 1...10 {
 //guard
 
 var number = 5
-guard number > 3 else {
-    print("no")
+guard number > 6 else {
+    return
 }
