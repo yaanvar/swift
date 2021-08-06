@@ -2,25 +2,16 @@
 //  ViewController.swift
 //  MyName
 //
-//  Created by Anvar Rahimov on 04.08.2021.
+//  Created by Anvar Rahimov on 05.08.2021.
 //
 
-import Cocoa
+import UIKit
 
-class ViewController: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class ViewController: UIViewController {
+    
+    @IBAction func showMessage() {
+        print("You pressed Hello World button")
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
-
+    
 }
 
