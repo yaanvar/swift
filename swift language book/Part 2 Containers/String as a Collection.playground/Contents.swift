@@ -12,8 +12,8 @@ anotherChar == char
 //emoji
 
 let thumbsUp = "\u{1f44d}" // "     "
-let skinColor = "\u{1f3fd}" // "
-let combine = "\u{1f44d}\u{1f3fd}" // "   "
+let skinColor = "\u{1f3ff}" // "
+let combine = "\u{1f44d}\u{1f3fb}" // "   "
 
 //
 
