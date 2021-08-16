@@ -11,29 +11,42 @@ struct ContentView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
-                ForEach(viewModel.cards) { card in
-                    CardView(card: card)
-                        .aspectRatio(2/3, contentMode: .fit)
-                        .onTapGesture {
-                            viewModel.choose(card)
-                        }
+        VStack {
+            Text(viewModel.themeName)
+                .font(.largeTitle)
+            
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
+                    ForEach(viewModel.cards) { card in
+                        CardView(card: card)
+                            .aspectRatio(2/3, contentMode: .fit)
+                            .onTapGesture {
+                                viewModel.choose(card)
+                            }
+                    }
                 }
             }
-        }
-        .foregroundColor(.red)
-        .padding(.horizontal)
-        
-        
-        @ViewBuilder
-        var newGame: some View {
-            Button {
-                view.
-            } label: {
-                Text("New Game")
+            
+            Spacer()
+            
+            HStack {
+                Button {
+                    viewModel.newGame()
+                } label: {
+                    Text("New Game")
+                }
+                
+                Spacer()
+                
+                Text("Score: \(viewModel.score)")
             }
+            .padding(15)
+            .font(.title)
+            .foregroundColor(Color.blue)
+            
         }
+        .foregroundColor(viewModel.themeColor)
+        .padding(.horizontal)
     }
 }
 
@@ -50,11 +63,12 @@ struct CardView: View {
             } else if card.isMatched {
                 shape.opacity(0)
             } else {
-                shape.fill().foregroundColor(.red)
+                shape.fill()
             }
         }
     }
 }
+
 
 
 
