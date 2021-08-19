@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SetGameView.swift
 //  Set
 //
 //  Created by Anvar Rahimov on 17.08.2021.
@@ -7,17 +7,36 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SetGameView: View {
+    
     var body: some View {
-        
+        Text("Placeholder")
+        //code
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+struct SetGameView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SetGameView()
             .preferredColorScheme(.light)
-        ContentView()
+        SetGameView()
             .preferredColorScheme(.dark)
     }
 }

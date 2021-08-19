@@ -16,7 +16,7 @@ struct SetGame<CardContent> where CardContent: Equatable {
            !cards[chosenIndex].isChoosed,
            !cards[chosenIndex].isMatched
         {
-            if let potentialMatchIndex
+//            if let potentialMatchIndex
         }
     }
     
@@ -54,7 +54,7 @@ enum Color {
 }
 
 extension Array {
-    var twoMatched {
-        
-    }
+//    var twoMatched {
+//
+//    }
 }
