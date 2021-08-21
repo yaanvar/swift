@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-class SetGameViewModel: ObservedObject {
-    typealias SetCards = <#type expression#>
-}
+//class SetGameViewModel: ObservedObject {
+//
+//}
 
 //struct SetGameViewModel_Previews: PreviewProvider {
 //    static var previews: some View {
