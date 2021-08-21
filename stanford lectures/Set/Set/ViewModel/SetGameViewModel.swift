@@ -7,10 +7,8 @@
 
 import SwiftUI
 
-struct SetGameViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+class SetGameViewModel: ObservedObject {
+    typealias SetCards = <#type expression#>
 }
 
 //struct SetGameViewModel_Previews: PreviewProvider {

@@ -39,6 +39,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4699F5926D168D600716EF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4F8098D26CB2EC400BBE4FB /* SetGameView.swift */,
+				E4D47BFC26CBD6A400D8FA7B /* AspectVGrid.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4699F5A26D168DF00716EF0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4D47BFA26CBD10E00D8FA7B /* SetGame.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E4699F5B26D168E700716EF0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E4D5E65426CEC9D400B7F92C /* SetGameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E4F8097F26CB2EC400BBE4FB = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +83,10 @@
 		E4F8098A26CB2EC400BBE4FB /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				E4699F5A26D168DF00716EF0 /* Model */,
+				E4699F5B26D168E700716EF0 /* ViewModel */,
+				E4699F5926D168D600716EF0 /* View */,
 				E4F8098B26CB2EC400BBE4FB /* SetApp.swift */,
-				E4F8098D26CB2EC400BBE4FB /* SetGameView.swift */,
-				E4D5E65426CEC9D400B7F92C /* SetGameViewModel.swift */,
-				E4D47BFA26CBD10E00D8FA7B /* SetGame.swift */,
-				E4D47BFC26CBD6A400D8FA7B /* AspectVGrid.swift */,
 				E4F8098F26CB2EC500BBE4FB /* Assets.xcassets */,
 				E4F8099426CB2EC500BBE4FB /* Info.plist */,
 				E4F8099126CB2EC500BBE4FB /* Preview Content */,

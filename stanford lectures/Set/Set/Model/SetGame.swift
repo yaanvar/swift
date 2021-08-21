@@ -11,6 +11,8 @@ import SwiftUI
 struct SetGame<CardContent> where CardContent: Equatable {
     private(set) var cards: Array<Card>
     
+    //MARK: init
+    
     mutating func choose(_ card: Card) {
         if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }),
            !cards[chosenIndex].isSelected,
@@ -133,4 +135,3 @@ enum Color {
     case green
     case purple
 }
-
