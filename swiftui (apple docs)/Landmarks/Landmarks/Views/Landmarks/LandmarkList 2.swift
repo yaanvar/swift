@@ -1,9 +1,9 @@
-//
-//  LandmarkList.swift
-//  Landmarks
-///Users/anvar/Documents/GitHub/swift/swiftui (apple docs)/Landmarks/Landmarks/Views/ContentView.swift
-//  Created by Anvar Rahimov on 22.08.2021.
-//
+/*
+See LICENSE folder for this sample’s licensing information.
+
+Abstract:
+A view showing a list of landmarks.
+*/
 
 import SwiftUI
 
@@ -12,8 +12,7 @@ struct LandmarkList: View {
     @State private var showFavoritesOnly = false
     @State private var filter = FilterCategory.all
     @State private var selectedLandmark: Landmark?
-   
-    
+
     enum FilterCategory: String, CaseIterable, Identifiable {
         case all = "All"
         case lakes = "Lakes"
@@ -22,14 +21,14 @@ struct LandmarkList: View {
 
         var id: FilterCategory { self }
     }
-    
+
     var filteredLandmarks: [Landmark] {
         modelData.landmarks.filter { landmark in
             (!showFavoritesOnly || landmark.isFavorite)
                 && (filter == .all || filter.rawValue == landmark.category.rawValue)
         }
     }
-    
+
     var title: String {
         let title = filter == .all ? "Landmarks" : filter.rawValue
         return showFavoritesOnly ? "Favorite \(title)" : title
@@ -38,7 +37,7 @@ struct LandmarkList: View {
     var index: Int? {
         modelData.landmarks.firstIndex(where: { $0.id == selectedLandmark?.id })
     }
-    
+
     var body: some View {
         NavigationView {
             List(selection: $selectedLandmark) {
@@ -49,11 +48,18 @@ struct LandmarkList: View {
                     .tag(landmark)
                 }
             }
-            .navigationTitle("Landmarks")
+            .navigationTitle(title)
             .frame(minWidth: 300)
             .toolbar {
                 ToolbarItem {
                     Menu {
+                        Picker("Category", selection: $filter) {
+                            ForEach(FilterCategory.allCases) { category in
+                                Text(category.rawValue).tag(category)
+                            }
+                        }
+                        .pickerStyle(InlinePickerStyle())
+                        
                         Toggle(isOn: $showFavoritesOnly) {
                             Label("Favorites only", systemImage: "star.fill")
                         }
@@ -62,6 +68,8 @@ struct LandmarkList: View {
                     }
                 }
             }
+
+            Text("Select a Landmark")
         }
         .focusedValue(\.selectedLandmark, $modelData.landmarks[index ?? 0])
     }
