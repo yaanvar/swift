@@ -7,12 +7,33 @@
 
 import SwiftUI
 
-//class SetGameViewModel: ObservedObject {
-//
-//}
+class SetGameViewModel: ObservableObject {
+    
+    @Published private var model: SetGame<SetCard> = SetGameViewModel.createSetGame()
+    
+    static func createSetGame()-> SetGame<SetCard> {
+        SetGame<SetCard> (numberOfCardsStart: numberOfCardsStart,
+                    numberOfCardsInDeck: deck.cards.count) { index in
+            deck.cards[index]
+        }
+    }
+    static var numberOfCardsStart = 12
+    static private var deck = SetCardDeck()
+    
+    //MARK: - Access to the model
+    
+    var cards: Array<SetGame<SetCard>.Card> {
+        model.cards
+    }
+    
+    //MARK: - Intent(s)
+    
+    func choose(card: Array<SetGame<SetCard>.Card>) {
+        model.choose(card: card)
+    }
+    
+    func deal() {
+        model.deal()
+    }
 
-//struct SetGameViewModel_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SetGameViewModel()
-//    }
-//}
+}
