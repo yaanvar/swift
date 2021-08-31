@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E413FD1326D1947B00860C00 /* Squiggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413FD1226D1947B00860C00 /* Squiggle.swift */; };
-		E4699F5D26D1697600716EF0 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4699F5C26D1697600716EF0 /* Card.swift */; };
-		E4699F5F26D16A6400716EF0 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4699F5E26D16A6400716EF0 /* Deck.swift */; };
 		E4699F6226D16B7400716EF0 /* Diamond.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4699F6126D16B7400716EF0 /* Diamond.swift */; };
+		E49707C626DE935600E7603C /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49707C526DE935600E7603C /* SetCard.swift */; };
+		E49707C826DE936800E7603C /* SetDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49707C726DE936800E7603C /* SetDeck.swift */; };
+		E49707CA26DE958700E7603C /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49707C926DE958700E7603C /* SetCardView.swift */; };
+		E49707CC26DE9BDE00E7603C /* Squiggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49707CB26DE9BDE00E7603C /* Squiggle.swift */; };
+		E49707CE26DE9FA100E7603C /* Striped.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49707CD26DE9FA100E7603C /* Striped.swift */; };
+		E49707D026DEA11B00E7603C /* ExtensionsForShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49707CF26DEA11B00E7603C /* ExtensionsForShape.swift */; };
 		E4D47BFB26CBD10E00D8FA7B /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D47BFA26CBD10E00D8FA7B /* SetGame.swift */; };
 		E4D47BFD26CBD6A400D8FA7B /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D47BFC26CBD6A400D8FA7B /* AspectVGrid.swift */; };
 		E4D5E65526CEC9D400B7F92C /* SetGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5E65426CEC9D400B7F92C /* SetGameViewModel.swift */; };
@@ -21,10 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E413FD1226D1947B00860C00 /* Squiggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Squiggle.swift; sourceTree = "<group>"; };
-		E4699F5C26D1697600716EF0 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		E4699F5E26D16A6400716EF0 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		E4699F6126D16B7400716EF0 /* Diamond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diamond.swift; sourceTree = "<group>"; };
+		E49707C526DE935600E7603C /* SetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCard.swift; sourceTree = "<group>"; };
+		E49707C726DE936800E7603C /* SetDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDeck.swift; sourceTree = "<group>"; };
+		E49707C926DE958700E7603C /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
+		E49707CB26DE9BDE00E7603C /* Squiggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Squiggle.swift; sourceTree = "<group>"; };
+		E49707CD26DE9FA100E7603C /* Striped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Striped.swift; sourceTree = "<group>"; };
+		E49707CF26DEA11B00E7603C /* ExtensionsForShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsForShape.swift; sourceTree = "<group>"; };
 		E4D47BFA26CBD10E00D8FA7B /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		E4D47BFC26CBD6A400D8FA7B /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		E4D5E65426CEC9D400B7F92C /* SetGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewModel.swift; sourceTree = "<group>"; };
@@ -50,7 +56,9 @@
 		E4699F5926D168D600716EF0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E4699F6026D16B5E00716EF0 /* Shape */,
 				E4F8098D26CB2EC400BBE4FB /* SetGameView.swift */,
+				E49707C926DE958700E7603C /* SetCardView.swift */,
 				E4D47BFC26CBD6A400D8FA7B /* AspectVGrid.swift */,
 			);
 			path = View;
@@ -60,8 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				E4D47BFA26CBD10E00D8FA7B /* SetGame.swift */,
-				E4699F5C26D1697600716EF0 /* Card.swift */,
-				E4699F5E26D16A6400716EF0 /* Deck.swift */,
+				E49707C526DE935600E7603C /* SetCard.swift */,
+				E49707C726DE936800E7603C /* SetDeck.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -69,7 +77,6 @@
 		E4699F5B26D168E700716EF0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E4699F6026D16B5E00716EF0 /* Shape */,
 				E4D5E65426CEC9D400B7F92C /* SetGameViewModel.swift */,
 			);
 			path = ViewModel;
@@ -79,7 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				E4699F6126D16B7400716EF0 /* Diamond.swift */,
-				E413FD1226D1947B00860C00 /* Squiggle.swift */,
+				E49707CB26DE9BDE00E7603C /* Squiggle.swift */,
+				E49707CD26DE9FA100E7603C /* Striped.swift */,
+				E49707CF26DEA11B00E7603C /* ExtensionsForShape.swift */,
 			);
 			path = Shape;
 			sourceTree = "<group>";
@@ -191,12 +200,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4699F5F26D16A6400716EF0 /* Deck.swift in Sources */,
+				E49707CC26DE9BDE00E7603C /* Squiggle.swift in Sources */,
 				E4D47BFD26CBD6A400D8FA7B /* AspectVGrid.swift in Sources */,
-				E4699F5D26D1697600716EF0 /* Card.swift in Sources */,
-				E413FD1326D1947B00860C00 /* Squiggle.swift in Sources */,
+				E49707CA26DE958700E7603C /* SetCardView.swift in Sources */,
+				E49707D026DEA11B00E7603C /* ExtensionsForShape.swift in Sources */,
 				E4F8098E26CB2EC400BBE4FB /* SetGameView.swift in Sources */,
+				E49707C626DE935600E7603C /* SetCard.swift in Sources */,
 				E4699F6226D16B7400716EF0 /* Diamond.swift in Sources */,
+				E49707C826DE936800E7603C /* SetDeck.swift in Sources */,
+				E49707CE26DE9FA100E7603C /* Striped.swift in Sources */,
 				E4D47BFB26CBD10E00D8FA7B /* SetGame.swift in Sources */,
 				E4F8098C26CB2EC400BBE4FB /* SetApp.swift in Sources */,
 				E4D5E65526CEC9D400B7F92C /* SetGameViewModel.swift in Sources */,
