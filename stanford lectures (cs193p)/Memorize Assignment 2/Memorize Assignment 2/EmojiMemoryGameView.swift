@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EmojiMemoryGameView.swift
 //  Memorize Assignment 2
 //
 //  Created by Anvar Rahimov on 15.08.2021.
@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @ObservedObject var viewModel: EmojiMemoryGame
+struct EmojiMemoryGameView: View {
+    @ObservedObject var game: EmojiMemoryGame
     
     var body: some View {
         VStack {
-            Text(viewModel.themeName)
+            Text(game.getThemeName)
                 .font(.largeTitle)
             
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
-                    ForEach(viewModel.cards) { card in
+                    ForEach(game.cards) { card in
                         CardView(card: card)
                             .aspectRatio(2/3, contentMode: .fit)
                             .onTapGesture {
-                                viewModel.choose(card)
+                                game.choose(card)
                             }
                     }
                 }
@@ -31,21 +31,22 @@ struct ContentView: View {
             
             HStack {
                 Button {
-                    viewModel.newGame()
+                    game.newGame()
                 } label: {
                     Text("New Game")
                 }
                 
                 Spacer()
                 
-                Text("Score: \(viewModel.score)")
+                Text("Score: \(game.score)")
             }
             .padding(15)
             .font(.title)
             .foregroundColor(Color.blue)
             
         }
-        .foregroundColor(viewModel.themeColor)
+        //.foregroundColor(game.getThemeColor)
+        .foregroundColor(.blue)
         .padding(.horizontal)
     }
 }
@@ -76,16 +77,13 @@ struct CardView: View {
 
 
 
-
-
-
-
-
-struct ContentView_Previews: PreviewProvider {
+struct EmojiMemoryGameView_Previews: PreviewProvider {
     static var previews: some View {
-        let game = EmojiMemoryGame()
-        ContentView(viewModel: game)
-        ContentView(viewModel: game)
+        let themeStore = ThemeStore(named: "Preview")
+        
+        let game = EmojiMemoryGame(theme: themeStore.theme(at: 0))
+        EmojiMemoryGameView(game: game)
+        EmojiMemoryGameView(game: game)
             .preferredColorScheme(.dark)
     }
 }

@@ -8,10 +8,9 @@
 import SwiftUI
 
 class EmojiMemoryGame: ObservableObject {
-    
-    init() {
-        theme = EmojiMemoryGame.themes.randomElement()!
-        theme.emojis.shuffle()
+
+    init(theme: Theme) {
+        self.theme = theme
         model = EmojiMemoryGame.createMemoryGame(theme: theme)
     }
    
@@ -22,33 +21,22 @@ class EmojiMemoryGame: ObservableObject {
     }
    
     @Published private var model: MemoryGame<String>
-        
+    
     private var theme: Theme
     
-    var themeName: String {
-        return theme.name
+    var getThemeName: String {
+        get {
+            return theme.name
+        }
     }
     
     var score: Int {
         return model.score
     }
     
-    var themeColor: Color {
-        switch theme.themeColor {
-        case "red":
-            return .red
-        case "green":
-            return .green
-        case "purple":
-            return .purple
-        case "orange":
-            return .orange
-        case "yellow":
-            return .yellow
-        case "blue":
-            return .blue
-        default:
-            return .red
+    var getThemeColor: Color {
+        get {
+            return Color(rgbaColor: theme.themeColor)
         }
     }
    
@@ -63,43 +51,6 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     func newGame() {
-        theme = EmojiMemoryGame.themes.randomElement()!
-        theme.emojis.shuffle()
         model = EmojiMemoryGame.createMemoryGame(theme: theme)
     }
-    
-    // MARK: - Theme(s)
-    
-    static var themes: Array<Theme> = [
-        Theme(name: "Halloween",
-              emojis: ["💀", "👻", "🎃", "🧟‍♀️", "👺", "👹", "🎭"],
-              numberOfPairsOfCards: 5,
-              themeColor: "orange"
-        ),
-        Theme(name: "Flags",
-              emojis: ["🏳️", "🏳️‍🌈", "🏳️‍⚧️", "🏴‍☠️", "🏁", "🏴", "🚩", "🎌", "🇯🇵"],
-              numberOfPairsOfCards: 6,
-              themeColor: "blue"
-        ),
-        Theme(name: "Smiles",
-              emojis: ["😀", "🤩", "🥳", "😎", "😜", "😘", "😇", "🥺", "😂", "😆", "😅"],
-              numberOfPairsOfCards: 7,
-              themeColor: "yellow"
-        ),
-        Theme(name: "Food",
-              emojis: ["🍋", "🫒", "🍓", "🍑", "🥝", "🍅", "🍆", "🥑", "🥥", "🍒", "🍇", "🍉", "🍌", "🍏"],
-              numberOfPairsOfCards: 8,
-              themeColor: "green"
-        ),
-        Theme(name: "Tech",
-              emojis: ["🎥", "📼", "📟", "📻", "📺", "📷", "💾", "🕹", "🖨", "🖱", "⌨️", "🖥", "💻", "📱", "⌚️"],
-              numberOfPairsOfCards: 10,
-              themeColor: "purple"
-        ),
-        Theme(name: "Vehicles",
-              emojis: ["✈️", "🚂", "🛸", "🚀", "🚗", "🚑", "🚒", "🚜", "🚲", "🛴", "🏍", "🚄", "🚁", "🚤", "🚡", "🚟", "🚌", "🚚", "🛶", "🛺", "🛵", "🛻", "🦽", "🚃"],
-              numberOfPairsOfCards: 9,
-              themeColor: "red"
-        )
-    ]
 }
