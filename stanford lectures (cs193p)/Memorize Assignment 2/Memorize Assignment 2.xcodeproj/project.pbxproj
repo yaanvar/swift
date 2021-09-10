@@ -17,6 +17,8 @@
 		E492BC7C26C98480007A691B /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492BC7B26C98480007A691B /* MemoryGame.swift */; };
 		E49F85F926E9FA69000696A3 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49F85F826E9FA69000696A3 /* ThemeManager.swift */; };
 		E49F85FB26EA0E44000696A3 /* RGBAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49F85FA26EA0E44000696A3 /* RGBAColor.swift */; };
+		E4E4854826EBC68900E7E804 /* UtilityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E4854626EBC68900E7E804 /* UtilityViews.swift */; };
+		E4E4854926EBC68900E7E804 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E4854726EBC68900E7E804 /* UtilityExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E492BC7B26C98480007A691B /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		E49F85F826E9FA69000696A3 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E49F85FA26EA0E44000696A3 /* RGBAColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBAColor.swift; sourceTree = "<group>"; };
+		E4E4854626EBC68900E7E804 /* UtilityViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityViews.swift; sourceTree = "<group>"; };
+		E4E4854726EBC68900E7E804 /* UtilityExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +71,13 @@
 				E492BC6A26C9837C007A691B /* Memorize_Assignment_2App.swift */,
 				E492BC7B26C98480007A691B /* MemoryGame.swift */,
 				E492BC7926C98442007A691B /* EmojiMemoryGame.swift */,
-				E49F85FA26EA0E44000696A3 /* RGBAColor.swift */,
 				E492BC6C26C9837C007A691B /* EmojiMemoryGameView.swift */,
 				E414AD6B26CAD02600703E6F /* Themes.swift */,
 				E49F85F826E9FA69000696A3 /* ThemeManager.swift */,
 				E452905E26EA23BA00F75C39 /* ThemeEditor.swift */,
+				E49F85FA26EA0E44000696A3 /* RGBAColor.swift */,
+				E4E4854726EBC68900E7E804 /* UtilityExtensions.swift */,
+				E4E4854626EBC68900E7E804 /* UtilityViews.swift */,
 				E492BC6E26C9837C007A691B /* Assets.xcassets */,
 				E492BC7326C9837C007A691B /* Info.plist */,
 				E492BC7026C9837C007A691B /* Preview Content */,
@@ -158,11 +164,13 @@
 			files = (
 				E492BC6D26C9837C007A691B /* EmojiMemoryGameView.swift in Sources */,
 				E49F85F926E9FA69000696A3 /* ThemeManager.swift in Sources */,
+				E4E4854826EBC68900E7E804 /* UtilityViews.swift in Sources */,
 				E492BC6B26C9837C007A691B /* Memorize_Assignment_2App.swift in Sources */,
 				E492BC7C26C98480007A691B /* MemoryGame.swift in Sources */,
 				E49F85FB26EA0E44000696A3 /* RGBAColor.swift in Sources */,
 				E414AD6C26CAD02600703E6F /* Themes.swift in Sources */,
 				E452905F26EA23BA00F75C39 /* ThemeEditor.swift in Sources */,
+				E4E4854926EBC68900E7E804 /* UtilityExtensions.swift in Sources */,
 				E492BC7A26C98442007A691B /* EmojiMemoryGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

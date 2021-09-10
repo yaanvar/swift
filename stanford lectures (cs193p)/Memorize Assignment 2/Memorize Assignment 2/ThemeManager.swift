@@ -18,7 +18,7 @@ struct ThemeManager: View {
                     NavigationLink(destination: gameView) {
                         VStack(alignment: .leading) {
                             Text(theme.name)
-                            Text(theme.emojis.joined(separator: ""))
+                            Text(theme.emojis)
                         }
                     }
                 }

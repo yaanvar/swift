@@ -29,7 +29,7 @@ struct EmojiMemoryGameView: View {
             
             Spacer()
             
-            HStack {
+            HStack {              
                 Button {
                     game.newGame()
                 } label: {
