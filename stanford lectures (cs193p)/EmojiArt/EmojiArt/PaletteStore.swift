@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Palette: Identifiable, Codable {
+struct Palette: Identifiable, Codable, Hashable {
     var name: String
     var emojis: String
     var id: Int
@@ -29,11 +29,12 @@ class PaletteStore: ObservableObject {
     }
     
     private var userDefaultsKey: String {
-        "PaletteStore" + name
+        "PaletteStore:" + name
     }
     
     private func storeInUserDefaults() {
         UserDefaults.standard.set(try? JSONEncoder().encode(palettes), forKey: userDefaultsKey)
+//        UserDefaults.standard.set(palettes.map { [$0.name,$0.emojis,String($0.id)] }, forKey: userDefaultsKey)
     }
     
     private func restoreFromUserDefaults() {
@@ -41,25 +42,33 @@ class PaletteStore: ObservableObject {
            let decodedPalettes = try? JSONDecoder().decode(Array<Palette>.self, from: jsonData) {
             palettes = decodedPalettes
         }
+//        if let palettesAsPropertyList = UserDefaults.standard.array(forKey: userDefaultsKey) as? [[String]] {
+//            for paletteAsArray in palettesAsPropertyList {
+//                if paletteAsArray.count == 3, let id = Int(paletteAsArray[2]), !palettes.contains(where: { $0.id == id }) {
+//                    let palette = Palette(name: paletteAsArray[0], emojis: paletteAsArray[1], id: id)
+//                    palettes.append(palette)
+//                }
+//            }
+//        }
     }
     
     init(named name: String) {
         self.name = name
         restoreFromUserDefaults()
         if palettes.isEmpty {
-            print("using built-in palettes")
-            insertPalette(named: "Halloween", emojis: "💀👻🎃🧟‍♀️👺👹🎭")
-            insertPalette(named: "Flags", emojis: "🏳️🏳️‍🌈🏳️‍⚧️🏴‍☠️🏁🏴🚩🎌🇯🇵")
-            insertPalette(named: "Smiles", emojis: "😀🤩🥳😎😜😘😇🥺😂😆😅")
-            insertPalette(named: "Food", emojis: "🍋🫒🍓🍑🥝🍅🍆🥑🥥🍒🍇🍉🍌🍏")
-            insertPalette(named: "Tech", emojis: "🎥📼📟📻📺📷💾🕹🖨🖱⌨️🖥💻📱⌚️")
-            insertPalette(named: "Vehicles", emojis: "✈️🚂🛸🚀🚗🚑🚒🚜🚲🛴🏍🚄🚁🚤🚡🚟🚌🚚🛶🛺🛵🛻🦽🚃")
-        } else {
-            print("successfully loaded palettes from UserDefaults: \(palettes)")
+            insertPalette(named: "Vehicles", emojis: "🚙🚗🚘🚕🚖🏎🚚🛻🚛🚐🚓🚔🚑🚒🚀✈️🛫🛬🛩🚁🛸🚲🏍🛶⛵️🚤🛥🛳⛴🚢🚂🚝🚅🚆🚊🚉🚇🛺🚜")
+            insertPalette(named: "Sports", emojis: "🏈⚾️🏀⚽️🎾🏐🥏🏓⛳️🥅🥌🏂⛷🎳")
+            insertPalette(named: "Music", emojis: "🎼🎤🎹🪘🥁🎺🪗🪕🎻")
+            insertPalette(named: "Animals", emojis: "🐥🐣🐂🐄🐎🐖🐏🐑🦙🐐🐓🐁🐀🐒🦆🦅🦉🦇🐢🐍🦎🦖🦕🐅🐆🦓🦍🦧🦣🐘🦛🦏🐪🐫🦒🦘🦬🐃🦙🐐🦌🐕🐩🦮🐈🦤🦢🦩🕊🦝🦨🦡🦫🦦🦥🐿🦔")
+            insertPalette(named: "Animal Faces", emojis: "🐵🙈🙊🙉🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨🐯🦁🐮🐷🐸🐲")
+            insertPalette(named: "Flora", emojis: "🌲🌴🌿☘️🍀🍁🍄🌾💐🌷🌹🥀🌺🌸🌼🌻")
+            insertPalette(named: "Weather", emojis: "☀️🌤⛅️🌥☁️🌦🌧⛈🌩🌨❄️💨☔️💧💦🌊☂️🌫🌪")
+            insertPalette(named: "COVID", emojis: "💉🦠😷🤧🤒")
+            insertPalette(named: "Faces", emojis: "😀😃😄😁😆😅😂🤣🥲☺️😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🥸🤩🥳😏😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😤😠😡🤯😳🥶😥😓🤗🤔🤭🤫🤥😬🙄😯😧🥱😴🤮😷🤧🤒🤠")
         }
     }
     
-    //MARK: -Intent
+    // MARK: - Intent
     
     func palette(at index: Int) -> Palette {
         let safeIndex = min(max(index, 0), palettes.count - 1)
