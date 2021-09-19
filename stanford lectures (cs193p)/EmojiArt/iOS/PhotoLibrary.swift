@@ -8,9 +8,6 @@
 import SwiftUI
 import PhotosUI
 
-// L15 UIKit's PHPickerViewController adapted to SwiftUI
-// L16 Moved to iOS-only on multiplatform version
-
 struct PhotoLibrary: UIViewControllerRepresentable {
     var handlePickedImage: (UIImage?) -> Void
     
