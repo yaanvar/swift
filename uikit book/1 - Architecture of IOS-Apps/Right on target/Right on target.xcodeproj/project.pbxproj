@@ -13,6 +13,7 @@
 		E41592BE26F90192002D9F68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E41592BC26F90192002D9F68 /* Main.storyboard */; };
 		E41592C026F90193002D9F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E41592BF26F90193002D9F68 /* Assets.xcassets */; };
 		E41592C326F90193002D9F68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E41592C126F90193002D9F68 /* LaunchScreen.storyboard */; };
+		E4E8534B26FCD690006AF9FF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8534A26FCD690006AF9FF /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E41592BF26F90193002D9F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E41592C226F90193002D9F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E41592C426F90193002D9F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E8534A26FCD690006AF9FF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				E41592B626F90192002D9F68 /* AppDelegate.swift */,
 				E41592B826F90192002D9F68 /* SceneDelegate.swift */,
 				E41592BA26F90192002D9F68 /* ViewController.swift */,
+				E4E8534A26FCD690006AF9FF /* SecondViewController.swift */,
 				E41592BC26F90192002D9F68 /* Main.storyboard */,
 				E41592BF26F90193002D9F68 /* Assets.xcassets */,
 				E41592C126F90193002D9F68 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E8534B26FCD690006AF9FF /* SecondViewController.swift in Sources */,
 				E41592BB26F90192002D9F68 /* ViewController.swift in Sources */,
 				E41592B726F90192002D9F68 /* AppDelegate.swift in Sources */,
 				E41592B926F90192002D9F68 /* SceneDelegate.swift in Sources */,
@@ -293,6 +297,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "yaanvar.Right-on-target";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -312,6 +317,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "yaanvar.Right-on-target";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
