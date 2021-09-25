@@ -64,9 +64,9 @@
 		E41592B526F90192002D9F68 /* Right on target */ = {
 			isa = PBXGroup;
 			children = (
-				E4CD6E6626FE4C2500513CBD /* Model */,
 				E41592B626F90192002D9F68 /* AppDelegate.swift */,
 				E41592B826F90192002D9F68 /* SceneDelegate.swift */,
+				E4CD6E6626FE4C2500513CBD /* Model */,
 				E41592BA26F90192002D9F68 /* ViewController.swift */,
 				E4E8534A26FCD690006AF9FF /* SecondViewController.swift */,
 				E41592BC26F90192002D9F68 /* Main.storyboard */,

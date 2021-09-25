@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         // проверяем окончена ли игра
         if game.isGameEnded {
             showAlertWith(score: game.score)
+            game.restartGame()
         } else {
             game.startNewRound()
         }
