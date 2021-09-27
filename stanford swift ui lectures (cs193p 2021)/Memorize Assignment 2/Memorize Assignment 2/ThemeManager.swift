@@ -9,12 +9,17 @@ import SwiftUI
 
 struct ThemeManager: View {
     @ObservedObject var store: ThemeStore
+    @State private var viewID: Int = 0
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(store.themes) { theme in
                     let gameView = EmojiMemoryGameView(game: EmojiMemoryGame(theme: theme))
+                        .id(viewID)
+                        .onDisappear {
+                            viewID += 1
+                        }
                     NavigationLink(destination: gameView) {
                         VStack(alignment: .leading) {
                             Text(theme.name)
