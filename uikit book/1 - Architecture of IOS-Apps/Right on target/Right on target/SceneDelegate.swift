@@ -18,21 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         print("sceneWillConnectTo")
-        
-        // ОБЯЗАТЕЛЬНО внесите изменения в следующую строку кода,
-        // добавив имя параметра windowScene, в который извлекается значение
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        // Шаг 1
-        window = UIWindow(windowScene: windowScene)
-        guard let window = window else { return }
-        // Шаг 2
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! ViewController
-        // Шаг 3
-        window.rootViewController = viewController
-        // Шаг 4
-        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
