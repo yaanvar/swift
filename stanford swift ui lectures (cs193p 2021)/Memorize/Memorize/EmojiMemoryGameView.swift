@@ -180,7 +180,5 @@ struct ContentView_Previews: PreviewProvider {
         let game = EmojiMemoryGame()
         game.choose(game.cards.first!)
         return EmojiMemoryGameView(game: game)
-//        EmojiMemoryGameView(game: game)
-//            .preferredColorScheme(.dark)
     }
 }
