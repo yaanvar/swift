@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E414AD6C26CAD02600703E6F /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414AD6B26CAD02600703E6F /* Themes.swift */; };
+		E42AE1B8270CBDE400DA0350 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42AE1B7270CBDE400DA0350 /* Cardify.swift */; };
 		E452905F26EA23BA00F75C39 /* ThemeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E452905E26EA23BA00F75C39 /* ThemeEditor.swift */; };
 		E492BC6B26C9837C007A691B /* Memorize_Assignment_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492BC6A26C9837C007A691B /* Memorize_Assignment_2App.swift */; };
 		E492BC6D26C9837C007A691B /* EmojiMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492BC6C26C9837C007A691B /* EmojiMemoryGameView.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		E414AD6B26CAD02600703E6F /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		E42AE1B7270CBDE400DA0350 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		E452905E26EA23BA00F75C39 /* ThemeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditor.swift; sourceTree = "<group>"; };
 		E492BC6726C9837C007A691B /* Memorize Assignment 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Memorize Assignment 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E492BC6A26C9837C007A691B /* Memorize_Assignment_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memorize_Assignment_2App.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				E49F85F826E9FA69000696A3 /* ThemeManager.swift */,
 				E452905E26EA23BA00F75C39 /* ThemeEditor.swift */,
 				E49F85FA26EA0E44000696A3 /* RGBAColor.swift */,
+				E42AE1B7270CBDE400DA0350 /* Cardify.swift */,
 				E4E4854726EBC68900E7E804 /* UtilityExtensions.swift */,
 				E4E4854626EBC68900E7E804 /* UtilityViews.swift */,
 				E492BC6E26C9837C007A691B /* Assets.xcassets */,
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42AE1B8270CBDE400DA0350 /* Cardify.swift in Sources */,
 				E492BC6D26C9837C007A691B /* EmojiMemoryGameView.swift in Sources */,
 				E49F85F926E9FA69000696A3 /* ThemeManager.swift in Sources */,
 				E4E4854826EBC68900E7E804 /* UtilityViews.swift in Sources */,

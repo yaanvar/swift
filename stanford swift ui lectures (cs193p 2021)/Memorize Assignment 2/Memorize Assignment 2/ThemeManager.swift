@@ -33,6 +33,7 @@ struct ThemeManager: View {
                 .onMove { indexSet, newOffset in
                     store.themes.move(fromOffsets: indexSet, toOffset: newOffset)
                 }
+
             }
             .navigationTitle("Themes")
             .toolbar {
