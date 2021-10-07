@@ -29,12 +29,32 @@ class ViewController: UIViewController {
     var updatedData: String = "Test data"
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateLabel(withText: updatedData)
+        //updateLabel(withText: updatedData)
     }
     // Обновляем данные в текстовой метке
     private func updateLabel(withText text: String) {
         dataLabel.text = updatedData
     }
+    
+    // Передача данных с помощью segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // определяем идентификатор segue
+        switch segue.identifier {
+        case "toEditScreen":
+            // обрабатываем переход
+                prepareEditScreen(segue)
+        default:
+            break
+        }
+    }
+    
+    // подготовка к переходу на экран редактирования
+    private func prepareEditScreen(_ segue: UIStoryboardSegue) {
+        // безопасно извлекаем опциональное значение
+        guard let destinationController = segue.destination as? SecondViewController else { return }
+        destinationController.updatingData = dataLabel.text ?? ""
+    }
+
 
 }
 

@@ -32,16 +32,36 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="editDataWithProperty:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eOL-5b-uPM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeG-zQ-6h5">
+                                <rect key="frame" x="30" y="557" width="354" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Изменить с помощью segue">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="sRU-0E-a3j" kind="show" identifier="toEditScreen" id="Qst-IG-2OV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <constraints>
                             <constraint firstItem="Ei7-aW-NjJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="3gK-V6-mnA"/>
+                            <constraint firstItem="oeG-zQ-6h5" firstAttribute="top" secondItem="Ei7-aW-NjJ" secondAttribute="bottom" constant="30" id="5fC-bj-SmF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oeG-zQ-6h5" secondAttribute="trailing" constant="30" id="moS-sC-bit"/>
                             <constraint firstItem="ZvL-mI-fUp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o5E-pj-sub"/>
                             <constraint firstItem="Ei7-aW-NjJ" firstAttribute="top" secondItem="ZvL-mI-fUp" secondAttribute="bottom" constant="30" id="pVw-hj-NJS"/>
                             <constraint firstItem="ZvL-mI-fUp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="r5z-9g-cxb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ei7-aW-NjJ" secondAttribute="trailing" constant="30" id="rrR-eD-0he"/>
+                            <constraint firstItem="oeG-zQ-6h5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tOS-Xi-WPs"/>
+                            <constraint firstItem="oeG-zQ-6h5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="zm7-jl-b91"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Сцена А" largeTitleDisplayMode="always" id="bud-iP-tgS"/>
@@ -50,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Сцена Б-->
         <scene sceneID="ukN-ML-qvY">
             <objects>
                 <viewController storyboardIdentifier="SecondViewController" id="sRU-0E-a3j" customClass="SecondViewController" customModule="TransferApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,14 +78,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jGG-Tg-hkX">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" systemColor="systemGreenColor"/>
-                                <items>
-                                    <navigationItem title="Сцена Б" largeTitleDisplayMode="always" id="Yhx-Ul-2l2"/>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhG-qx-ycU">
                                 <rect key="frame" x="30" y="431" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -80,6 +92,9 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveDataWithProperty:" destination="sRU-0E-a3j" eventType="touchUpInside" id="2V0-iQ-rHq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hby-fj-S7u"/>
@@ -93,6 +108,7 @@
                             <constraint firstItem="nhG-qx-ycU" firstAttribute="centerY" secondItem="USQ-lb-yk5" secondAttribute="centerY" id="vTe-oy-NWh"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Сцена Б" largeTitleDisplayMode="always" id="3Ut-sI-4RB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ns8-4z-6aM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
