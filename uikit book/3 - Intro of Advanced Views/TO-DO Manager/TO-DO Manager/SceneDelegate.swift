@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  TO-DO Manager
 //
-//  Created by Anvar Rahimov on 08.10.2021.
+//  Created by Anvar Rahimov on 09.10.2021.
 //
 
 import UIKit
