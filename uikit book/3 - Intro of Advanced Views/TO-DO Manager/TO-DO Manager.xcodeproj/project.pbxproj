@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E46414B0271721D800503FE8 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46414AF271721D800503FE8 /* TaskCell.swift */; };
 		E4BF3F20271389390045EFDD /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF3F1F271389390045EFDD /* TaskListController.swift */; };
 		E4BF3F22271389590045EFDD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF3F21271389590045EFDD /* Task.swift */; };
 		E4BF3F24271389700045EFDD /* TasksStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF3F23271389700045EFDD /* TasksStorage.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E46414AF271721D800503FE8 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		E4BF3F1F271389390045EFDD /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
 		E4BF3F21271389590045EFDD /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		E4BF3F23271389700045EFDD /* TasksStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksStorage.swift; sourceTree = "<group>"; };
@@ -41,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E46414AE271721A100503FE8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E46414AF271721D800503FE8 /* TaskCell.swift */,
+				E4BF3F1F271389390045EFDD /* TaskListController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E4BF3F252713898C0045EFDD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +83,7 @@
 				E4F99A92271220CE00DFF798 /* AppDelegate.swift */,
 				E4F99A94271220CE00DFF798 /* SceneDelegate.swift */,
 				E4BF3F252713898C0045EFDD /* Model */,
-				E4BF3F1F271389390045EFDD /* TaskListController.swift */,
+				E46414AE271721A100503FE8 /* View */,
 				E4F99A98271220CE00DFF798 /* Main.storyboard */,
 				E4F99A9B271220D000DFF798 /* Assets.xcassets */,
 				E4F99A9D271220D000DFF798 /* LaunchScreen.storyboard */,
@@ -156,6 +167,7 @@
 				E4F99A93271220CE00DFF798 /* AppDelegate.swift in Sources */,
 				E4BF3F24271389700045EFDD /* TasksStorage.swift in Sources */,
 				E4F99A95271220CE00DFF798 /* SceneDelegate.swift in Sources */,
+				E46414B0271721D800503FE8 /* TaskCell.swift in Sources */,
 				E4BF3F20271389390045EFDD /* TaskListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
