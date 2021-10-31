@@ -9,6 +9,19 @@ import UIKit
 
 class TaskListController: UITableViewController {
     
+    // получение списка задач, их разбор и установка в свойство tasks
+    func setTasks(_ tasksCollection: [TaskProtocol]) {
+        // подготовка коллекции с задачами
+        // будем использовать только те задачи, для которых определена секция
+        sectionsTypesPosition.forEach { taskType in
+            tasks[taskType] = []
+        }
+        // загрузка и разбор задач из хранилища
+        tasksCollection.forEach { task in
+            tasks[task.type]?.append(task)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 1. Проверяем существование задачи
         let taskType = sectionsTypesPosition[indexPath.section]
@@ -41,6 +54,12 @@ class TaskListController: UITableViewController {
                     return task1position < task2position
                 }
             }
+            // сохранение задач
+            var savingArray: [TaskProtocol] = []
+            tasks.forEach { _, value in
+                savingArray += value
+            }
+            tasksStorage.saveTasks(savingArray)
         }
     }
     // порядок отображения секций по типам
@@ -92,18 +111,18 @@ class TaskListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        // получаем данные о задаче, которую необходимо перевести в статус "запланирована"
+        // получаем данные о задаче, по которой осуществлен свайп
         let taskType = sectionsTypesPosition[indexPath.section]
         guard let _ = tasks[taskType]?[indexPath.row] else {
             return nil
         }
         // действие для изменения статуса на "запланирована"
-        let actionSwipeInstance = UIContextualAction(style: .normal, title: "Не выполнена") { _, _, _ in
+        let actionSwipeInstance = UIContextualAction(style: .normal, title: "Не выполнена") { _,_,_ in
             self.tasks[taskType]![indexPath.row].status = .planned
             self.tableView.reloadSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
         }
-        // действия для перехода к экрану редактирования
-        let actionEditInstance = UIContextualAction(style: .normal, title: "Изменить") { _, _, _ in
+        // действие для перехода к экрану редактирования
+        let actionEditInstance = UIContextualAction(style: .normal, title: "Изменить") { _,_,_ in
             // загрузка сцены со storyboard
             let editScreen = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TaskEditController") as! TaskEditController
             // передача значений редактируемой задачи
@@ -111,26 +130,24 @@ class TaskListController: UITableViewController {
             editScreen.taskType = self.tasks[taskType]![indexPath.row].type
             editScreen.taskStatus = self.tasks[taskType]![indexPath.row].status
             // передача обработчика для сохранения задачи
-            editScreen.doAfterEdit = { [self] title, type, status in
+                editScreen.doAfterEdit = { [self] title, type, status in
                 let editedTask = Task(title: title, type: type, status: status)
                 tasks[taskType]![indexPath.row] = editedTask
                 tableView.reloadData()
             }
-            // перевод к экрану редактирования
+            // переход к экрану редактирования
             self.navigationController?.pushViewController(editScreen, animated: true)
         }
-        // изменим цвет фона кнопки с действием
+        // изменяем цвет фона кнопки с действием
         actionEditInstance.backgroundColor = .darkGray
-
-        // создаем обьект, описывающий доступные действия
-        // в зависимости от статуса задачи буддет отображено 1 или 2 действие
+        // создаем объект, описывающий доступные действия
+        // в зависимости от статуса задачи будет отображено 1 или 2 действия
         let actionsConfiguration: UISwipeActionsConfiguration
         if tasks[taskType]![indexPath.row].status == .completed {
             actionsConfiguration = UISwipeActionsConfiguration(actions: [actionSwipeInstance, actionEditInstance])
         } else {
             actionsConfiguration = UISwipeActionsConfiguration(actions: [actionEditInstance])
         }
-        
         return actionsConfiguration
     }
 

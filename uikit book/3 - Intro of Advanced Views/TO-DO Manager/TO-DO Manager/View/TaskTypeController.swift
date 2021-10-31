@@ -15,30 +15,21 @@ class TaskTypeController: UITableViewController {
     typealias TypeCellDescription = (type: TaskPriority, title: String, description: String)
     // 2. коллекция доступных типов задач с их описанием
     private var taskTypesInformation: [TypeCellDescription] = [
-        (type: .important, title: "Важная", description: "Такой тип задач являются наиболее приоритетными для выполнения"),
-        (type: .normal, title: "Обычная", description: "Задача с обычным приоритетом")
+        (type: .important, title: "Важная", description: "Такой тип задач является наиболее приоритетным для выполнения. Все важные задачи выводятся в самом верху списка задач"),
+        (type: .normal, title: "Текущая", description: "Задача с обычным приоритетом")
     ]
     // 3. выбранный приоритет
     var selectedType: TaskPriority = .normal
     
-    // обработчик выбора типа
     var doAfterTypeSelected: ((TaskPriority) -> Void)?
     
     //MARK: - viewDidLoad
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // 1. получение значения типа UINib, соответствующее xib-файлу кастомной ячейки
+    override func viewDidLoad() { super.viewDidLoad()
+        // 1. получение значение типа UINib, соответствующее xib-файлу кастомной ячейки
         let cellTypeNib = UINib(nibName: "TaskTypeCell", bundle: nil)
         // 2. регистрация кастомной ячейки в табличном представлении
         tableView.register(cellTypeNib, forCellReuseIdentifier: "TaskTypeCell")
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -55,9 +46,8 @@ class TaskTypeController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         // 1. получение переиспользуемой кастомной ячейки по ее идентификатору
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTypeCell") as! TaskTypeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTypeCell", for: indexPath) as! TaskTypeCell
         // 2. получаем текущий элемент, информация о котором должна быть выведена в строке
         let typeDescription = taskTypesInformation[indexPath.row]
         // 3. заполняем ячейку данными
@@ -66,20 +56,19 @@ class TaskTypeController: UITableViewController {
         // 4. если тип является выбранным, то отмечаем галочкой
         if selectedType == typeDescription.type {
             cell.accessoryType = .checkmark
-        // в ином случае убираем отметку
+        // в ином случае снимаем отметку
         } else {
             cell.accessoryType = .none
         }
-
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // получаем выбранный тип
         let selectedType = taskTypesInformation[indexPath.row].type
         // вызов обработчика
         doAfterTypeSelected?(selectedType)
-        // переход к предыдушему экрану
+        // переход к предыдущему экрану
         navigationController?.popViewController(animated: true)
     }
 
