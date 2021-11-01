@@ -27,16 +27,7 @@ class MyViewController : UIViewController {
     }
     
     private func set(view moveView: UIView, toCenterOfView baseView: UIView){
-        // размеры вложенного представления
-        let moveViewWidth = moveView.frame.width
-        let moveViewHeight = moveView.frame.height
-        // размеры родительского представления
-        let baseViewWidth = baseView.frame.width
-        let baseViewHeight = baseView.frame.height
-        // вычисление и изменение координат
-        let newXCoordinate = (baseViewWidth - moveViewWidth) / 2
-        let newYCoordinate = (baseViewHeight - moveViewHeight) / 2
-        moveView.frame.origin = CGPoint(x: newXCoordinate, y: newYCoordinate)
+        moveView.center = CGPoint(x: baseView.bounds.midX, y: baseView.bounds.midY)
     }
     
     // создание представления розового цвета
@@ -53,6 +44,19 @@ class MyViewController : UIViewController {
         view.layer.shadowOffset = CGSize(width: 10, height: 20)
         view.layer.shadowColor = UIColor.white.cgColor
         view.layer.opacity = 0.7
+        
+        // создание дочернего
+        let layer = CALayer()
+        // изменение фонового
+        layer.backgroundColor = UIColor.black.cgColor
+        // изменение размеров
+        layer.frame = CGRect(x: 10, y: 10, width: 20, height: 20)
+        // изменение радиуса скругления углов
+        layer.cornerRadius = 10
+        // добавление в иерархию слоев
+        view.layer.addSublayer(layer)
+        
+        view.transform = CGAffineTransform(translationX: 100, y: 5)
         
         return view
     }
