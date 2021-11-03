@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E41A43AA2732DB2400C16CA9 /* CardView.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CardView.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E42E7A34273178A500F17383 /* BezierExperiments.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BezierExperiments.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E4F840032730713900337C53 /* Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F840062730713900337C53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 				E4F840142730713A00337C53 /* Info.plist */,
 				E4F8401A2730716600337C53 /* ViewExperiments.playground */,
 				E42E7A34273178A500F17383 /* BezierExperiments.playground */,
+				E41A43AA2732DB2400C16CA9 /* CardView.playground */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
