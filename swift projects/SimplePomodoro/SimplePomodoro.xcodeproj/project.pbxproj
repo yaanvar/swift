@@ -11,6 +11,8 @@
 		E48D0D2D274994A100680629 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D0D2C274994A100680629 /* ContentView.swift */; };
 		E48D0D2F274994A200680629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48D0D2E274994A200680629 /* Assets.xcassets */; };
 		E48D0D32274994A200680629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48D0D31274994A200680629 /* Preview Assets.xcassets */; };
+		E48D0D3927499F9F00680629 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D0D3827499F9F00680629 /* CircleView.swift */; };
+		E48D0D3B2749A29B00680629 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D0D3A2749A29B00680629 /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E48D0D2C274994A100680629 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E48D0D2E274994A200680629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E48D0D31274994A200680629 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E48D0D3827499F9F00680629 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		E48D0D3A2749A29B00680629 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E41F7FE6274A585D000F0B74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E48D0D2C274994A100680629 /* ContentView.swift */,
+				E48D0D3A2749A29B00680629 /* TimerView.swift */,
+				E48D0D3827499F9F00680629 /* CircleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E48D0D1E274994A100680629 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				E48D0D2A274994A100680629 /* SimplePomodoroApp.swift */,
-				E48D0D2C274994A100680629 /* ContentView.swift */,
+				E41F7FE6274A585D000F0B74 /* View */,
 				E48D0D2E274994A200680629 /* Assets.xcassets */,
 				E48D0D30274994A200680629 /* Preview Content */,
 			);
@@ -139,6 +153,8 @@
 			files = (
 				E48D0D2D274994A100680629 /* ContentView.swift in Sources */,
 				E48D0D2B274994A100680629 /* SimplePomodoroApp.swift in Sources */,
+				E48D0D3927499F9F00680629 /* CircleView.swift in Sources */,
+				E48D0D3B2749A29B00680629 /* TimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
