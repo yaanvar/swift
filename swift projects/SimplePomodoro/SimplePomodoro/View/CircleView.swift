@@ -28,7 +28,7 @@ struct MainCircle: View {
     var body: some View {
         Circle()
             .trim(from: 0, to: self.fill)
-            .stroke(style: StrokeStyle(lineWidth: 50, lineCap: .butt, lineJoin: .miter, miterLimit: 20))
+            .stroke(style: StrokeStyle(lineWidth: 50, lineCap: .round, lineJoin: .miter, miterLimit: 20))
             .fill(AngularGradient(gradient: gradient, center: .center))
             .padding(50)
             .rotationEffect(.init(degrees: -90))
