@@ -19,7 +19,7 @@ struct TimerF {
 
 struct TimerView: View {
     
-    @State var fill: CGFloat = 0
+    @State var fill: CGFloat = 1
     @State var time = 65
     @State var isActive = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -39,11 +39,16 @@ struct TimerView: View {
                 CircleView(fill: fill)
                 
                 Text(timeStamp(seconds: time))
+                    .font(.largeTitle.bold())
+                    .foregroundColor(.blue)
+                    .padding()
+            
             }
+            .padding()
             
             Button {
                 withAnimation(Animation.linear(duration: CGFloat(time))) {
-                    self.fill = 1
+                    self.fill = 0
                 }
             } label: {
                 Label("Start", systemImage: "play")
