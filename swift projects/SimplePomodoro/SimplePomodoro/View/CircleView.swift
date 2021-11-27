@@ -53,7 +53,7 @@ struct CircleView: View {
 struct CircleView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            CircleView(fill: 0.5)
+            CircleView(fill: 1)
         }
     }
 }
