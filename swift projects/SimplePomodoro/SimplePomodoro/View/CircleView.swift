@@ -17,6 +17,7 @@ struct BackgroundCircle: View {
     }
 }
 
+
 struct MainCircle: View {
     var fill: CGFloat = 1
     
