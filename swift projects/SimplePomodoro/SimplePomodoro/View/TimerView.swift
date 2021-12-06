@@ -20,7 +20,7 @@ struct TimerF {
 struct TimerView: View {
     
     @State var fill: CGFloat = 1
-    @State var time = 65
+    @State var timeRemaining = 65
     @State var isActive = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -38,7 +38,7 @@ struct TimerView: View {
             ZStack {
                 CircleView(fill: fill)
                 
-                Text(timeStamp(seconds: time))
+                Text(timeStamp(seconds: timeRemaining))
                     .font(.largeTitle.bold())
                     .foregroundColor(.blue)
                     .padding()
@@ -47,7 +47,7 @@ struct TimerView: View {
             .padding()
             
             Button {
-                withAnimation(Animation.linear(duration: CGFloat(time))) {
+                withAnimation(Animation.linear(duration: CGFloat(timeRemaining))) {
                     self.fill = 0
                 }
             } label: {
@@ -62,9 +62,16 @@ struct TimerView: View {
             }
         }
         .onReceive(timer) { time in
-            if self.time > 0 {
-                self.time -= 1
+            guard self.isActive else { return }
+            if self.timeRemaining > 0 {
+                self.timeRemaining -= 1
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            self.isActive = false
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            self.isActive = true
         }
     }
 }
