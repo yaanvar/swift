@@ -30,6 +30,8 @@ struct Badge: View {
             }
         }
         .scaledToFit()
+        .
+
     }
 }
 
