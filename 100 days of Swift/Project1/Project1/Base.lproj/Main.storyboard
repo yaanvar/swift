@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,6 +63,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9q-lN-h1t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-39.130434782608695" y="161.38392857142856"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ven-MN-69P">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMK-OF-RuH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Detail" id="s3g-hD-AsW" customClass="DetailViewController" customModule="Project1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pIj-F9-aZ9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aIO-WL-7S0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QfB-hW-BgL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aIO-WL-7S0" firstAttribute="centerX" secondItem="pIj-F9-aZ9" secondAttribute="centerX" id="0Wc-Fi-F1G"/>
+                            <constraint firstItem="aIO-WL-7S0" firstAttribute="centerY" secondItem="pIj-F9-aZ9" secondAttribute="centerY" id="5cf-vX-Qxc"/>
+                            <constraint firstItem="aIO-WL-7S0" firstAttribute="leading" secondItem="QfB-hW-BgL" secondAttribute="leading" id="Vbn-VN-gdF"/>
+                            <constraint firstItem="aIO-WL-7S0" firstAttribute="top" secondItem="pIj-F9-aZ9" secondAttribute="topMargin" constant="-44" id="ixA-fR-7Ka"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="aIO-WL-7S0" id="SuV-Ev-tuC"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1769.5652173913045" y="160.71428571428569"/>
         </scene>
     </scenes>
     <resources>
