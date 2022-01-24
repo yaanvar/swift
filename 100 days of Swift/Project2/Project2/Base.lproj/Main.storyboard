@@ -54,9 +54,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="fPd-B5-cJd"/>
                     <connections>
-                        <outlet property="button1" destination="2oq-kS-umo" id="rEY-ge-gtt"/>
-                        <outlet property="button2" destination="bkP-Uo-1bp" id="XSp-wP-fDA"/>
-                        <outlet property="button3" destination="XIZ-b6-m52" id="qEy-Ym-N7y"/>
+                        <outlet property="button1" destination="2oq-kS-umo" id="nUg-in-9Fx"/>
+                        <outlet property="button2" destination="bkP-Uo-1bp" id="7Mw-9H-Ddc"/>
+                        <outlet property="button3" destination="XIZ-b6-m52" id="1oE-Yj-YQ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
