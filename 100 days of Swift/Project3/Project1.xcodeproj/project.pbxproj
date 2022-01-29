@@ -353,6 +353,7 @@
 				DEVELOPMENT_TEAM = R2S4TKF2UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Project1/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Project3;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need to save photos you like.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -382,6 +383,7 @@
 				DEVELOPMENT_TEAM = R2S4TKF2UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Project1/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Project3;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need to save photos you like.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
