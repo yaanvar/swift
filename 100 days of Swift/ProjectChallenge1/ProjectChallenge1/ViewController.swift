@@ -1,19 +1,19 @@
 //
 //  ViewController.swift
-//  Project1
+//  ProjectChallenge1
 //
-//  Created by Anvar Rahimov on 18.01.2022.
+//  Created by Anvar Rahimov on 31.01.2022.
 //
 
 import UIKit
 
 class ViewController: UITableViewController {
-    var pictures = [String]()
+    var flags = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Strom Viewer"
+        title = "Flag Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
@@ -23,39 +23,36 @@ class ViewController: UITableViewController {
         let items = try! fm.contentsOfDirectory(atPath: path)
         
         for item in items {
-            if item.hasPrefix("nssl") {
-                //this is picture to load!
-                pictures.append(item)
+            if item.hasSuffix(".png") {
+                flags.append(item)
             }
         }
         
-        pictures.sort()
+        flags.sort()
         
-        print(pictures)
+        print(flags)
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pictures.count
+        return flags.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Flag", for: indexPath)
+        let tempText = flags[indexPath.row].replacingOccurrences(of: "@3x.png", with: "").uppercased()
+        cell.textLabel?.text = tempText
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            vc.selectedImage = pictures[indexPath.row]
-            vc.selectedPictureNumber = indexPath.row + 1
-            vc.totalPictures = pictures.count
+            vc.selectedFlag = flags[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
     
     @objc func shareTapped() {
-        let vc = UIActivityViewController(activityItems: ["Storm Viewer app"], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: ["Flag Viewer app"], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }
