@@ -16,6 +16,8 @@ class ViewController: UITableViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(startGame))
+        
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 allWords = startWords.components(separatedBy: "\n")
@@ -29,7 +31,7 @@ class ViewController: UITableViewController {
         startGame()
     }
 
-    func startGame() {
+    @objc func startGame() {
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
@@ -63,30 +65,47 @@ class ViewController: UITableViewController {
         let errorTitle: String
         let errorMessage: String
         
-        if isPossible(word: lowerAnswer) {
-            if isOriginal(word: lowerAnswer) {
-                if isReal(word: lowerAnswer) {
-                    usedWords.insert(answer, at: 0)
-                    
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
-                    
-                    return
+        if lowerAnswer.count >= 3 {
+            if title?.lowercased() != lowerAnswer {
+                if isPossible(word: lowerAnswer) {
+                    if isOriginal(word: lowerAnswer) {
+                        if isReal(word: lowerAnswer) {
+                            usedWords.insert(answer, at: 0)
+                            
+                            let indexPath = IndexPath(row: 0, section: 0)
+                            tableView.insertRows(at: [indexPath], with: .automatic)
+                            
+                            return
+                        } else {
+                            errorTitle = "Word not recognised"
+                            errorMessage = "You can't just make them up, you know!"
+                            showErrorMessage(title: errorTitle, message: errorMessage)
+                        }
+                    } else {
+                        errorTitle = "Word already used"
+                        errorMessage = "Be more original!"
+                        showErrorMessage(title: errorTitle, message: errorMessage)
+                    }
                 } else {
-                    errorTitle = "Word not recognised"
-                    errorMessage = "You can't just make them up, you know!"
+                    guard let title = title else { return }
+                    errorTitle = "Word is not possible"
+                    errorMessage = "You can't spell that word from \(title.lowercased())"
+                    showErrorMessage(title: errorTitle, message: errorMessage)
                 }
             } else {
-                errorTitle = "Word already used"
-                errorMessage = "Be more original!"
+                errorTitle = "It's a start word"
+                errorMessage = "You can't use start word, it's not fair!"
+                showErrorMessage(title: errorTitle, message: errorMessage)
             }
         } else {
-            guard let title = title else { return }
-            errorTitle = "Word is not possible"
-            errorMessage = "You can't spell that word from \(title.lowercased())"
+            errorTitle = "Word is too small"
+            errorMessage = "You can't use words that are shorter than three letters"
+            showErrorMessage(title: errorTitle, message: errorMessage)
         }
-        
-        let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+    }
+    
+    func showErrorMessage(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
