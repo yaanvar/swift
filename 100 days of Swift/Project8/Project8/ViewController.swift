@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     var activatedButtons = [UIButton]()
     var solutions = [String]()
+    var correctAnswers = 0
     
     var level = 1
     var score = 0 {
@@ -73,6 +74,8 @@ class ViewController: UIViewController {
         
         let buttonsView = UIView()
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
+        buttonsView.layer.borderWidth = 2
+        buttonsView.layer.borderColor = UIColor.gray.cgColor
         view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate([
@@ -161,12 +164,26 @@ class ViewController: UIViewController {
             
             currentAnswer.text = ""
             score += 1
+            correctAnswers += 1
             
-            if score % 7 == 0 {
-                let ac = UIAlertController(title: "Well done! ", message: "Are you ready for the next level?", preferredStyle: .alert)
+            if correctAnswers % 7 == 0 {
+                let ac = UIAlertController(title: "Well done! ", message: "Your score: \(score)", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Next level!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            for button in activatedButtons {
+                button.isHidden = false
+            }
+            
+            activatedButtons.removeAll()
+            currentAnswer.text = ""
+            
+            let ac = UIAlertController(title: "Your guess is wrong!", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Try again", style: .default))
+            present(ac, animated: true)
+            
+            score -= 1
         }
     }
     
@@ -181,6 +198,7 @@ class ViewController: UIViewController {
         }
         
         score = 0
+        correctAnswers = 0
     }
     
     @objc func clearTapped(_ sender: UIButton) {
