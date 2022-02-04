@@ -56,20 +56,22 @@ class ViewController: UITableViewController {
     }
     
     func filter(_ keyword: String) {
-        filteredPetitions = []
-        for petition in petitions {
-            if keyword == "" {
-                petitions = storedPetitions
-                tableView.reloadData()
-                return
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.filteredPetitions = []
+            for petition in self?.petitions ?? [] {
+                if keyword == "" {
+                    self?.petitions = self?.storedPetitions ?? []
+                    self?.tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+                    return
+                }
+                if petition.body.contains(keyword) || petition.title.contains(keyword) {
+                    self?.filteredPetitions.append(petition)
+                }
             }
-            if petition.body.contains(keyword) || petition.title.contains(keyword) {
-                filteredPetitions.append(petition)
-            }
+            self?.petitions = self?.filteredPetitions ?? []
+            
+            self?.tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
         }
-        petitions = filteredPetitions
-        
-        tableView.reloadData()
     }
     
     @objc func showCredits() {
@@ -91,7 +93,7 @@ class ViewController: UITableViewController {
             petitions = jsonPetitions.results
             storedPetitions = petitions
             
-            tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+            tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false) 
         } else {
             performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }

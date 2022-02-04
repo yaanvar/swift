@@ -18,6 +18,14 @@ class ViewController: UITableViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         
+        performSelector(inBackground: #selector(loadImages), with: nil)
+        
+        pictures.sort()
+        
+        print(pictures)
+    }
+    
+    @objc func loadImages() {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
@@ -28,10 +36,6 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
-        
-        pictures.sort()
-        
-        print(pictures)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
