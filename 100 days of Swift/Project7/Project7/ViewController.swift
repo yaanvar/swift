@@ -11,6 +11,8 @@ class ViewController: UITableViewController {
     var storedPetitions = [Petition]()
     var petitions = [Petition]()
     var filteredPetitions = [Petition]()
+    
+    // MARK: - viewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,8 @@ class ViewController: UITableViewController {
         showError()
     }
     
+    // MARK: - Filtering
+    
     @objc func showFilter() {
         let ac = UIAlertController(title: "Filter", message: "Enter the keywords to filter petitions (Leave empty to reset filters)", preferredStyle: .alert)
         ac.addTextField()
@@ -68,17 +72,23 @@ class ViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    // MARK: - Show Credits
+    
     @objc func showCredits() {
         let ac = UIAlertController(title: "Credits", message: "The data comes from the We The People API of the Whitehouse", preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
     
+    // MARK: - Show Error
+    
     func showError() {
         let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; Please check your connection and try again", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
+    
+    // MARK: - Parsing
     
     func parse(json: Data) {
         let decoder = JSONDecoder()
@@ -89,6 +99,8 @@ class ViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    // MARK: - Table View
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return petitions.count
