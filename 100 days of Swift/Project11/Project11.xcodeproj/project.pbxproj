@@ -94,6 +94,7 @@
 				E48C0DCA27B268E300412FD0 /* Main.storyboard */,
 				E48C0DCD27B268E400412FD0 /* Assets.xcassets */,
 				E48C0DCF27B268E400412FD0 /* LaunchScreen.storyboard */,
+				E48C0DD827B26AA000412FD0 /* FireParticles.sks */,
 				E48C0DD727B26AA000412FD0 /* Content */,
 			);
 			path = Project11;
@@ -102,7 +103,6 @@
 		E48C0DD727B26AA000412FD0 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				E48C0DD827B26AA000412FD0 /* FireParticles.sks */,
 				E48C0DD927B26AA000412FD0 /* ballBlue@2x.png */,
 				E48C0DDA27B26AA000412FD0 /* slotGlowBad@2x.png */,
 				E48C0DDB27B26AA000412FD0 /* ballYellow@2x.png */,
