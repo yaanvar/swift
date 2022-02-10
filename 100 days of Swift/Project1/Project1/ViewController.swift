@@ -16,7 +16,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "Strom Viewer"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         

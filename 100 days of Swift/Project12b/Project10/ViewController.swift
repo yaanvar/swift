@@ -113,8 +113,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let jsonEncoder = JSONEncoder()
         
         if let savedData = try? jsonEncoder.encode(people) {
-            let defaults = UserDefaults.standard
-            defaults.set(savedData, forKey: "people")
+ 
         } else {
             print("failed to encode people")
         }
