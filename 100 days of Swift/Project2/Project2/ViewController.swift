@@ -11,17 +11,19 @@ class ViewController: UIViewController {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
-
     
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
     var totalQuestions = 0
+    var highestScore = 0
+    
+    let defaults = UserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(showScore))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showScore))
         
         button1.layer.borderWidth = 1
         button2.layer.borderWidth = 1
@@ -38,11 +40,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         askQuestion()
+        
+        self.highestScore = defaults.integer(forKey: "highestScore")
     }
     
     func askQuestion(action: UIAlertAction! = nil) {
+        let ac = UIAlertController(title: "Game Over", message: "Your final score is \(score)", preferredStyle: .alert)
+        
         if totalQuestions == 10 {
-            let ac = UIAlertController(title: "Game Over", message: "Your final score is \(score)", preferredStyle: .alert)
+            if score > highestScore {
+                highestScore = score
+                defaults.removeObject(forKey: "highestScore")
+                defaults.set(score, forKey: "highestScore")
+                ac.message = "You beat your previous record! Your new record: \(score)"
+                
+            }
             
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
             
@@ -84,7 +96,7 @@ class ViewController: UIViewController {
     }
     
     @objc func showScore() {
-        let ac = UIAlertController(title: "Your score", message: "Your score is \(score)", preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: nil, message: "Your score is \(score)\nYour higest score is \(highestScore)", preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Continue", style: .default))
         present(ac, animated: true)
     }
