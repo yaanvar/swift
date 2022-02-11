@@ -90,10 +90,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="GKR-Et-7Kd"/>
                     <connections>
-                        <outlet property="changeFilter" destination="zSq-ew-qsE" id="ChA-fO-X5A"/>
                         <outlet property="imageView" destination="lEK-fn-CEI" id="tiI-v0-8UC"/>
                         <outlet property="intensity" destination="s4C-3X-8G5" id="ABe-VS-nAO"/>
-                        <outlet property="save" destination="dhM-Gc-YnZ" id="GGu-yr-Mxv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

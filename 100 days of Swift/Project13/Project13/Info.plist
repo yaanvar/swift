@@ -5,7 +5,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>We need to make photo.</string>
 	<key>CFBundleIdentifier</key>
-	<string></string>
+	<string>yaanvar.Project13</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We need to work with your photo library.</string>
 	<key>UIApplicationSceneManifest</key>
