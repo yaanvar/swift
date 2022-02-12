@@ -36,9 +36,17 @@ class WhackSlot: SKNode {
         if isVisible == true {
             return
         } else {
+            charNode.xScale = 1
+            charNode.yScale = 1
+            
             charNode.run(SKAction.moveBy(x: 0, y: 80, duration: 0.05))
             isVisible = true
             isHit = false
+            
+            if let mudParticle = SKEmitterNode(fileNamed: "mudParticle") {
+                mudParticle.position = charNode.position
+                addChild(mudParticle)
+            }
             
             if Int.random(in: 0...2) == 0 {
                 charNode.texture = SKTexture(imageNamed: "penguinGood")
@@ -61,6 +69,29 @@ class WhackSlot: SKNode {
             charNode.run(SKAction.moveBy(x: 0, y: -80, duration: 0.05))
             isVisible = false
         }
+    }
+    
+    func hit() {
+        isHit = true
+        
+        if let smokeParticle = SKEmitterNode(fileNamed: "smokeParticle") {
+            smokeParticle.position = charNode.position
+            smokeParticle.zPosition = 2
+            addChild(smokeParticle)
+        }
+        
+        if let mudParticle = SKEmitterNode(fileNamed: "mudParticle") {
+            mudParticle.position = charNode.position
+            addChild(mudParticle)
+        }
+        
+        let delay = SKAction.wait(forDuration: 0.25)
+        let hide = SKAction.moveBy(x: 0, y: -80, duration: 0.5)
+        let notVisible = SKAction.run { [weak self] in
+            self?.isVisible = false
+        }
+        let sequence = SKAction.sequence([delay, hide, notVisible])
+        charNode.run(sequence)
     }
 
 }
