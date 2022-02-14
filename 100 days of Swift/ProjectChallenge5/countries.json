@@ -1,0 +1,44 @@
+{
+    "results": [
+        {
+            "name": "Russia",
+            "capital": "Capital: Moscow",
+            "size": "Size: 17 130 000 km²",
+            "population": "Population: 144,1 mil",
+            "currency": "Currency: RUB",
+            "randomFact": "Random fact: Moscow has more billionaires per capita than anywhere else in the world."
+        },
+        {
+            "name": "Ukraine",
+            "capital": "Capital: Kiev",
+            "size": "Size: 603 549 km²",
+            "population": "Population: 41,2 mil",
+            "currency": "Currency: UAH",
+            "randomFact": "Random fact: The largest country in Europe."
+        },
+        {
+            "name": "USA",
+            "capital": "Capital: Washington",
+            "size": "Size: 9 833 520 km²",
+            "population": "Population: 331,9 mil",
+            "currency": "Currency: USD",
+            "randomFact": "Random fact: The US has the 4th longest river system in the World."
+        },
+        {
+            "name": "Japan",
+            "capital": "Capital: Tokyo",
+            "size": "Size: 377 935 km²",
+            "population": "Population: 125,4 mil",
+            "currency": "Currency: JPY",
+            "randomFact": "Random fact: The japanese people live longest in the World."
+        },
+        {
+            "name": "Tajikistan",
+            "capital": "Capital: Dushanbe",
+            "size": "Size: 143 100 km²",
+            "population": "Population: 9,5 mil",
+            "currency": "Currency: SM",
+            "randomFact": "Random fact: Over 90% of the territory of Tajikistan is mountainous."
+        }
+    ]
+}
