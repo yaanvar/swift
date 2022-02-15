@@ -59,6 +59,37 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="79.6875"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="iwF-Dx-jyr">
+            <objects>
+                <viewController storyboardIdentifier="WebView" id="V17-v5-EAb" customClass="WebViewController" customModule="Project16" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Smz-Nf-Dfc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" restorationIdentifier="WebView" translatesAutoresizingMaskIntoConstraints="NO" id="pn1-ce-Bfv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CP6-lW-ZWL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pn1-ce-Bfv" firstAttribute="leading" secondItem="CP6-lW-ZWL" secondAttribute="leading" id="28C-qh-dZl"/>
+                            <constraint firstItem="pn1-ce-Bfv" firstAttribute="top" secondItem="Smz-Nf-Dfc" secondAttribute="topMargin" constant="-44" id="4pD-31-u0k"/>
+                            <constraint firstItem="pn1-ce-Bfv" firstAttribute="centerX" secondItem="Smz-Nf-Dfc" secondAttribute="centerX" id="NXe-Pa-HMO"/>
+                            <constraint firstItem="pn1-ce-Bfv" firstAttribute="centerY" secondItem="Smz-Nf-Dfc" secondAttribute="centerY" id="qSX-an-bYn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pp0-h2-bjg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834.7826086956522" y="79.6875"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
