@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "1E3B25CC-8ACF-465E-B4F4-07C67D528C5D"
+   uuid = "1F833097-E4D8-43FB-91C1-E82BCD0047A3"
    type = "1"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7655BEF7-E680-4E06-8222-F372E6501756"
+            uuid = "952CB885-8349-42B4-B1C0-85FD49DDF841"
             shouldBeEnabled = "No"
-            condition = "storyboard?.instantiateViewController.identifier == &quot;Bad&quot;"
+            condition = "answer.count &gt;= 6"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Project1/ViewController.swift"
+            filePath = "Project5/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "submit(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

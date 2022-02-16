@@ -36,7 +36,6 @@ class ViewController: UITableViewController {
         
         for item in items {
             if item.hasPrefix("nssl") {
-                //this is picture to load!
                 pictures.append(item)
             }
         }
