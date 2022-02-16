@@ -24,6 +24,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    var enemyCounter = 0 {
+        didSet {
+            if  enemyCounter % 20 == 0 && enemyCounter >= 20 {
+                timeInterval *= 0.9
+                gameTimer?.invalidate()
+                gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+            }
+        }
+    }
+    var timeInterval = 1.0
+    
     override func didMove(to view: SKView) {
         backgroundColor = .black
         
@@ -50,10 +61,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
 
     @objc func createEnemy() {
+        enemyCounter += 1
+        
         guard let enemy = possibleEnemies.randomElement() else { return }
         
         let sprite = SKSpriteNode(imageNamed: enemy)
@@ -78,6 +91,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if !isGameOver {
             score += 1
         }
+        
+        if isGameOver {
+            gameTimer?.invalidate()
+        }
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -91,6 +109,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         player.position = location
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        var location = touch.location(in: self)
+        
+        if location.y < 100 {
+            location.y = 100
+        } else if location.y > 668 {
+            location.y = 668
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
