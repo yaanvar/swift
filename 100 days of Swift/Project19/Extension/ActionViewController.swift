@@ -21,6 +21,8 @@ class ActionViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Code templates", style: .plain, target: self, action: #selector(showCodeTemplates))
+        
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -70,4 +72,13 @@ class ActionViewController: UIViewController {
         script.scrollRangeToVisible(selectedRange)
     }
 
+    @objc func showCodeTemplates() {
+        let ac = UIAlertController(title: "Code templates", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "alert(document.title);", style: .default) { _ in
+            self.script.text = "alert(document.title);"
+        })
+        ac.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        present(ac, animated: true)
+    }
+    
 }
