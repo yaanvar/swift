@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import UserNotifications
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
@@ -22,6 +23,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerLocal()
+        scheduleLocal()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showScore))
         
@@ -42,6 +46,51 @@ class ViewController: UIViewController {
         askQuestion()
         
         self.highestScore = defaults.integer(forKey: "highestScore")
+    }
+    
+    func registerLocal() {
+        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            if granted {
+                print("Yay!")
+            } else {
+                print("Nope!")
+            }
+        }
+    }
+    
+    func registerCategories() {
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        
+        let show = UNNotificationAction(identifier: "show", title: "Play again", options: .foreground)
+        let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [], options: [])
+        
+        center.setNotificationCategories([category])
+    }
+    
+    func scheduleLocal() {
+        registerCategories()
+        
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Play my game again!"
+        content.body = "Long time no see. I know you are a busy person, but you can play at least one minute a day and you won't even die. So cut your excuses and play my game, for heaven's sake. OK?"
+        content.categoryIdentifier = "alarm"
+        content.userInfo = ["customData": "Fizzbuzz"]
+        content.sound = .default
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 18
+        dateComponents.minute = 00
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
     }
     
     func askQuestion(action: UIAlertAction! = nil) {

@@ -10,6 +10,8 @@ import UserNotifications
 
 class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
+    var isOneDay = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,14 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @objc func scheduleLocal() {
+        var timeInterval = TimeInterval(0)
+        if isOneDay {
+            timeInterval = TimeInterval(86400)
+        } else {
+            timeInterval = TimeInterval(5)
+        }
+        
+        
         registerCategories()
         
         let center = UNUserNotificationCenter.current()
@@ -47,7 +57,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         dateComponents.hour = 10
         dateComponents.minute = 30
         //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         center.add(request)
@@ -59,7 +69,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         center.delegate = self
         
         let show = UNNotificationAction(identifier: "show", title: "Tell me more", options: .foreground)
-        let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [], options: [])
+        let remindMeLater = UNNotificationAction(identifier: "later", title: "Remind me tomorrow", options: .destructive)
+        let category = UNNotificationCategory(identifier: "alarm", actions: [show, remindMeLater], intentIdentifiers: [], options: [])
         
         center.setNotificationCategories([category])
     }
@@ -73,13 +84,26 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             case UNNotificationDefaultActionIdentifier:
                 print("Default identifier")
             case "show":
+                isOneDay = false
+                showAlert(title: "More information", message: "Is that what you wanted?")
                 print("Show more information")
+            case "later":
+                isOneDay = true
+                scheduleLocal()
+                print("remind me later")
             default:
                 break
             }
         }
-        
+         
         completionHandler()
+    }
+    
+    func showAlert(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        ac.addAction(ok)
+        present(ac, animated: true)
     }
     
 }
