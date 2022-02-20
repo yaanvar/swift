@@ -68,6 +68,7 @@ class ViewController: UITableViewController {
     
             defaults.removeObject(forKey: "viewCounters")
             defaults.set(viewCounters, forKey: "viewCounters")
+            
             navigationController?.pushViewController(vc, animated: true)
         }
         
