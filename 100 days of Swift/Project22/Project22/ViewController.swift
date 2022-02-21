@@ -12,6 +12,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet var distanceReading: UILabel!
     var locationManager: CLLocationManager?
+    var firstBeaconFound = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager?.requestAlwaysAuthorization()
         
         view.backgroundColor = .gray
+        
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: view.center.x, y: view.center.y), radius: CGFloat(128), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -47,15 +50,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             case .immediate:
                 self.view.backgroundColor = .red
                 self.distanceReading.text = "RIGHT HERE"
+                if !self.firstBeaconFound {
+                    let ac = UIAlertController(title: "First beacon was found!", message: nil, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(ac, animated: true)
+                }
+                self.view.layer.cornerRadius = 1
             case .near:
                 self.view.backgroundColor = .orange
                 self.distanceReading.text = "NEAR"
+                self.view.layer.cornerRadius = 0.5
             case .far:
                 self.view.backgroundColor = .blue
                 self.distanceReading.text = "FAR"
+                self.view.layer.cornerRadius = 0.25
             default:
                 self.view.backgroundColor = .gray
                 self.distanceReading.text = "UNKNOWN"
+                self.view.layer.cornerRadius = 0.001
             }
         }
     }
