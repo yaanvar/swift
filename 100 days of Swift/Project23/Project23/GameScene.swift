@@ -26,6 +26,8 @@ class GameScene: SKScene {
         }
     }
     
+    var gameOverLabel: SKLabelNode!
+    
     var isSwooshSoundActive = false
     
     var activeEnemies = [SKSpriteNode]()
@@ -446,6 +448,14 @@ class GameScene: SKScene {
             livesImage[1].texture = SKTexture(imageNamed: "sliceLifeGone")
             livesImage[2].texture = SKTexture(imageNamed: "sliceLifeGone")
         }
+        
+        gameOverLabel = SKLabelNode(fontNamed: "Chalkduster")
+        gameOverLabel.fontSize = 88
+        gameOverLabel.position = CGPoint(x: 512, y: 368)
+        gameOverLabel.zPosition = 100
+        gameOverLabel.text = "Game Over!"
+        addChild(gameOverLabel)
+        
     }
     
 }
