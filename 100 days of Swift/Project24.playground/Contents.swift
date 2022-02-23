@@ -87,3 +87,43 @@ attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range
 attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 24), range: NSRange(location: 8, length: 1))
 attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 32), range: NSRange(location: 10, length: 4))
 attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 40), range: NSRange(location: 10, length: 0))
+
+//Challenge
+
+extension String {
+    func withPrefix(_ prefix: String) -> String {
+        guard self.hasPrefix(prefix) else {
+            return prefix + self
+        }
+        return self
+    }
+}
+
+print("pet".withPrefix("car"))
+
+extension String {
+    func isNumeric() -> Bool {
+        for letter in self {
+            if Double(String(letter)) != nil {
+                return true
+            }
+        }
+        return false
+    }
+}
+
+if "one two three 4 five".isNumeric() {
+    print("yay!")
+}
+
+if "one two three four five".isNumeric() {
+    print("nope!")
+}
+
+extension String {
+    var lines: [String] {
+        return self.components(separatedBy: .newlines)
+    }
+}
+
+print("this\nis\na\ntest”".lines)
