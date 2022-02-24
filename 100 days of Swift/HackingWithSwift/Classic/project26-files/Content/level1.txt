@@ -4,8 +4,8 @@ x xxxxxx vx vv x
 x         x vv x
 x xxx xxxxx    x
 xsxvxs      xv x
-xvxsxxxxxxxxxv x
-xxx xxxxxxvs   x
+xtxsxxxxxxxxxv x
+xxx xxxxxxts   x
 x          svxxx
 x vvvvvvvvvvvvfx
 x              x
