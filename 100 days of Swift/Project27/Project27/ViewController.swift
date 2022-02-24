@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func redrawTapped(_ sender: Any) {
-        if currentDrawType > 5 {
+        if currentDrawType > 7 {
             currentDrawType = 0
         }
 
@@ -38,6 +38,10 @@ class ViewController: UIViewController {
             drawLines()
         case 5:
             drawImagesAndText()
+        case 6:
+            drawEmoji()
+        case 7:
+            drawTwin()
         default:
             break
         }
@@ -170,6 +174,76 @@ class ViewController: UIViewController {
         
         imageView.image = image
     }
+    
+    func drawEmoji() {
+        let render = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
+        
+        let image = render.image { context in
+            context.cgContext.translateBy(x: 256, y: 256)
+            
+            let face = CGRect(x: -100, y: -100, width: 200, height: 200).insetBy(dx: 5, dy: 5)
+            context.cgContext.setFillColor(UIColor.yellow.cgColor)
+            context.cgContext.setStrokeColor(UIColor.orange.cgColor)
+            context.cgContext.setLineWidth(7)
+            context.cgContext.addEllipse(in: face)
+            context.cgContext.drawPath(using: .fillStroke)
+            
+            let mouth = CGRect(x: -20, y: 25, width: 40, height: 40)
+            context.cgContext.setFillColor(UIColor.brown.cgColor)
+            context.cgContext.addEllipse(in: mouth)
+            context.cgContext.drawPath(using: .fill)
+            
+            let leftEye = CGRect(x: -45, y: -35, width: 25, height: 30)
+            context.cgContext.setFillColor(UIColor.brown.cgColor)
+            context.cgContext.addEllipse(in: leftEye)
+            context.cgContext.drawPath(using: .fill)
+            
+            let rightEye = CGRect(x: 20, y: -35, width: 25, height: 30)
+            context.cgContext.setFillColor(UIColor.brown.cgColor)
+            context.cgContext.addEllipse(in: rightEye)
+            context.cgContext.drawPath(using: .fill)
+        }
+        
+        imageView.image = image
+    }
+    
+    func drawTwin() {
+            let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
+            
+            let img = renderer.image { context in
+                context.cgContext.translateBy(x: 0, y: 256)
+            
+                context.cgContext.setStrokeColor(UIColor.black.cgColor)
+                context.cgContext.setLineWidth(1)
+                
+                context.cgContext.move(to: CGPoint(x: 30, y: 40))
+                context.cgContext.addLine(to: CGPoint(x: 106, y: 40))
+                context.cgContext.move(to: CGPoint(x: 70, y: 40))
+                context.cgContext.addLine(to: CGPoint(x: 70, y: 158))
+                
+                context.cgContext.move(to: CGPoint(x: 121, y: 40))
+                context.cgContext.addLine(to: CGPoint(x: 146, y: 158))
+                context.cgContext.move(to: CGPoint(x: 146, y: 158))
+                context.cgContext.addLine(to: CGPoint(x: 174, y: 40))
+                context.cgContext.move(to: CGPoint(x: 174, y: 40))
+                context.cgContext.addLine(to: CGPoint(x: 199, y: 158))
+                context.cgContext.move(to: CGPoint(x: 199, y: 158))
+                context.cgContext.addLine(to: CGPoint(x: 227, y: 40))
+                
+                context.cgContext.move(to: CGPoint(x: 251, y: 40))
+                context.cgContext.addLine(to: CGPoint(x: 251, y: 158))
+                
+                context.cgContext.move(to: CGPoint(x: 286, y: 40))
+                context.cgContext.addLine(to: CGPoint(x: 286, y: 158))
+                context.cgContext.move(to: CGPoint(x: 286, y: 40))
+                context.cgContext.addLine(to: CGPoint(x: 347, y: 158))
+                context.cgContext.move(to: CGPoint(x: 347, y: 40))
+                context.cgContext.addLine(to: CGPoint(x: 347, y: 158))
+                
+                context.cgContext.drawPath(using: .fillStroke)
+            }
+            imageView.image = img
+        }
     
 }
 
