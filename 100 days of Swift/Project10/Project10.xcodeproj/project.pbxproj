@@ -15,6 +15,8 @@
 		E4507E4D27B1B48F00C65186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4507E4B27B1B48F00C65186 /* LaunchScreen.storyboard */; };
 		E4507E5527B1B7A600C65186 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507E5427B1B7A600C65186 /* PersonCell.swift */; };
 		E49F722D27B1C1BE00517A31 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49F722C27B1C1BE00517A31 /* Person.swift */; };
+		E4F1FBAE27C9742200627E86 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1FBAC27C9742200627E86 /* KeychainWrapper.swift */; };
+		E4F1FBAF27C9742200627E86 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1FBAD27C9742200627E86 /* KeychainItemAccessibility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		E4507E4E27B1B48F00C65186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4507E5427B1B7A600C65186 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		E49F722C27B1C1BE00517A31 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		E4F1FBAC27C9742200627E86 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainWrapper.swift; path = "../../HackingWithSwift/Classic/project28-files/KeychainWrapper.swift"; sourceTree = "<group>"; };
+		E4F1FBAD27C9742200627E86 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainItemAccessibility.swift; path = "../../HackingWithSwift/Classic/project28-files/KeychainItemAccessibility.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				E4507E4927B1B48F00C65186 /* Assets.xcassets */,
 				E4507E4B27B1B48F00C65186 /* LaunchScreen.storyboard */,
 				E4507E4E27B1B48F00C65186 /* Info.plist */,
+				E4F1FBAD27C9742200627E86 /* KeychainItemAccessibility.swift */,
+				E4F1FBAC27C9742200627E86 /* KeychainWrapper.swift */,
 			);
 			path = Project10;
 			sourceTree = "<group>";
@@ -147,7 +153,9 @@
 				E49F722D27B1C1BE00517A31 /* Person.swift in Sources */,
 				E4507E4527B1B48E00C65186 /* ViewController.swift in Sources */,
 				E4507E4127B1B48E00C65186 /* AppDelegate.swift in Sources */,
+				E4F1FBAE27C9742200627E86 /* KeychainWrapper.swift in Sources */,
 				E4507E5527B1B7A600C65186 /* PersonCell.swift in Sources */,
+				E4F1FBAF27C9742200627E86 /* KeychainItemAccessibility.swift in Sources */,
 				E4507E4327B1B48E00C65186 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
