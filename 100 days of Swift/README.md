@@ -38,7 +38,7 @@ https://www.hackingwithswift.com/100/
 ## Project26 - HyroBall game (game with hyroscope)
 ## Project27 - Core Graphics project
 ## PojectChallenge9 - MemeGenerator app
-## Project28
-## Project29
-## Project30
-## PojectChallenge10
+## Project28 - Secret Info app
+## Project29 - 
+## Project30 -
+## PojectChallenge10 - 
