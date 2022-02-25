@@ -47,9 +47,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.imageView.alpha = 1
         }
         
-
-        
-        
         let beginImage = CIImage(image: currentImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         applyProcessing()
