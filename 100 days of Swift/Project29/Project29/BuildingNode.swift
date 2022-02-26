@@ -72,7 +72,26 @@ class BuildingNode: SKSpriteNode {
         return image
     }
     
+    //MARK: - Hit
     
+    func hit(at point: CGPoint) {
+        let convertedPoint = CGPoint(x: point.x + size.width / 2.0, y: abs(point.y - (size.height / 2.0)))
+
+        let renderer = UIGraphicsImageRenderer(size: size)
+        
+        let image = renderer.image { context in
+            currentImage.draw(at: .zero)
+
+            context.cgContext.addEllipse(in: CGRect(x: convertedPoint.x - 32, y: convertedPoint.y - 32, width: 64, height: 64))
+            context.cgContext.setBlendMode(.clear)
+            context.cgContext.drawPath(using: .fill)
+        }
+
+           texture = SKTexture(image: image)
+           currentImage = image
+
+           configurePhysics()
+    }
     
 }
 
