@@ -9,7 +9,7 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-	var owner: SelectionViewController!
+	weak var owner: SelectionViewController!
 	var image: String!
 	var animTimer: Timer!
 
@@ -35,12 +35,12 @@ class ImageViewController: UIViewController {
 		imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 
 		// schedule an animation that does something vaguely interesting
-		animTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+		animTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] timer in
 			// do something exciting with our image
-			self.imageView.transform = CGAffineTransform.identity
+			self?.imageView.transform = CGAffineTransform.identity
 
 			UIView.animate(withDuration: 3) {
-				self.imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+				self?.imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
 			}
 		}
 	}
@@ -49,7 +49,8 @@ class ImageViewController: UIViewController {
         super.viewDidLoad()
 
 		title = image.replacingOccurrences(of: "-Large.jpg", with: "")
-		let original = UIImage(named: image)!
+        guard let path = Bundle.main.path(forResource: image, ofType: nil) else { return }
+        guard let original = UIImage(contentsOfFile: path) else { return }
 
 		let renderer = UIGraphicsImageRenderer(size: original.size)
 
@@ -61,6 +62,11 @@ class ImageViewController: UIViewController {
 		}
 
 		imageView.image = rounded
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        animTimer.invalidate()
     }
 
 	override func viewDidAppear(_ animated: Bool) {
