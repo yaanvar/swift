@@ -35,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         createBuildings()
         createPlayers()
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -58,10 +59,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         if firstNode.name == "banana" && secondNode.name == "player1" {
             destroy(player: player1)
+            
+            viewController?.score2 += 1
         }
 
         if firstNode.name == "banana" && secondNode.name == "player2" {
             destroy(player: player2)
+            
+            viewController?.score1 += 1
         }
     }
     
@@ -98,7 +103,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.view?.presentScene(newGame, transition: transition)
         }
     }
-    
     //MARK: - Change Player
     
     func changePlayer() {
