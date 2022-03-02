@@ -171,7 +171,7 @@ Remake a classic DOS game and learn about destructible terrain and scene transit
 Profiling, shadows, image caching
 Become a bug detective and track down lost memory, slow drawing and more.
 
-## PojectChallenge10 - 
+## PojectChallenge10 - Pairs
 
 ## Project31 - Multibrowser
 
