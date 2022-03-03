@@ -14,8 +14,7 @@ class ViewController: UITableViewController {
     
     //MARK: - Data
     
-    var projects = [[String]]()
-    var favourites = [Int]()
+    var projects = [Project]()
     
     //MARK: - Life Cycle
 
@@ -24,20 +23,28 @@ class ViewController: UITableViewController {
         
         // Loading data
         
-        projects.append(["Project 1: Storm Viewer", "Constants and variables, UITableView, UIImageView, FileManager, storyboards"])
-        projects.append(["Project 2: Guess the Flag", "@2x and @3x images, asset catalogs, integers, doubles, floats, operators (+= and -=), UIButton, enums, CALayer, UIColor, random numbers, actions, string interpolation, UIAlertController"])
-        projects.append(["Project 3: Social Media", "UIBarButtonItem, UIActivityViewController, the Social framework, URL"])
-        projects.append(["Project 4: Easy Browser", "loadView(), WKWebView, delegation, classes and structs, URLRequest, UIToolbar, UIProgressView., key-value observing"])
-        projects.append(["Project 5: Word Scramble", "Closures, method return values, booleans, NSRange"])
-        projects.append(["Project 6: Auto Layout", "Get to grips with Auto Layout using practical examples and code"])
-        projects.append(["Project 7: Whitehouse Petitions", "JSON, Data, UITabBarController"])
-        projects.append(["Project 8: 7 Swifty Words", "addTarget(), enumerated(), count, index(of:), property observers, range operators."])
+        
+        projects.append(Project(name: "Project 1: Storm Viewer", description: "Constants and variables, UITableView, UIImageView, FileManager, storyboards", isFavourite: false))
+        projects.append(Project(name: "Project 2: Guess the Flag", description: "@2x and @3x images, asset catalogs, integers, doubles, floats, operators (+= and -=), UIButton, enums, CALayer, UIColor, random numbers, actions, string interpolation, UIAlertController", isFavourite: false))
+        projects.append(Project(name: "Project 3: Social Media", description: "UIBarButtonItem, UIActivityViewController, the Social framework, URL", isFavourite: false))
+        projects.append(Project(name: "Project 4: Easy Browser", description: "loadView(), WKWebView, delegation, classes and structs, URLRequest, UIToolbar, UIProgressView., key-value observing", isFavourite: false))
+        projects.append(Project(name: "Project 5: Word Scramble", description: "Closures, method return values, booleans, NSRange", isFavourite: false))
+        projects.append(Project(name: "Project 6: Auto Layout", description: "Get to grips with Auto Layout using practical examples and code", isFavourite: false))
+        projects.append(Project(name: "Project 7: Whitehouse Petitions", description: "JSON, Data, UITabBarController", isFavourite: false))
+        projects.append(Project(name: "Project 8: 7 Swifty Words", description: "addTarget(), enumerated(), count, index(of:), property observers, range operators.", isFavourite: false))
         
         //MARK: - UserDefaults
         
         let defaults = UserDefaults.standard
-        if let savedFavourites = defaults.object(forKey: "favorites") as? [Int] {
-            favourites = savedFavourites
+
+        if let savedProjects = defaults.object(forKey: "projects") as? Data {
+            let jsonDecoder = JSONDecoder()
+
+            do {
+                projects = try jsonDecoder.decode([Project].self, from: savedProjects)
+            } catch {
+                print("Failed to load people")
+            }
         }
         
         // TableView
@@ -57,9 +64,9 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let project = projects[indexPath.row]
-        cell.textLabel?.attributedText = makeAttributedString(title: project[0], subtitle: project[1])
+        cell.textLabel?.attributedText = makeAttributedString(title: project.name, subtitle: project.description)
 
-        if favourites.contains(indexPath.row) {
+        if project.isFavourite {
             cell.editingAccessoryType = .checkmark
         } else {
             cell.editingAccessoryType = .none
@@ -85,7 +92,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if favourites.contains(indexPath.row) {
+        if projects[indexPath.row].isFavourite {
             return .delete
         } else {
             return .insert
@@ -94,25 +101,54 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .insert {
-            favourites.append(indexPath.row)
+            projects[indexPath.row].isFavourite = true
             index(item: indexPath.row)
         } else {
-            if let index = favourites.firstIndex(of: indexPath.row) {
-                favourites.remove(at: index)
-                deindex(item: indexPath.row)
-            }
+            projects[indexPath.row].isFavourite = false
+            deindex(item: indexPath.row)
         }
 
-        let defaults = UserDefaults.standard
-        defaults.set(favourites, forKey: "favorites")
-
+        save()
+        
         tableView.reloadRows(at: [indexPath], with: .none)
     }
     
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(projects) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "projects")
+        } else {
+            print("Failed to save people.")
+        }
+    }
+    
     func index(item: Int) {
+        let project = projects[item]
+        
+        let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        attributeSet.title = project.name
+        attributeSet.contentDescription = project.description
+        
+        let item = CSSearchableItem(uniqueIdentifier: "\(item)", domainIdentifier: "com.hackingwithswift", attributeSet: attributeSet)
+        item.expirationDate = Date.distantFuture
+        CSSearchableIndex.default().indexSearchableItems([item]) { error in
+            if let error = error {
+                print("Indexing error: \(error.localizedDescription)")
+            } else {
+                print("Search item successfully indexed!")
+            }
+        }
     }
 
     func deindex(item: Int) {
+        CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: ["\(item)"]) { error in
+               if let error = error {
+                   print("Deindexing error: \(error.localizedDescription)")
+               } else {
+                   print("Search item successfully removed!")
+               }
+           }
     }
     
     //MARK: - SFSafariViewController

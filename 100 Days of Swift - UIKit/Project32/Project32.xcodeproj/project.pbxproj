@@ -13,6 +13,7 @@
 		E44AC1E227CFEA3000650DC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44AC1E027CFEA3000650DC5 /* Main.storyboard */; };
 		E44AC1E427CFEA3100650DC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44AC1E327CFEA3100650DC5 /* Assets.xcassets */; };
 		E44AC1E727CFEA3100650DC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44AC1E527CFEA3100650DC5 /* LaunchScreen.storyboard */; };
+		E470A46027D0FA1200C3775E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = E470A45F27D0FA1200C3775E /* Project.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E44AC1E327CFEA3100650DC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E44AC1E627CFEA3100650DC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E44AC1E827CFEA3100650DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E470A45F27D0FA1200C3775E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				E44AC1DA27CFEA3000650DC5 /* AppDelegate.swift */,
 				E44AC1DC27CFEA3000650DC5 /* SceneDelegate.swift */,
 				E44AC1DE27CFEA3000650DC5 /* ViewController.swift */,
+				E470A45F27D0FA1200C3775E /* Project.swift */,
 				E44AC1E027CFEA3000650DC5 /* Main.storyboard */,
 				E44AC1E327CFEA3100650DC5 /* Assets.xcassets */,
 				E44AC1E527CFEA3100650DC5 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				E44AC1DF27CFEA3000650DC5 /* ViewController.swift in Sources */,
 				E44AC1DB27CFEA3000650DC5 /* AppDelegate.swift in Sources */,
 				E44AC1DD27CFEA3000650DC5 /* SceneDelegate.swift in Sources */,
+				E470A46027D0FA1200C3775E /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
