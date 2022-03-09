@@ -22,6 +22,8 @@
 		E43D336627D576120037FF3F /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D336527D576120037FF3F /* ComplicationController.swift */; };
 		E43D336827D576130037FF3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43D336727D576130037FF3F /* Assets.xcassets */; };
 		E43D337827D577130037FF3F /* PhantomFromSpace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E43D337727D577130037FF3F /* PhantomFromSpace.mp3 */; };
+		E48D48F227D92419007348CE /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D48F127D92419007348CE /* CardViewController.swift */; };
+		E48D48F427D9272B007348CE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D48F327D9272B007348CE /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		E43D336727D576130037FF3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E43D336927D576130037FF3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E43D337727D577130037FF3F /* PhantomFromSpace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = PhantomFromSpace.mp3; path = "../UIKit Files/project37-files/Content/PhantomFromSpace.mp3"; sourceTree = "<group>"; };
+		E48D48F127D92419007348CE /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		E48D48F327D9272B007348CE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 				E43D333D27D576100037FF3F /* AppDelegate.swift */,
 				E43D333F27D576100037FF3F /* SceneDelegate.swift */,
 				E43D334127D576100037FF3F /* ViewController.swift */,
+				E48D48F327D9272B007348CE /* GradientView.swift */,
+				E48D48F127D92419007348CE /* CardViewController.swift */,
 				E43D334327D576100037FF3F /* Main.storyboard */,
 				E43D334627D576110037FF3F /* Assets.xcassets */,
 				E43D334827D576110037FF3F /* LaunchScreen.storyboard */,
@@ -294,7 +300,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48D48F227D92419007348CE /* CardViewController.swift in Sources */,
 				E43D334227D576100037FF3F /* ViewController.swift in Sources */,
+				E48D48F427D9272B007348CE /* GradientView.swift in Sources */,
 				E43D333E27D576100037FF3F /* AppDelegate.swift in Sources */,
 				E43D334027D576100037FF3F /* SceneDelegate.swift in Sources */,
 			);

@@ -9,7 +9,19 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project37_WatchKit_App" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project37_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="Please read the instructions on your phone before continuing." numberOfLines="0" id="BuV-Or-N8A"/>
+                        <button width="1" alignment="left" title="I'm ready!" id="y7p-bk-b0b">
+                            <connections>
+                                <action selector="hideWelcomeText" destination="AgC-eL-Hgc" id="tAH-YH-uaK"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="welcomeText" destination="BuV-Or-N8A" id="tHT-tR-Yrn"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="-16" y="-6"/>
         </scene>
