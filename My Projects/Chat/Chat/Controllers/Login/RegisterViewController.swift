@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
@@ -208,11 +208,21 @@ class RegisterViewController: UIViewController {
               !firstName.isEmpty,
               !lastName.isEmpty,
               password.count >= 6 else {
-            alertUserLoginError()
+            alertUserRegisterError()
             return
         }
         
-        // firebase login
+        // firebase registering
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            guard let result = authResult, error == nil else {
+                print("Error occured while creating account")
+                return
+            }
+            
+            let user = result.user
+            print("User created: \(user)")
+        }
     }
     
     @objc func changeProfileImageTapped() {
@@ -221,7 +231,7 @@ class RegisterViewController: UIViewController {
     
     //MARK: - Functions
     
-    func alertUserLoginError() {
+    func alertUserRegisterError() {
         let alertController = UIAlertController(title: "Something went wrong", message: "Please enter all information to register.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         present(alertController, animated: true)

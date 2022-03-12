@@ -1,13 +1,14 @@
 //
-//  LoginViewController.swift
+//  SignInViewController.swift
 //  Chat
 //
 //  Created by Anvar Rahimov on 12.03.2022.
 //
 
 import UIKit
+import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class SignInViewController: UIViewController {
     
     //MARK: - UI
     
@@ -48,9 +49,9 @@ class LoginViewController: UIViewController {
         return field
     }()
     
-    private let loginButton: UIButton = {
+    private let signIn: UIButton = {
         let button = UIButton()
-        button.setTitle("Log In", for: .normal)
+        button.setTitle("Sign In", for: .normal)
         button.backgroundColor = .link
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
@@ -67,14 +68,14 @@ class LoginViewController: UIViewController {
 
         // view
         
-        title = "Log In"
+        title = "Sign In"
         view.backgroundColor = .systemBackground
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector((registerButtonTapped)))
         
         // delegates and targets
         
-        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        signIn.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
         emailField.delegate = self
         passwordField.delegate = self
         
@@ -83,7 +84,7 @@ class LoginViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
-        scrollView.addSubview(loginButton)
+        scrollView.addSubview(signIn)
         
         
     }
@@ -111,10 +112,10 @@ class LoginViewController: UIViewController {
             passwordField.heightAnchor.constraint(equalToConstant: 52),
             
             // registerButton
-            loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 10),
-            loginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            loginButton.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -60),
-            loginButton.heightAnchor.constraint(equalToConstant: 52)
+            signIn.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 10),
+            signIn.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            signIn.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -60),
+            signIn.heightAnchor.constraint(equalToConstant: 52)
             
         ]
         
@@ -123,16 +124,27 @@ class LoginViewController: UIViewController {
     
     //MARK: - Button Actions
     
-    @objc func loginButtonTapped() {
+    @objc func signInButtonTapped() {
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         
         guard let email = emailField.text, let password = passwordField.text, !email.isEmpty, !password.isEmpty, password.count >= 6 else {
-            alertUserLoginError()
+            alertUserSignInError()
             return
         }
         
-        // firebase login
+        // firebase sign in
+        
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            guard let result = authResult, error == nil else {
+                print("Error occured while signing in")
+                return
+            }
+            
+            let user = result.user
+            print("User signed in: \(user)")
+        }
+        
     }
     
     @objc func registerButtonTapped() {
@@ -142,8 +154,8 @@ class LoginViewController: UIViewController {
     
     //MARK: - Functions
     
-    func alertUserLoginError() {
-        let alertController = UIAlertController(title: "Something went wrong", message: "Please enter all information to log in.", preferredStyle: .alert)
+    func alertUserSignInError() {
+        let alertController = UIAlertController(title: "Something went wrong", message: "Please enter all information to sign in.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         present(alertController, animated: true)
     }
@@ -152,12 +164,12 @@ class LoginViewController: UIViewController {
 
 //MARK: - UITextFieldDelegate
 
-extension LoginViewController: UITextFieldDelegate {
+extension SignInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailField {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField {
-            loginButtonTapped()
+            signInButtonTapped()
         }
         
         return true

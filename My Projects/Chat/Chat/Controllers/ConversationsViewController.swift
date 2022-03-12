@@ -21,7 +21,7 @@ class ConversationsViewController: UIViewController {
         let isLoggedIn = UserDefaults.standard.bool(forKey: "loggedIn")
         
         if !isLoggedIn {
-            let viewController = LoginViewController()
+            let viewController = SignInViewController()
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.modalPresentationStyle = .fullScreen
             navigationController.navigationBar.prefersLargeTitles = true
