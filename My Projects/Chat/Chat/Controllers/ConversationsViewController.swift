@@ -11,7 +11,22 @@ class ConversationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .red
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let isLoggedIn = UserDefaults.standard.bool(forKey: "loggedIn")
+        
+        if !isLoggedIn {
+            let viewController = LoginViewController()
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            navigationController.navigationBar.prefersLargeTitles = true
+            present(navigationController, animated: false)
+        }
     }
 
 
