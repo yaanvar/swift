@@ -7,10 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class SignInViewController: UIViewController {
     
     //MARK: - UI
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -133,9 +136,15 @@ class SignInViewController: UIViewController {
             return
         }
         
+        spinner.show(in: view)
+        
         // firebase sign in
         
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            DispatchQueue.main.async { [weak self] in
+                self?.spinner.dismiss()
+            }
+            
             guard let result = authResult, error == nil else {
                 print("Error occured while signing in")
                 return
@@ -143,8 +152,9 @@ class SignInViewController: UIViewController {
             
             let user = result.user
             print("User signed in: \(user)")
+            
+            self?.navigationController?.dismiss(animated: true)
         }
-        
     }
     
     @objc func registerButtonTapped() {

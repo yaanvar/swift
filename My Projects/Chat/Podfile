@@ -7,8 +7,16 @@ target 'Chat' do
 
   # Pods for Chat
 
+# Firebase
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+
+# MessageKit
+
+pod 'MessageKit'
+pod 'JGProgressHUD'
+pod 'RealmSwift'
+pod 'SDWebImage'
 
 end

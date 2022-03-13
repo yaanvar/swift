@@ -7,10 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
     
     //MARK: - UI
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -212,16 +215,32 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        spinner.show(in: view)
+        
         // firebase registering
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            guard let result = authResult, error == nil else {
-                print("Error occured while creating account")
+        DatabaseManager.shared.userExists(with: email) { [weak self] exists in
+            guard !exists else {
+                self?.alertUserRegisterError(message: "User with this email already exists. Try new email or log in.")
                 return
             }
             
-            let user = result.user
-            print("User created: \(user)")
+            DispatchQueue.main.async { [weak self] in
+                self?.spinner.dismiss()
+            }
+            
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+                guard authResult != nil, error == nil else {
+                    print("Error occured while creating account")
+                    return
+                }
+                
+                DatabaseManager.shared.insertUser(with: ChatUser(firstName: firstName,
+                                                                 lastName: lastName,
+                                                                 email: email))
+                
+                self?.navigationController?.dismiss(animated: true)
+            }
         }
     }
     
@@ -231,8 +250,8 @@ class RegisterViewController: UIViewController {
     
     //MARK: - Functions
     
-    func alertUserRegisterError() {
-        let alertController = UIAlertController(title: "Something went wrong", message: "Please enter all information to register.", preferredStyle: .alert)
+    func alertUserRegisterError(message: String = "Please enter all information to register.") {
+        let alertController = UIAlertController(title: "Something went wrong", message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         present(alertController, animated: true)
     }

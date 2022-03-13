@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C8318C7636C7573E7BB791FD /* Pods_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6017220B3974CEFE63BAD1F5 /* Pods_Chat.framework */; };
+		E498180627DE287900161923 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498180527DE287900161923 /* ChatViewController.swift */; };
 		E4F1DF4F27DCF8A400574BF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1DF4E27DCF8A400574BF0 /* AppDelegate.swift */; };
 		E4F1DF5127DCF8A400574BF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1DF5027DCF8A400574BF0 /* SceneDelegate.swift */; };
 		E4F1DF5327DCF8A400574BF0 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1DF5227DCF8A400574BF0 /* ConversationsViewController.swift */; };
@@ -20,13 +21,16 @@
 		E4F1DF6F27DCFB9500574BF0 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1DF6E27DCFB9500574BF0 /* VideoPlayerViewController.swift */; };
 		E4F1DF7227DCFBB400574BF0 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1DF7127DCFBB400574BF0 /* NewConversationViewController.swift */; };
 		E4F1DF7427DCFBBF00574BF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1DF7327DCFBBF00574BF0 /* ProfileViewController.swift */; };
-		E4F1DF9827DD27F800574BF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4F1DF9727DD27F800574BF0 /* GoogleService-Info.plist */; };
+		E4F1DF9A27DD376200574BF0 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1DF9927DD376200574BF0 /* DatabaseManager.swift */; };
+		E4F1DF9E27DD462900574BF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4F1DF9D27DD462900574BF0 /* GoogleService-Info.plist */; };
+		E4F1DFA027DE09AB00574BF0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1DF9F27DE09AB00574BF0 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5ABFFA3AD64472F2226CB409 /* Pods-Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.debug.xcconfig"; path = "Target Support Files/Pods-Chat/Pods-Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		6017220B3974CEFE63BAD1F5 /* Pods_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A690BE3C47E205ABF25D99FF /* Pods-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.release.xcconfig"; path = "Target Support Files/Pods-Chat/Pods-Chat.release.xcconfig"; sourceTree = "<group>"; };
+		E498180527DE287900161923 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E4F1DF4B27DCF8A400574BF0 /* Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F1DF4E27DCF8A400574BF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F1DF5027DCF8A400574BF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +45,9 @@
 		E4F1DF6E27DCFB9500574BF0 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		E4F1DF7127DCFBB400574BF0 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		E4F1DF7327DCFBBF00574BF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		E4F1DF9727DD27F800574BF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E4F1DF9927DD376200574BF0 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E4F1DF9D27DD462900574BF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E4F1DF9F27DE09AB00574BF0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +106,7 @@
 				E4F1DF6527DCFA0100574BF0 /* ViewModels */,
 				E4F1DF6227DCF9EF00574BF0 /* Controllers */,
 				E4F1DF5C27DCF8A500574BF0 /* Info.plist */,
-				E4F1DF9727DD27F800574BF0 /* GoogleService-Info.plist */,
+				E4F1DF9D27DD462900574BF0 /* GoogleService-Info.plist */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -109,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				E4F1DF5227DCF8A400574BF0 /* ConversationsViewController.swift */,
+				E498180527DE287900161923 /* ChatViewController.swift */,
 				E4F1DF7527DCFC6A00574BF0 /* Login */,
 				E4F1DF6C27DCFB8800574BF0 /* PhotoViewerViewController.swift */,
 				E4F1DF6E27DCFB9500574BF0 /* VideoPlayerViewController.swift */,
@@ -146,6 +153,8 @@
 			children = (
 				E4F1DF4E27DCF8A400574BF0 /* AppDelegate.swift */,
 				E4F1DF5027DCF8A400574BF0 /* SceneDelegate.swift */,
+				E4F1DF9927DD376200574BF0 /* DatabaseManager.swift */,
+				E4F1DF9F27DE09AB00574BF0 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -229,7 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F1DF5B27DCF8A500574BF0 /* LaunchScreen.storyboard in Resources */,
-				E4F1DF9827DD27F800574BF0 /* GoogleService-Info.plist in Resources */,
+				E4F1DF9E27DD462900574BF0 /* GoogleService-Info.plist in Resources */,
 				E4F1DF5827DCF8A500574BF0 /* Assets.xcassets in Resources */,
 				E4F1DF5627DCF8A400574BF0 /* Main.storyboard in Resources */,
 			);
@@ -286,12 +295,15 @@
 			files = (
 				E4F1DF6927DCFB5C00574BF0 /* SignInViewController.swift in Sources */,
 				E4F1DF6B27DCFB6A00574BF0 /* RegisterViewController.swift in Sources */,
+				E4F1DF9A27DD376200574BF0 /* DatabaseManager.swift in Sources */,
 				E4F1DF7227DCFBB400574BF0 /* NewConversationViewController.swift in Sources */,
 				E4F1DF5327DCF8A400574BF0 /* ConversationsViewController.swift in Sources */,
 				E4F1DF6F27DCFB9500574BF0 /* VideoPlayerViewController.swift in Sources */,
 				E4F1DF4F27DCF8A400574BF0 /* AppDelegate.swift in Sources */,
 				E4F1DF7427DCFBBF00574BF0 /* ProfileViewController.swift in Sources */,
 				E4F1DF5127DCF8A400574BF0 /* SceneDelegate.swift in Sources */,
+				E4F1DFA027DE09AB00574BF0 /* Extensions.swift in Sources */,
+				E498180627DE287900161923 /* ChatViewController.swift in Sources */,
 				E4F1DF6D27DCFB8800574BF0 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,12 +457,14 @@
 				DEVELOPMENT_TEAM = R2S4TKF2UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Chat/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a picture.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow access to photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -476,12 +490,14 @@
 				DEVELOPMENT_TEAM = R2S4TKF2UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Chat/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a picture.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow access to photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
