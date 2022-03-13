@@ -136,8 +136,6 @@ extension ConversationsViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.row]
-        cell.textLabel?.textAlignment = .center
-        cell.textLabel?.textColor = .red
         
         return cell
     }

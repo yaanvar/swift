@@ -158,7 +158,7 @@ class SignInViewController: UIViewController {
     }
     
     @objc func registerButtonTapped() {
-        let viewController = RegisterViewController()
+        let viewController = RegistrationViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     

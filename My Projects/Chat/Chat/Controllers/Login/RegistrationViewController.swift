@@ -1,5 +1,5 @@
 //
-//  RegisterViewController.swift
+//  RegistrationViewController.swift
 //  Chat
 //
 //  Created by Anvar Rahimov on 12.03.2022.
@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import JGProgressHUD
 
-class RegisterViewController: UIViewController {
+class RegistrationViewController: UIViewController {
     
     //MARK: - UI
     
@@ -220,9 +220,30 @@ class RegisterViewController: UIViewController {
         // firebase registering
         
         DatabaseManager.shared.userExists(with: email) { [weak self] exists in
-            guard !exists else {
+            if !exists {
                 self?.alertUserRegisterError(message: "User with this email already exists. Try new email or log in.")
-                return
+                let chatUser = ChatUser(firstName: firstName, lastName: lastName, email: email)
+                
+                DatabaseManager.shared.insertUser(with: chatUser) { success in
+                    if success {
+                        guard let image = self?.profileImageView.image,
+                              let data = image.pngData() else {
+                                  return
+                              }
+                        
+                        let fileName = chatUser.profilePhotoFileName
+                        StorageManager.shared.uploadProfilePhoto(with: data, fileName: fileName) { result in
+                            switch result {
+                            case .success(let downloadURL):
+                                UserDefaults.standard.set(downloadURL, forKey: "profilePhotoURL")
+                            case .failure(let error):
+                                print("StorageManager error: \(error)")
+                            }
+                        }
+                    } else {
+                        
+                    }
+                }
             }
             
             DispatchQueue.main.async { [weak self] in
@@ -234,10 +255,6 @@ class RegisterViewController: UIViewController {
                     print("Error occured while creating account")
                     return
                 }
-                
-                DatabaseManager.shared.insertUser(with: ChatUser(firstName: firstName,
-                                                                 lastName: lastName,
-                                                                 email: email))
                 
                 self?.navigationController?.dismiss(animated: true)
             }
@@ -260,7 +277,7 @@ class RegisterViewController: UIViewController {
 
 //MARK: - UITextFieldDelegate
 
-extension RegisterViewController: UITextFieldDelegate {
+extension RegistrationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == firstNameField {
             lastNameField.becomeFirstResponder()
@@ -278,7 +295,7 @@ extension RegisterViewController: UITextFieldDelegate {
 
 //MARK: - UIImagePickerController
 
-extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func presentPhotoActionSheet() {
         let actionSheet = UIAlertController(title: "Profile Picture", message: "Choose source for profile picture:", preferredStyle: .actionSheet)
