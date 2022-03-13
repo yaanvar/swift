@@ -11,8 +11,9 @@ target 'Chat' do
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+pod 'Firebase/Storage'
 
-# MessageKit
+# Pods
 
 pod 'MessageKit'
 pod 'JGProgressHUD'
