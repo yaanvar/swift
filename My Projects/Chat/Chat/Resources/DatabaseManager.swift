@@ -7,12 +7,19 @@
 
 import Foundation
 import FirebaseDatabase
+import UIKit
 
 final class DatabaseManager {
     
     static let shared = DatabaseManager()
     
     private let database = Database.database().reference()
+    
+    static func safeEmail(email: String) -> String {
+        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
+    }
     
 }
 
@@ -50,8 +57,60 @@ extension DatabaseManager {
                 return
             }
             
+            self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+                if var usersCollection = snapshot.value as? [[String: String]] {
+                    let newElement = [
+                        "name": user.firstName + " " + user.lastName,
+                        "safeEmail": user.safeEmail
+                    ]
+                    usersCollection.append(newElement)
+                    
+                    self.database.child("users").setValue(usersCollection) { error, _ in
+                        guard error == nil else {
+                            completion(false)
+                            return
+                        }
+                        
+                        completion(true)
+                    }
+                    
+                } else {
+                    let newCollection: [[String: String]] = [
+                        [
+                            "name": user.firstName + " " + user.lastName,
+                            "safeEmail": user.safeEmail
+                        ]
+                    ]
+                    
+                    self.database.child("users").setValue(newCollection) { error, _ in
+                        guard error == nil else {
+                            completion(false)
+                            return
+                        }
+                        
+                        completion(true)
+                    }
+                }
+            }
+            
             completion(true)
         }
+    }
+    
+    /// Fetches all users from firebase
+    public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
+        database.child("users").observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value as? [[String: String]] else {
+                completion(.failure(DataBaseError.failedToFetch))
+                return
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
+    public enum DataBaseError: Error {
+        case failedToFetch
     }
     
 }

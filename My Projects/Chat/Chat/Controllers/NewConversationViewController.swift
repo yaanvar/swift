@@ -7,12 +7,19 @@
 
 import UIKit
 import JGProgressHUD
+import CoreTelephony
 
 class NewConversationViewController: UIViewController {
     
+    //MARK: - Properties
+    
+    private var users = [[String: String]]()
+    private var hasFetched = false
+    private var results = [[String: String]]()
+ 
     //MARK: - UI
     
-    private let spinner = JGProgressHUD()
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -46,6 +53,7 @@ class NewConversationViewController: UIViewController {
         setupView()
         setupSearchBar()
         setupTableView()
+        setupNoResultsLabel()
     }
     
     //MARK: - Settings
@@ -79,6 +87,20 @@ class NewConversationViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
+    func setupNoResultsLabel() {
+        view.addSubview(noResultsLabel)
+        
+        let constraints = [
+            noResultsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            noResultsLabel.topAnchor.constraint(equalTo: view.topAnchor),
+            noResultsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            noResultsLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ]
+        
+        noResultsLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(constraints)
+    }
+    
     //MARK: - Functions
     
     @objc private func dismissSelf() {
@@ -92,9 +114,65 @@ class NewConversationViewController: UIViewController {
 extension NewConversationViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        guard let text = searchBar.text, !text.replacingOccurrences(of: " ", with: "").isEmpty else {
+            return
+        }
+
+        searchBar.resignFirstResponder()
+
+        results.removeAll()
+        spinner.show(in: view)
+
+        self.searchUsers(query: text)
+    }
+
+    func searchUsers(query: String) {
+        if hasFetched {
+            filterUsers(with: query)
+        } else {
+            DatabaseManager.shared.getAllUsers { [weak self] result in
+                switch result {
+                case .success(let usersCollection):
+                    self?.hasFetched = true
+                    self?.users = usersCollection
+                    self?.filterUsers(with: query)
+                case .failure(let error):
+                    print("Failed to get users: \(error)")
+                }
+            }
+        }
     }
     
+    func filterUsers(with term: String) {
+        guard hasFetched else {
+            return
+        }
+        
+        let results: [[String: String]] = self.users.filter {
+            guard let name = $0["name"]?.lowercased() else {
+                return false
+            }
+            
+            return name.hasPrefix(term.lowercased())
+        }
+        
+        self.results = results
+        
+        updateUI()
+    }
+    
+    func updateUI() {
+        self.spinner.dismiss()
+        
+        if results.isEmpty {
+            self.noResultsLabel.isHidden = false
+            self.tableView.isHidden = true
+        } else {
+            self.noResultsLabel.isHidden = true
+            self.tableView.isHidden = false
+            tableView.reloadData()
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -104,7 +182,7 @@ extension NewConversationViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let viewController = ChatViewController()
-        viewController.title = "Joe Smith"
+        viewController.title = results[indexPath.row]["name"]
         viewController.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -113,12 +191,8 @@ extension NewConversationViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 
 extension NewConversationViewController: UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return results.count
     }
     
     func tableView(
@@ -127,6 +201,7 @@ extension NewConversationViewController: UITableViewDataSource {
     ) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = results[indexPath.row]["name"]
         
         return cell
     }

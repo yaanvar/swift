@@ -151,6 +151,9 @@ class SignInViewController: UIViewController {
             }
             
             let user = result.user
+            
+            UserDefaults.standard.set(email, forKey: "email")
+            
             print("User signed in: \(user)")
             
             self?.navigationController?.dismiss(animated: true)

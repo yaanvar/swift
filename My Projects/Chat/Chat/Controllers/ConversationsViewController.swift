@@ -65,7 +65,7 @@ class ConversationsViewController: UIViewController {
     func setupView() {
         view.backgroundColor = .systemBackground
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(composeButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(composeButtonTapped))
     }
     
     func setupNoConversationsLabel() {

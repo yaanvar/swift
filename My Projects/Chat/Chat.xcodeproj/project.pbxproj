@@ -118,7 +118,7 @@
 			children = (
 				E4F1DF5227DCF8A400574BF0 /* ConversationsViewController.swift */,
 				E498180527DE287900161923 /* ChatViewController.swift */,
-				E4F1DF7527DCFC6A00574BF0 /* Login */,
+				E4F1DF7527DCFC6A00574BF0 /* SignIn */,
 				E4F1DF6C27DCFB8800574BF0 /* PhotoViewerViewController.swift */,
 				E4F1DF6E27DCFB9500574BF0 /* VideoPlayerViewController.swift */,
 				E4F1DF7127DCFBB400574BF0 /* NewConversationViewController.swift */,
@@ -171,13 +171,13 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		E4F1DF7527DCFC6A00574BF0 /* Login */ = {
+		E4F1DF7527DCFC6A00574BF0 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
 				E4F1DF6827DCFB5C00574BF0 /* SignInViewController.swift */,
 				E4F1DF6A27DCFB6A00574BF0 /* RegistrationViewController.swift */,
 			);
-			path = Login;
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

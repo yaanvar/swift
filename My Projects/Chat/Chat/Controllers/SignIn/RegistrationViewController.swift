@@ -196,70 +196,76 @@ class RegistrationViewController: UIViewController {
     
     //MARK: - Button Actions
     
-    @objc func registerButtonTapped() {
-        firstNameField.resignFirstResponder()
-        lastNameField.resignFirstResponder()
-        emailField.resignFirstResponder()
-        passwordField.resignFirstResponder()
-        
-        guard let email = emailField.text,
-              let password = passwordField.text,
-              let firstName = firstNameField.text,
-              let lastName = lastNameField.text,
-              !email.isEmpty,
-              !password.isEmpty,
-              !firstName.isEmpty,
-              !lastName.isEmpty,
-              password.count >= 6 else {
-            alertUserRegisterError()
-            return
-        }
-        
-        spinner.show(in: view)
-        
-        // firebase registering
-        
-        DatabaseManager.shared.userExists(with: email) { [weak self] exists in
-            if !exists {
-                self?.alertUserRegisterError(message: "User with this email already exists. Try new email or log in.")
-                let chatUser = ChatUser(firstName: firstName, lastName: lastName, email: email)
-                
-                DatabaseManager.shared.insertUser(with: chatUser) { success in
-                    if success {
-                        guard let image = self?.profileImageView.image,
-                              let data = image.pngData() else {
-                                  return
-                              }
-                        
-                        let fileName = chatUser.profilePhotoFileName
-                        StorageManager.shared.uploadProfilePhoto(with: data, fileName: fileName) { result in
-                            switch result {
-                            case .success(let downloadURL):
-                                UserDefaults.standard.set(downloadURL, forKey: "profilePhotoURL")
-                            case .failure(let error):
-                                print("StorageManager error: \(error)")
-                            }
-                        }
-                    } else {
-                        
-                    }
+    @objc private func registerButtonTapped() {
+            emailField.resignFirstResponder()
+            passwordField.resignFirstResponder()
+            firstNameField.resignFirstResponder()
+            lastNameField.resignFirstResponder()
+
+            guard let firstName = firstNameField.text,
+                let lastName = lastNameField.text,
+                let email = emailField.text,
+                let password = passwordField.text,
+                !email.isEmpty,
+                !password.isEmpty,
+                !firstName.isEmpty,
+                !lastName.isEmpty,
+                password.count >= 6 else {
+                    alertUserRegisterError()
+                    return
+            }
+
+            spinner.show(in: view)
+
+            // Firebase Sign In
+            DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
+                DispatchQueue.main.async {
+                    self?.spinner.dismiss()
                 }
-            }
-            
-            DispatchQueue.main.async { [weak self] in
-                self?.spinner.dismiss()
-            }
-            
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
-                guard authResult != nil, error == nil else {
-                    print("Error occured while creating account")
+
+                guard !exists else {
+                    // user already exists
+                    self?.alertUserRegisterError(message: "Looks like user with this email already exists. Please try again or sign in.")
                     return
                 }
-                
-                self?.navigationController?.dismiss(animated: true)
-            }
+
+                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+                    guard authResult != nil, error == nil else {
+                        print("Error creating user")
+                        return
+                    }
+
+                    UserDefaults.standard.setValue(email, forKey: "email")
+                    UserDefaults.standard.setValue("\(firstName) \(lastName)", forKey: "name")
+
+
+                    let chatUser = ChatUser(firstName: firstName,
+                                            lastName: lastName,
+                                            email: email)
+                    
+                    DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
+                        if success {
+                            guard let image = self?.profileImageView.image,
+                                let data = image.pngData() else {
+                                    return
+                            }
+                            let filename = chatUser.profilePhotoFileName
+                            StorageManager.shared.uploadProfilePhoto(with: data, fileName: filename, completion: { result in
+                                switch result {
+                                case .success(let downloadUrl):
+                                    UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                    print(downloadUrl)
+                                case .failure(let error):
+                                    print("Storage maanger error: \(error)")
+                                }
+                            })
+                        }
+                    })
+
+                    self?.navigationController?.dismiss(animated: true, completion: nil)
+                })
+            })
         }
-    }
     
     @objc func changeProfileImageTapped() {
         presentPhotoActionSheet()
