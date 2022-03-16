@@ -16,7 +16,9 @@ class NewConversationViewController: UIViewController {
     private var users = [[String: String]]()
     private var hasFetched = false
     private var results = [[String: String]]()
- 
+    
+    public var completion: (([String:String]) -> Void)?
+    
     //MARK: - UI
     
     private let spinner = JGProgressHUD(style: .dark)
@@ -181,10 +183,11 @@ extension NewConversationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let viewController = ChatViewController()
-        viewController.title = results[indexPath.row]["name"]
-        viewController.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(viewController, animated: true)
+        let targetUserData = results[indexPath.row]
+        
+        dismiss(animated: true) { [weak self] in
+            self?.completion?(targetUserData)
+        }
     }
 }
 

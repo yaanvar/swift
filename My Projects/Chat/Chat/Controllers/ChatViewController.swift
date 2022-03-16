@@ -7,6 +7,7 @@
 
 import UIKit
 import MessageKit
+import InputBarAccessoryView
 
 struct Message: MessageType {
     var sender: SenderType
@@ -25,10 +26,25 @@ class ChatViewController: MessagesViewController {
     
     //MARK: - Properties
     
+    public var isNewConversation = false
+    public var otherUserEmail: String
+    
     private var messages = [Message]()
     
     private let sender = Sender(photoURL: "", senderId: "1", displayName: "Joe Smith")
 
+    //MARK: - Initializer
+    
+    init(with email: String) {
+        self.otherUserEmail = email
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - Overriden
     
     override func viewDidLoad() {
