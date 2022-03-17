@@ -1,0 +1,6 @@
+framework module Pods_MicroBlog {
+  umbrella header "Pods-MicroBlog-umbrella.h"
+
+  export *
+  module * { export * }
+}
