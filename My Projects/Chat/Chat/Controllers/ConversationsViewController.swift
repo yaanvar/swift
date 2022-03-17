@@ -9,6 +9,19 @@ import UIKit
 import FirebaseAuth
 import JGProgressHUD
 
+struct Conversation {
+    let id: String
+    let name: String
+    let otherUserEmail: String
+    let latestMessage: LatestMessage
+}
+
+struct LatestMessage {
+    let date: String
+    let text: String
+    let isRead: Bool
+}
+
 class ConversationsViewController: UIViewController {
     
     //MARK: - UI
@@ -19,7 +32,7 @@ class ConversationsViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.isHidden = true
         tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: "cell")
+                           forCellReuseIdentifier: ConversationTableViewCell.identifier)
         return tableView
     }()
     
@@ -34,7 +47,7 @@ class ConversationsViewController: UIViewController {
     
     //MARK: - Properties
     
-    var data = ["Hello World"]
+    var conversations = [Conversation]()
 
     //MARK: - Overriden
     
@@ -45,6 +58,7 @@ class ConversationsViewController: UIViewController {
         setupNoConversationsLabel()
         setupTableView()
         fetchConversations()
+        startListeningForConversations()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -112,13 +126,42 @@ class ConversationsViewController: UIViewController {
             return
         }
         
-        let chatViewController = ChatViewController(with: email)
+        let chatViewController = ChatViewController(with: email, id: model.id)
         chatViewController.isNewConversation = true
         chatViewController.title = name
         chatViewController.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(chatViewController, animated: true)
     }
 
+    private func startListeningForConversations() {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+
+        let safeEmail = DatabaseManager.safeEmail(email: email)
+
+        DatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
+            switch result {
+            case .success(let conversations):
+                guard !conversations.isEmpty else {
+                    self?.tableView.isHidden = true
+                    self?.noConversationsLabel.isHidden = false
+                    return
+                }
+                self?.noConversationsLabel.isHidden = true
+                self?.tableView.isHidden = false
+                self?.conversations = conversations
+
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(_):
+                self?.tableView.isHidden = true
+                self?.noConversationsLabel.isHidden = false
+            }
+        })
+    }
+    
 }
 
 // MARK: - UITableViewDelegate
@@ -127,8 +170,10 @@ extension ConversationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let viewController = ChatViewController(with: "gkkskgsk@mail.ru")
-        viewController.title = "Jenny Smith"
+        let model = conversations[indexPath.row]
+        
+        let viewController = ChatViewController(with: model.otherUserEmail)
+        viewController.title = model.name
         viewController.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -137,23 +182,27 @@ extension ConversationsViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 
 extension ConversationsViewController: UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        print(conversations.count)
+        return conversations.count
     }
     
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        let model = conversations[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: ConversationTableViewCell.identifier,
+                                                 for: indexPath) as! ConversationTableViewCell
+        cell.configure(with: model)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 }
 

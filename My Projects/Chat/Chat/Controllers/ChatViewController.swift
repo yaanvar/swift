@@ -79,8 +79,9 @@ class ChatViewController: MessagesViewController {
 
     //MARK: - Initializer
     
-    init(with email: String) {
+    init(with email: String, id: String) {
         self.otherUserEmail = email
+        self.conversationId = id
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -95,6 +96,7 @@ class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         
         setupView()
+        listenForMessages()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -113,6 +115,12 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
     }
 
+    //MARK: - Functions
+    
+    func listenForMessages() {
+        
+    }
+    
 }
 
 //MARK: - InputBar

@@ -30,7 +30,7 @@ class NewConversationViewController: UIViewController {
     }()
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.isHidden = true
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "cell")
