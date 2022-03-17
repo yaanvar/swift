@@ -184,7 +184,6 @@ extension NewConversationViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let targetUserData = results[indexPath.row]
-        
         dismiss(animated: true) { [weak self] in
             self?.completion?(targetUserData)
         }

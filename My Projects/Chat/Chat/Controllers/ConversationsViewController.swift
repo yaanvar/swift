@@ -108,11 +108,12 @@ class ConversationsViewController: UIViewController {
     
     private func createNewConversation(result: [String: String]) {
         guard let name = result["name"],
-              let email = result["email"] else {
+              let email = result["safeEmail"] else {
             return
         }
         
         let chatViewController = ChatViewController(with: email)
+        chatViewController.isNewConversation = true
         chatViewController.title = name
         chatViewController.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(chatViewController, animated: true)
@@ -126,8 +127,8 @@ extension ConversationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let viewController = ChatViewController(with: )
-        viewController.title = "Joe Smith"
+        let viewController = ChatViewController(with: "gkkskgsk@mail.ru")
+        viewController.title = "Jenny Smith"
         viewController.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(viewController, animated: true)
     }
