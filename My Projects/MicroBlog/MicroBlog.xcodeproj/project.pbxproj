@@ -19,10 +19,14 @@
 		E42A8FA027E3971A0036E148 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8F9F27E3971A0036E148 /* SignUpViewController.swift */; };
 		E42A8FA227E397320036E148 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8FA127E397320036E148 /* PostViewController.swift */; };
 		E42A8FA527E3974C0036E148 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8FA427E3974C0036E148 /* CreatePostViewController.swift */; };
-		E42A8FA827E397920036E148 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8FA727E397920036E148 /* APIManager.swift */; };
+		E42A8FA827E397920036E148 /* InAppPurchasesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8FA727E397920036E148 /* InAppPurchasesManager.swift */; };
 		E42A8FAA27E3979D0036E148 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8FA927E3979D0036E148 /* DatabaseManager.swift */; };
-		E42A8FAC27E397A80036E148 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8FAB27E397A80036E148 /* AuthManager.swift */; };
+		E42A8FAC27E397A80036E148 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8FAB27E397A80036E148 /* AuthenticationManager.swift */; };
 		E42A8FAE27E397B60036E148 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8FAD27E397B60036E148 /* StorageManager.swift */; };
+		E448955827E4691000C78553 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E448955727E4691000C78553 /* GoogleService-Info.plist */; };
+		E448955A27E46DCD00C78553 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448955927E46DCD00C78553 /* User.swift */; };
+		E448955C27E46DDA00C78553 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448955B27E46DDA00C78553 /* Post.swift */; };
+		E448955E27E4749100C78553 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448955D27E4749100C78553 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +45,14 @@
 		E42A8F9F27E3971A0036E148 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E42A8FA127E397320036E148 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E42A8FA427E3974C0036E148 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
-		E42A8FA727E397920036E148 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		E42A8FA727E397920036E148 /* InAppPurchasesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesManager.swift; sourceTree = "<group>"; };
 		E42A8FA927E3979D0036E148 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		E42A8FAB27E397A80036E148 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		E42A8FAB27E397A80036E148 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		E42A8FAD27E397B60036E148 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		E448955727E4691000C78553 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E448955927E46DCD00C78553 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E448955B27E46DDA00C78553 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		E448955D27E4749100C78553 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FFBF508DC12E9287A369B6FC /* Pods_MicroBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MicroBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,7 +74,6 @@
 				55902F49611C4582BD828AC4 /* Pods-MicroBlog.debug.xcconfig */,
 				8F118111892BAC8BFBDB2A9D /* Pods-MicroBlog.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -112,6 +119,8 @@
 		E42A8F9327E395EA0036E148 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E448955927E46DCD00C78553 /* User.swift */,
+				E448955B27E46DDA00C78553 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,9 +148,9 @@
 		E42A8F9627E395FE0036E148 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				E42A8FA727E397920036E148 /* APIManager.swift */,
+				E42A8FA727E397920036E148 /* InAppPurchasesManager.swift */,
 				E42A8FA927E3979D0036E148 /* DatabaseManager.swift */,
-				E42A8FAB27E397A80036E148 /* AuthManager.swift */,
+				E42A8FAB27E397A80036E148 /* AuthenticationManager.swift */,
 				E42A8FAD27E397B60036E148 /* StorageManager.swift */,
 			);
 			path = Manager;
@@ -152,7 +161,9 @@
 			children = (
 				E42A8F7F27E3929A0036E148 /* AppDelegate.swift */,
 				E42A8F8127E3929A0036E148 /* SceneDelegate.swift */,
+				E448955727E4691000C78553 /* GoogleService-Info.plist */,
 				E42A8F8827E3929B0036E148 /* Assets.xcassets */,
+				E448955D27E4749100C78553 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -160,8 +171,8 @@
 		E42A8FA627E3974F0036E148 /* SignControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E42A8F9F27E3971A0036E148 /* SignUpViewController.swift */,
 				E42A8F9D27E397110036E148 /* SignInViewController.swift */,
+				E42A8F9F27E3971A0036E148 /* SignUpViewController.swift */,
 			);
 			path = SignControllers;
 			sourceTree = "<group>";
@@ -237,6 +248,7 @@
 			files = (
 				E42A8F8C27E3929B0036E148 /* LaunchScreen.storyboard in Resources */,
 				E42A8F8927E3929B0036E148 /* Assets.xcassets in Resources */,
+				E448955827E4691000C78553 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,14 +302,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42A8FA227E397320036E148 /* PostViewController.swift in Sources */,
-				E42A8FAC27E397A80036E148 /* AuthManager.swift in Sources */,
+				E42A8FAC27E397A80036E148 /* AuthenticationManager.swift in Sources */,
 				E42A8FAA27E3979D0036E148 /* DatabaseManager.swift in Sources */,
 				E42A8F8427E3929A0036E148 /* MicroBlogViewController.swift in Sources */,
-				E42A8FA827E397920036E148 /* APIManager.swift in Sources */,
+				E42A8FA827E397920036E148 /* InAppPurchasesManager.swift in Sources */,
 				E42A8FA027E3971A0036E148 /* SignUpViewController.swift in Sources */,
+				E448955A27E46DCD00C78553 /* User.swift in Sources */,
 				E42A8F8027E3929A0036E148 /* AppDelegate.swift in Sources */,
 				E42A8F9E27E397110036E148 /* SignInViewController.swift in Sources */,
+				E448955C27E46DDA00C78553 /* Post.swift in Sources */,
 				E42A8F9A27E396CF0036E148 /* ProfileViewController.swift in Sources */,
+				E448955E27E4749100C78553 /* Extensions.swift in Sources */,
 				E42A8F9C27E396F40036E148 /* TabBarViewController.swift in Sources */,
 				E42A8FA527E3974C0036E148 /* CreatePostViewController.swift in Sources */,
 				E42A8F8227E3929A0036E148 /* SceneDelegate.swift in Sources */,
