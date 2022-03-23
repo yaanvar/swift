@@ -246,7 +246,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             }
         }
         
-        
         dismiss(animated: true)
     }
     

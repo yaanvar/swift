@@ -60,7 +60,7 @@ final class DatabaseManager {
                 return
             }
             
-            var referrence = data["profile_photo"]
+            let referrence = data["profile_photo"]
             let user = User(name: name, email: email, profilePictureReferrence: referrence)
             completion(user)
             
