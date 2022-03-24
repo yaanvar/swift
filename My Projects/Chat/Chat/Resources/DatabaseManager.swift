@@ -20,7 +20,7 @@ final class DatabaseManager {
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
-    
+     
 }
 
 //MARK: - Account Management
