@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E4210D0927CA6ABD00FB83BB /* hitBuilding.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4210D0827CA6ABD00FB83BB /* hitBuilding.sks */; };
-		E4210D0B27CA6AC500FB83BB /* hitPlayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4210D0A27CA6AC500FB83BB /* hitPlayer.sks */; };
+		E4122F412805640C00A8AA32 /* hitBuilding.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4122F3F2805640C00A8AA32 /* hitBuilding.sks */; };
+		E4122F422805640C00A8AA32 /* hitPlayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4122F402805640C00A8AA32 /* hitPlayer.sks */; };
 		E4210D0D27CA6AE200FB83BB /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4210D0C27CA6AE200FB83BB /* BuildingNode.swift */; };
 		E4210D0F27CA6FC600FB83BB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4210D0E27CA6FC600FB83BB /* GameViewController.swift */; };
 		E4D05A3327CA6A5200273D0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D05A3227CA6A5200273D0B /* AppDelegate.swift */; };
@@ -20,8 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E4210D0827CA6ABD00FB83BB /* hitBuilding.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = hitBuilding.sks; path = "../../HackingWithSwift/Classic/project29-files/Content/hitBuilding.sks"; sourceTree = "<group>"; };
-		E4210D0A27CA6AC500FB83BB /* hitPlayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = hitPlayer.sks; path = "../../HackingWithSwift/Classic/project29-files/Content/hitPlayer.sks"; sourceTree = "<group>"; };
+		E4122F3F2805640C00A8AA32 /* hitBuilding.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = hitBuilding.sks; path = "../../UIKit Files/project29-files/Content/hitBuilding.sks"; sourceTree = "<group>"; };
+		E4122F402805640C00A8AA32 /* hitPlayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = hitPlayer.sks; path = "../../UIKit Files/project29-files/Content/hitPlayer.sks"; sourceTree = "<group>"; };
 		E4210D0C27CA6AE200FB83BB /* BuildingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
 		E4210D0E27CA6FC600FB83BB /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E4D05A2F27CA6A5200273D0B /* Project29.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project29.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,8 +71,8 @@
 				E4D05A3C27CA6A5200273D0B /* Main.storyboard */,
 				E4D05A3F27CA6A5300273D0B /* Assets.xcassets */,
 				E4D05A4127CA6A5300273D0B /* LaunchScreen.storyboard */,
-				E4210D0827CA6ABD00FB83BB /* hitBuilding.sks */,
-				E4210D0A27CA6AC500FB83BB /* hitPlayer.sks */,
+				E4122F3F2805640C00A8AA32 /* hitBuilding.sks */,
+				E4122F402805640C00A8AA32 /* hitPlayer.sks */,
 			);
 			path = Project29;
 			sourceTree = "<group>";
@@ -136,10 +136,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D05A3E27CA6A5200273D0B /* Main.storyboard in Resources */,
-				E4210D0927CA6ABD00FB83BB /* hitBuilding.sks in Resources */,
-				E4210D0B27CA6AC500FB83BB /* hitPlayer.sks in Resources */,
+				E4122F412805640C00A8AA32 /* hitBuilding.sks in Resources */,
 				E4D05A3527CA6A5200273D0B /* GameScene.sks in Resources */,
 				E4D05A4027CA6A5300273D0B /* Assets.xcassets in Resources */,
+				E4122F422805640C00A8AA32 /* hitPlayer.sks in Resources */,
 				E4D05A4327CA6A5300273D0B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

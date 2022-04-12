@@ -7,35 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E402A0BC27D23BBA0068621B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E402A0BB27D23BBA0068621B /* AppDelegate.swift */; };
-		E402A0BE27D23BBA0068621B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E402A0BD27D23BBA0068621B /* GameScene.sks */; };
-		E402A0C227D23BBA0068621B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E402A0C127D23BBA0068621B /* GameScene.swift */; };
-		E402A0C427D23BBA0068621B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E402A0C327D23BBA0068621B /* GameViewController.swift */; };
-		E402A0C727D23BBA0068621B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E402A0C527D23BBA0068621B /* Main.storyboard */; };
-		E402A0C927D23BBA0068621B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E402A0C827D23BBA0068621B /* Assets.xcassets */; };
-		E402A0CC27D23BBA0068621B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E402A0CA27D23BBA0068621B /* LaunchScreen.storyboard */; };
-		E402A0D827D23CBE0068621B /* PlayerExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E402A0D727D23CBE0068621B /* PlayerExplosion.sks */; };
-		E4EC8F1328058B8F0021C7E9 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = E4EC8F1128058B8F0021C7E9 /* explosion.wav */; };
-		E4EC8F1428058B8F0021C7E9 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = E4EC8F1228058B8F0021C7E9 /* coin.wav */; };
+		883CD70A27EF7BB500C14673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CD70927EF7BB500C14673 /* AppDelegate.swift */; };
+		883CD70E27EF7BB500C14673 /* PersonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CD70D27EF7BB500C14673 /* PersonsViewController.swift */; };
+		883CD71127EF7BB500C14673 /* Persons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883CD70F27EF7BB500C14673 /* Persons.storyboard */; };
+		883CD71427EF7BB500C14673 /* FRApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 883CD71227EF7BB500C14673 /* FRApp.xcdatamodeld */; };
+		883CD71627EF7BB700C14673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 883CD71527EF7BB700C14673 /* Assets.xcassets */; };
+		883CD71927EF7BB700C14673 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883CD71727EF7BB700C14673 /* LaunchScreen.storyboard */; };
+		883CD72127F08EDF00C14673 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CD72027F08EDF00C14673 /* CoreDataStack.swift */; };
+		883CD72327F0911900C14673 /* DataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CD72227F0911900C14673 /* DataGenerator.swift */; };
+		88C9CDB827F9DD8800954A8C /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C9CDB727F9DD8800954A8C /* Demo.swift */; };
+		88C9CDBA27F9DF4800954A8C /* Person+print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C9CDB927F9DF4800954A8C /* Person+print.swift */; };
+		88C9CDBC27F9EBF300954A8C /* NSFetchedResultsChangeType+name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C9CDBB27F9EBF300954A8C /* NSFetchedResultsChangeType+name.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E402A0B827D23BBA0068621B /* Project36.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project36.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E402A0BB27D23BBA0068621B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E402A0BD27D23BBA0068621B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		E402A0C127D23BBA0068621B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		E402A0C327D23BBA0068621B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		E402A0C627D23BBA0068621B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E402A0C827D23BBA0068621B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E402A0CB27D23BBA0068621B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E402A0D627D23CB80068621B /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = music.m4a; path = "../../UIKit Files/project36-files/music.m4a"; sourceTree = "<group>"; };
-		E402A0D727D23CBE0068621B /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = PlayerExplosion.sks; path = "../../UIKit Files/project36-files/PlayerExplosion.sks"; sourceTree = "<group>"; };
-		E4EC8F1128058B8F0021C7E9 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion.wav; path = "../../UIKit Files/project36-files/explosion.wav"; sourceTree = "<group>"; };
-		E4EC8F1228058B8F0021C7E9 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = coin.wav; path = "../../UIKit Files/project36-files/coin.wav"; sourceTree = "<group>"; };
+		883CD70627EF7BB500C14673 /* FRApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FRApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		883CD70927EF7BB500C14673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		883CD70D27EF7BB500C14673 /* PersonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsViewController.swift; sourceTree = "<group>"; };
+		883CD71027EF7BB500C14673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Persons.storyboard; sourceTree = "<group>"; };
+		883CD71327EF7BB500C14673 /* FRApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FRApp.xcdatamodel; sourceTree = "<group>"; };
+		883CD71527EF7BB700C14673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		883CD71827EF7BB700C14673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		883CD71A27EF7BB700C14673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		883CD72027F08EDF00C14673 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		883CD72227F0911900C14673 /* DataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGenerator.swift; sourceTree = "<group>"; };
+		88C9CDB727F9DD8800954A8C /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
+		88C9CDB927F9DF4800954A8C /* Person+print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+print.swift"; sourceTree = "<group>"; };
+		88C9CDBB27F9EBF300954A8C /* NSFetchedResultsChangeType+name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFetchedResultsChangeType+name.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E402A0B527D23BBA0068621B /* Frameworks */ = {
+		883CD70327EF7BB500C14673 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,76 +47,109 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E402A0AF27D23BBA0068621B = {
+		883CD6FD27EF7BB500C14673 = {
 			isa = PBXGroup;
 			children = (
-				E402A0BA27D23BBA0068621B /* Project36 */,
-				E402A0B927D23BBA0068621B /* Products */,
+				883CD70827EF7BB500C14673 /* FRApp */,
+				883CD70727EF7BB500C14673 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E402A0B927D23BBA0068621B /* Products */ = {
+		883CD70727EF7BB500C14673 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E402A0B827D23BBA0068621B /* Project36.app */,
+				883CD70627EF7BB500C14673 /* FRApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E402A0BA27D23BBA0068621B /* Project36 */ = {
+		883CD70827EF7BB500C14673 /* FRApp */ = {
 			isa = PBXGroup;
 			children = (
-				E402A0BB27D23BBA0068621B /* AppDelegate.swift */,
-				E402A0BD27D23BBA0068621B /* GameScene.sks */,
-				E402A0C127D23BBA0068621B /* GameScene.swift */,
-				E402A0C327D23BBA0068621B /* GameViewController.swift */,
-				E402A0C527D23BBA0068621B /* Main.storyboard */,
-				E402A0C827D23BBA0068621B /* Assets.xcassets */,
-				E402A0CA27D23BBA0068621B /* LaunchScreen.storyboard */,
-				E4EC8F1228058B8F0021C7E9 /* coin.wav */,
-				E402A0D627D23CB80068621B /* music.m4a */,
-				E402A0D727D23CBE0068621B /* PlayerExplosion.sks */,
-				E4EC8F1128058B8F0021C7E9 /* explosion.wav */,
+				88741E3527FC39EA00E13F50 /* CoreData */,
+				88741E3727FC3A2000E13F50 /* Demo */,
+				88741E3327FC39C200E13F50 /* Extensions */,
+				88741E3627FC39FE00E13F50 /* SupportingFiles */,
 			);
-			path = Project36;
+			path = FRApp;
+			sourceTree = "<group>";
+		};
+		88741E3327FC39C200E13F50 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88C9CDB927F9DF4800954A8C /* Person+print.swift */,
+				88C9CDBB27F9EBF300954A8C /* NSFetchedResultsChangeType+name.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		88741E3527FC39EA00E13F50 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				883CD72027F08EDF00C14673 /* CoreDataStack.swift */,
+				883CD71227EF7BB500C14673 /* FRApp.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		88741E3627FC39FE00E13F50 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				883CD70927EF7BB500C14673 /* AppDelegate.swift */,
+				883CD71527EF7BB700C14673 /* Assets.xcassets */,
+				883CD71727EF7BB700C14673 /* LaunchScreen.storyboard */,
+				883CD71A27EF7BB700C14673 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		88741E3727FC3A2000E13F50 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				883CD72227F0911900C14673 /* DataGenerator.swift */,
+				883CD70D27EF7BB500C14673 /* PersonsViewController.swift */,
+				883CD70F27EF7BB500C14673 /* Persons.storyboard */,
+				88C9CDB727F9DD8800954A8C /* Demo.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E402A0B727D23BBA0068621B /* Project36 */ = {
+		883CD70527EF7BB500C14673 /* FRApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E402A0CF27D23BBA0068621B /* Build configuration list for PBXNativeTarget "Project36" */;
+			buildConfigurationList = 883CD71D27EF7BB700C14673 /* Build configuration list for PBXNativeTarget "FRApp" */;
 			buildPhases = (
-				E402A0B427D23BBA0068621B /* Sources */,
-				E402A0B527D23BBA0068621B /* Frameworks */,
-				E402A0B627D23BBA0068621B /* Resources */,
+				883CD70227EF7BB500C14673 /* Sources */,
+				883CD70327EF7BB500C14673 /* Frameworks */,
+				883CD70427EF7BB500C14673 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Project36;
-			productName = Project36;
-			productReference = E402A0B827D23BBA0068621B /* Project36.app */;
+			name = FRApp;
+			productName = FRApp;
+			productReference = 883CD70627EF7BB500C14673 /* FRApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E402A0B027D23BBA0068621B /* Project object */ = {
+		883CD6FE27EF7BB500C14673 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					E402A0B727D23BBA0068621B = {
+					883CD70527EF7BB500C14673 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
-			buildConfigurationList = E402A0B327D23BBA0068621B /* Build configuration list for PBXProject "Project36" */;
+			buildConfigurationList = 883CD70127EF7BB500C14673 /* Build configuration list for PBXProject "FRApp" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -122,59 +157,61 @@
 				en,
 				Base,
 			);
-			mainGroup = E402A0AF27D23BBA0068621B;
-			productRefGroup = E402A0B927D23BBA0068621B /* Products */;
+			mainGroup = 883CD6FD27EF7BB500C14673;
+			productRefGroup = 883CD70727EF7BB500C14673 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E402A0B727D23BBA0068621B /* Project36 */,
+				883CD70527EF7BB500C14673 /* FRApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E402A0B627D23BBA0068621B /* Resources */ = {
+		883CD70427EF7BB500C14673 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E402A0C727D23BBA0068621B /* Main.storyboard in Resources */,
-				E4EC8F1328058B8F0021C7E9 /* explosion.wav in Resources */,
-				E402A0BE27D23BBA0068621B /* GameScene.sks in Resources */,
-				E402A0D827D23CBE0068621B /* PlayerExplosion.sks in Resources */,
-				E4EC8F1428058B8F0021C7E9 /* coin.wav in Resources */,
-				E402A0C927D23BBA0068621B /* Assets.xcassets in Resources */,
-				E402A0CC27D23BBA0068621B /* LaunchScreen.storyboard in Resources */,
+				883CD71927EF7BB700C14673 /* LaunchScreen.storyboard in Resources */,
+				883CD71627EF7BB700C14673 /* Assets.xcassets in Resources */,
+				883CD71127EF7BB500C14673 /* Persons.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E402A0B427D23BBA0068621B /* Sources */ = {
+		883CD70227EF7BB500C14673 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E402A0C227D23BBA0068621B /* GameScene.swift in Sources */,
-				E402A0C427D23BBA0068621B /* GameViewController.swift in Sources */,
-				E402A0BC27D23BBA0068621B /* AppDelegate.swift in Sources */,
+				883CD72127F08EDF00C14673 /* CoreDataStack.swift in Sources */,
+				883CD70E27EF7BB500C14673 /* PersonsViewController.swift in Sources */,
+				883CD70A27EF7BB500C14673 /* AppDelegate.swift in Sources */,
+				883CD72327F0911900C14673 /* DataGenerator.swift in Sources */,
+				88C9CDBA27F9DF4800954A8C /* Person+print.swift in Sources */,
+				88C9CDB827F9DD8800954A8C /* Demo.swift in Sources */,
+				88C9CDBC27F9EBF300954A8C /* NSFetchedResultsChangeType+name.swift in Sources */,
+				883CD71427EF7BB500C14673 /* FRApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E402A0C527D23BBA0068621B /* Main.storyboard */ = {
+		883CD70F27EF7BB500C14673 /* Persons.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E402A0C627D23BBA0068621B /* Base */,
+				883CD71027EF7BB500C14673 /* Base */,
 			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+			name = Persons.storyboard;
+			path = FRApp/Demo;
+			sourceTree = SOURCE_ROOT;
 		};
-		E402A0CA27D23BBA0068621B /* LaunchScreen.storyboard */ = {
+		883CD71727EF7BB700C14673 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E402A0CB27D23BBA0068621B /* Base */,
+				883CD71827EF7BB700C14673 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -182,7 +219,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E402A0CD27D23BBA0068621B /* Debug */ = {
+		883CD71B27EF7BB700C14673 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,7 +280,7 @@
 			};
 			name = Debug;
 		};
-		E402A0CE27D23BBA0068621B /* Release */ = {
+		883CD71C27EF7BB700C14673 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -298,28 +335,26 @@
 			};
 			name = Release;
 		};
-		E402A0D027D23BBA0068621B /* Debug */ = {
+		883CD71E27EF7BB700C14673 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R2S4TKF2UY;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FRApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yaanvar.Project36;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.FRApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -327,28 +362,26 @@
 			};
 			name = Debug;
 		};
-		E402A0D127D23BBA0068621B /* Release */ = {
+		883CD71F27EF7BB700C14673 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R2S4TKF2UY;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FRApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yaanvar.Project36;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.FRApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -359,25 +392,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E402A0B327D23BBA0068621B /* Build configuration list for PBXProject "Project36" */ = {
+		883CD70127EF7BB500C14673 /* Build configuration list for PBXProject "FRApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E402A0CD27D23BBA0068621B /* Debug */,
-				E402A0CE27D23BBA0068621B /* Release */,
+				883CD71B27EF7BB700C14673 /* Debug */,
+				883CD71C27EF7BB700C14673 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E402A0CF27D23BBA0068621B /* Build configuration list for PBXNativeTarget "Project36" */ = {
+		883CD71D27EF7BB700C14673 /* Build configuration list for PBXNativeTarget "FRApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E402A0D027D23BBA0068621B /* Debug */,
-				E402A0D127D23BBA0068621B /* Release */,
+				883CD71E27EF7BB700C14673 /* Debug */,
+				883CD71F27EF7BB700C14673 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		883CD71227EF7BB500C14673 /* FRApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				883CD71327EF7BB500C14673 /* FRApp.xcdatamodel */,
+			);
+			currentVersion = 883CD71327EF7BB500C14673 /* FRApp.xcdatamodel */;
+			path = FRApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = E402A0B027D23BBA0068621B /* Project object */;
+	rootObject = 883CD6FE27EF7BB500C14673 /* Project object */;
 }
