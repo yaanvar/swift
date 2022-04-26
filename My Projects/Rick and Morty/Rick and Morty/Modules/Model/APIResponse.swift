@@ -8,5 +8,6 @@
 import Foundation
 
 struct APIResponse: Codable {
+    var info: Info
     var results: [Character]
 }
