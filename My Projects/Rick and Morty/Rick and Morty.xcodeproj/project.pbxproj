@@ -91,8 +91,8 @@
 		E419903428153BCB00F29780 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				E419903B281541C200F29780 /* Model */,
-				E419903C281541CF00F29780 /* ViewController */,
+				E419903B281541C200F29780 /* Models */,
+				E419903C281541CF00F29780 /* Controllers */,
 				E419903628153C1F00F29780 /* Views */,
 				E419903328153B6E00F29780 /* Resources */,
 			);
@@ -108,7 +108,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E419903B281541C200F29780 /* Model */ = {
+		E419903B281541C200F29780 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				E41990412815452E00F29780 /* APICaller.swift */,
@@ -117,17 +117,17 @@
 				E419903F2815422B00F29780 /* Character.swift */,
 				E4FD723D28181594008FDE50 /* Location.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		E419903C281541CF00F29780 /* ViewController */ = {
+		E419903C281541CF00F29780 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				E419901D2815381A00F29780 /* CharacterListViewController.swift */,
 				E419902D28153B3F00F29780 /* CharacterDetailViewController.swift */,
 				E419902F28153B6400F29780 /* CharacterTableViewCell.swift */,
 			);
-			path = ViewController;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		E41990432816EFBB00F29780 /* Storyboards */ = {

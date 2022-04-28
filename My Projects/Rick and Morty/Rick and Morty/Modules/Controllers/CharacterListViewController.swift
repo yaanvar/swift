@@ -150,7 +150,6 @@ extension CharacterListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         let characterDetailViewController = CharacterDetailViewController()
         characterDetailViewController.characterID = characters[indexPath.row].id
         navigationController?.pushViewController(characterDetailViewController, animated: true)
