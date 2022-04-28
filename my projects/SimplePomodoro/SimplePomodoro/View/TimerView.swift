@@ -36,6 +36,7 @@ struct TimerView: View {
         
         VStack {
             ZStack {
+                
                 CircleView(fill: fill)
                 
                 Text(timeStamp(seconds: timeRemaining))

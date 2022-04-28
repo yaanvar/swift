@@ -108,7 +108,6 @@ class CharacterListViewController: UIViewController {
             switch result {
             case .success(let info):
                 self?.pageInfo = info
-                print(info)
             case .failure(let error):
                 print(error)
             }

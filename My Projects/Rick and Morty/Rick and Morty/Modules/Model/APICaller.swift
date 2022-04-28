@@ -11,7 +11,7 @@ class APICaller {
     
     static let shared = APICaller()
     
-    struct Constants {
+    public enum Constants {
         static let allCharacters = URL(string: "https://rickandmortyapi.com/api/character")
         static let allCharactersString = "https://rickandmortyapi.com/api/character"
         static let characterString = "https://rickandmortyapi.com/api/character/"

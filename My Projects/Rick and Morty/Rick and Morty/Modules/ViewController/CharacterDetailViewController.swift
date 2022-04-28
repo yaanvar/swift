@@ -17,8 +17,6 @@ class CharacterDetailViewController: UIViewController {
 
     var characterID: Int?
     
-    var characterItem: Character?
-    
     //MARK: - UI
 
     private lazy var nameTextLabel: UILabel = {
@@ -115,13 +113,7 @@ class CharacterDetailViewController: UIViewController {
             return
         }
         
-        fetchCharacterByID(id: characterID)
-        
-        guard let characterItem = characterItem else {
-            return
-        }
-
-        configure(with: characterItem)
+        fetchAndConfigureCharacterBy(id: characterID)
     }
     
     override func viewWillLayoutSubviews() {
@@ -199,11 +191,13 @@ class CharacterDetailViewController: UIViewController {
     
     //MARK: - Fetches
     
-    func fetchCharacterByID(id: Int) {
+    func fetchAndConfigureCharacterBy(id: Int) {
         APICaller.shared.getCharacterBy(id: id) { [weak self] result in
             switch result {
             case .success(let characterItem):
-                self?.characterItem = characterItem
+                DispatchQueue.main.async {
+                    self?.configure(with: characterItem)
+                }
             case .failure(let error):
                 print(error)
             }

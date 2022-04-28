@@ -92,6 +92,7 @@ extension RootViewController: UITableViewDataSource {
         )
         
         guard let cityCity = cell as? CityTableViewCell else {
+            cell.backgroundColor = .orange
             return cell
         }
         
