@@ -124,8 +124,6 @@ class CharacterListViewController: UIViewController {
         
         fetchPageWithCharacters(from: nextPageURLString)
         fetchPageInfo(from: nextPageURLString)
-        
-        tableView.reloadData()
     }
     
     @objc func previousPage() {
@@ -136,8 +134,6 @@ class CharacterListViewController: UIViewController {
         
         fetchPageWithCharacters(from: previousPageURLString)
         fetchPageInfo(from: previousPageURLString)
-        
-        tableView.reloadData()
     }
 
 
