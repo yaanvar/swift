@@ -6,14 +6,37 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
+    
+    //MARK: - UI
+    
+    lazy var tableView = UITableView(frame: .zero, style: .plain)
+    
+    //MARK: - Overriden
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setupView()
+        setupTableView()
+        
+    }
+    
+    //MARK: - Setup
+    
+    func setupView() {
+        view.backgroundColor = .systemBackground
     }
 
-
+    
+    func setupTableView() {  
+        view.addSubview(tableView)
+        tableView.backgroundColor = .systemBackground
+        
+    
+    }
+    
 }
 

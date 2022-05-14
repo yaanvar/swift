@@ -16,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		591C89E5B0244CBFBFE6A6B5 /* Pods-SnapKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapKitDemo.release.xcconfig"; path = "Target Support Files/Pods-SnapKitDemo/Pods-SnapKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		9BB30FE9B2435E31DF19D97F /* Pods-SnapKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapKitDemo.debug.xcconfig"; path = "Target Support Files/Pods-SnapKitDemo/Pods-SnapKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E4B90116282E857200C94CAD /* SnapKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B90119282E857200C94CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4B9011B282E857200C94CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,11 +39,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		167AB5868A237CFB7503AF91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB51F51A877587D66CBA9A49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BB30FE9B2435E31DF19D97F /* Pods-SnapKitDemo.debug.xcconfig */,
+				591C89E5B0244CBFBFE6A6B5 /* Pods-SnapKitDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E4B9010D282E857200C94CAD = {
 			isa = PBXGroup;
 			children = (
 				E4B90118282E857200C94CAD /* SnapKitDemo */,
 				E4B90117282E857200C94CAD /* Products */,
+				AB51F51A877587D66CBA9A49 /* Pods */,
+				167AB5868A237CFB7503AF91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +94,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4B9012A282E857600C94CAD /* Build configuration list for PBXNativeTarget "SnapKitDemo" */;
 			buildPhases = (
+				29E13506C4BE3095A03EC66C /* [CP] Check Pods Manifest.lock */,
 				E4B90112282E857200C94CAD /* Sources */,
 				E4B90113282E857200C94CAD /* Frameworks */,
 				E4B90114282E857200C94CAD /* Resources */,
+				E1E51DF5EFE593ED078C4623 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +154,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29E13506C4BE3095A03EC66C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SnapKitDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1E51DF5EFE593ED078C4623 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapKitDemo/Pods-SnapKitDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapKitDemo/Pods-SnapKitDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SnapKitDemo/Pods-SnapKitDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4B90112282E857200C94CAD /* Sources */ = {
@@ -282,6 +346,7 @@
 		};
 		E4B9012B282E857600C94CAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB30FE9B2435E31DF19D97F /* Pods-SnapKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +375,7 @@
 		};
 		E4B9012C282E857600C94CAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 591C89E5B0244CBFBFE6A6B5 /* Pods-SnapKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
