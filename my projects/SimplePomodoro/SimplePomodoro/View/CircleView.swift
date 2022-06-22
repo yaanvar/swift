@@ -36,6 +36,7 @@ struct MainCircle: View {
     }
 }
 
+
 //MARK: - CircleView
 
 struct CircleView: View {

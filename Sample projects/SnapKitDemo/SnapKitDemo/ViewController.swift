@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
 
     
-    func setupTableView() {  
+    func setupTableView() {
         view.addSubview(tableView)
         tableView.backgroundColor = .systemBackground
         

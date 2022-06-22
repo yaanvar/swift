@@ -20,7 +20,7 @@ struct TimerF {
 struct TimerView: View {
     
     @State var fill: CGFloat = 1
-    @State var timeRemaining = 65
+    @State var timeRemaining = 112
     @State var isActive = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -82,5 +82,6 @@ struct TimerView: View {
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
         TimerView()
+            .previewInterfaceOrientation(.portraitUpsideDown)
     }
 }
