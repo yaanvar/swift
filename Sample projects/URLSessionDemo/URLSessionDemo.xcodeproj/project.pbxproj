@@ -13,6 +13,7 @@
 		E4CA90DD2866558A000F2E93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4CA90DB2866558A000F2E93 /* Main.storyboard */; };
 		E4CA90DF2866558B000F2E93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CA90DE2866558B000F2E93 /* Assets.xcassets */; };
 		E4CA90E22866558B000F2E93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4CA90E02866558B000F2E93 /* LaunchScreen.storyboard */; };
+		E4CA90EA286A26E2000F2E93 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA90E9286A26E2000F2E93 /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E4CA90DE2866558B000F2E93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4CA90E12866558B000F2E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4CA90E32866558B000F2E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4CA90E9286A26E2000F2E93 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				E4CA90D52866558A000F2E93 /* AppDelegate.swift */,
 				E4CA90D72866558A000F2E93 /* SceneDelegate.swift */,
 				E4CA90D92866558A000F2E93 /* ViewController.swift */,
+				E4CA90E9286A26E2000F2E93 /* NetworkController.swift */,
 				E4CA90DB2866558A000F2E93 /* Main.storyboard */,
 				E4CA90DE2866558B000F2E93 /* Assets.xcassets */,
 				E4CA90E02866558B000F2E93 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4CA90EA286A26E2000F2E93 /* NetworkController.swift in Sources */,
 				E4CA90DA2866558A000F2E93 /* ViewController.swift in Sources */,
 				E4CA90D62866558A000F2E93 /* AppDelegate.swift in Sources */,
 				E4CA90D82866558A000F2E93 /* SceneDelegate.swift in Sources */,
