@@ -14,4 +14,4 @@ struct BetterRestApp: App {
             ContentView()
         }
     }
-}
+} 
