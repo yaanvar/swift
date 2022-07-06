@@ -15,24 +15,68 @@ struct ContentView: View {
     
     @State private var showingAddExpense = false
     
+    func colorForExpense(_ item: ExpenseItem) -> Color {
+        switch item.amount {
+        case 0...10:
+            return .primary
+        case 10...100:
+            return .blue
+        case 100...:
+            return .red
+        default:
+            return .yellow
+        }
+    }
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(expenses.items, id: \.id) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
-                                .font(.subheadline)
-                        }
+            VStack {
+                List {
+                    Section("Personal expenses") {
+                        ForEach(expenses.items, id: \.id) { item in
+                            if item.type == "Personal" {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(item.name)
+                                            .font(.headline)
+                                        Text(item.type)
+                                            .font(.subheadline)
+                                    }
 
-                        Spacer()
-                        Text(item.amount, format: .currency(code: "USD"))
+                                    Spacer()
+                                    Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                                        .foregroundColor(colorForExpense(item))
+                                }
+                            }
+                        }
+                        .onDelete { offsets in
+                            expenses.items.remove(atOffsets: offsets)
+                        }
                     }
                 }
-                .onDelete { offsets in
-                    expenses.items.remove(atOffsets: offsets)
+                
+                List {
+                    Section("Business expenses") {
+                        ForEach(expenses.items, id: \.id) { item in
+                            if item.type == "Business" {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(item.name)
+                                            .font(.headline)
+                                        Text(item.type)
+                                            .font(.subheadline)
+                                    }
+
+                                    Spacer()
+                                    Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                                        .foregroundColor(colorForExpense(item))
+                                }
+                            }
+                        }
+                        .onDelete { offsets in
+                            expenses.items.remove(atOffsets: offsets)
+                        }
+                    }
                 }
             }
             .navigationTitle("iExpense")
