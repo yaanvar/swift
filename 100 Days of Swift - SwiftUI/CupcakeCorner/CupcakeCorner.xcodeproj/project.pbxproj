@@ -14,6 +14,7 @@
 		E4BB13EF287C4B0A00E63960 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB13EE287C4B0A00E63960 /* Order.swift */; };
 		E4BB13F1287C4D5200E63960 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB13F0287C4D5200E63960 /* AddressView.swift */; };
 		E4BB13F3287C4E3100E63960 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB13F2287C4E3100E63960 /* CheckoutView.swift */; };
+		E4BB13F5287C77F700E63960 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB13F4287C77F700E63960 /* OrderItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		E4BB13EE287C4B0A00E63960 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		E4BB13F0287C4D5200E63960 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		E4BB13F2287C4E3100E63960 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		E4BB13F4287C77F700E63960 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				E4BB13E0287C22CE00E63960 /* CupcakeCornerApp.swift */,
 				E4BB13E2287C22CE00E63960 /* ContentView.swift */,
 				E4BB13EE287C4B0A00E63960 /* Order.swift */,
+				E4BB13F4287C77F700E63960 /* OrderItem.swift */,
 				E4BB13F0287C4D5200E63960 /* AddressView.swift */,
 				E4BB13F2287C4E3100E63960 /* CheckoutView.swift */,
 				E4BB13E4287C22D000E63960 /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 				E4BB13F3287C4E3100E63960 /* CheckoutView.swift in Sources */,
 				E4BB13E3287C22CE00E63960 /* ContentView.swift in Sources */,
 				E4BB13E1287C22CE00E63960 /* CupcakeCornerApp.swift in Sources */,
+				E4BB13F5287C77F700E63960 /* OrderItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
