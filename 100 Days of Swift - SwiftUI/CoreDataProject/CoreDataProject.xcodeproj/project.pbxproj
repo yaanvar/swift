@@ -17,6 +17,7 @@
 		E4F447E628818156004AC812 /* Country+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F447E228818156004AC812 /* Country+CoreDataProperties.swift */; };
 		E4F447E728818156004AC812 /* Candy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F447E328818156004AC812 /* Candy+CoreDataClass.swift */; };
 		E4F447E828818156004AC812 /* Candy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F447E428818156004AC812 /* Candy+CoreDataProperties.swift */; };
+		E4F447EA2881843D004AC812 /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F447E92881843D004AC812 /* FilteredList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		E4F447E228818156004AC812 /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E4F447E328818156004AC812 /* Candy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Candy+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E4F447E428818156004AC812 /* Candy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Candy+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4F447E92881843D004AC812 /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				E4F447C0288176FA004AC812 /* CoreDataProjectApp.swift */,
 				E4F447C2288176FA004AC812 /* ContentView.swift */,
+				E4F447E92881843D004AC812 /* FilteredList.swift */,
 				E4F447CE28817740004AC812 /* DataController.swift */,
 				E4F447D02881797F004AC812 /* CoreDataProject.xcdatamodeld */,
 				E4F447E128818156004AC812 /* Country+CoreDataClass.swift */,
@@ -157,6 +160,7 @@
 			files = (
 				E4F447C3288176FA004AC812 /* ContentView.swift in Sources */,
 				E4F447CF28817740004AC812 /* DataController.swift in Sources */,
+				E4F447EA2881843D004AC812 /* FilteredList.swift in Sources */,
 				E4F447E628818156004AC812 /* Country+CoreDataProperties.swift in Sources */,
 				E4F447E828818156004AC812 /* Candy+CoreDataProperties.swift in Sources */,
 				E4F447D22881797F004AC812 /* CoreDataProject.xcdatamodeld in Sources */,
