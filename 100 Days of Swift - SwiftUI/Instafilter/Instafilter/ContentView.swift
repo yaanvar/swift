@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var image: Image?
+    @State private var inputImage: UIImage?
     @State private var showingImagePicker = false
     
     var body: some View {
@@ -22,28 +23,28 @@ struct ContentView: View {
             Button("Select Image") {
                 showingImagePicker = true
             }
+            
+            Button("Save Image") {
+                guard let inputImage = inputImage else { return }
+
+                let imageSaver = ImageSaver()
+                imageSaver.writeToPhotoAlbum(image: inputImage)
+            }
         }
         .sheet(isPresented: $showingImagePicker) {
-            ImagePicker()
+            ImagePicker(image: $inputImage)
+        }
+        .onChange(of: inputImage) { _ in
+            loadImage()
         }
     }
     
     func loadImage() {
-        guard let inputImage = UIImage(named: "example") else { return }
+        guard let inputImage = inputImage else { return }
         
-        let beginImage = CIImage(image: inputImage)
+        image = Image(uiImage: inputImage)
         
-        let context = CIContext()
-        let currentFilter = CIFilter.sepiaTone()
-        currentFilter.inputImage = beginImage
-        currentFilter.intensity = 1
         
-        guard let outputImage = currentFilter.outputImage else  { return }
-        
-        if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-            let uiImage = UIImage(cgImage: cgImage)
-            image = Image(uiImage: uiImage)
-        }
     }
 }
 
