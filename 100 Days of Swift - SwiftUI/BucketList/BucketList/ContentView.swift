@@ -24,12 +24,12 @@ struct ContentView: View {
                                 .frame(width: 44, height: 44)
                                 .background(.white)
                                 .clipShape(Circle())
+                                .onTapGesture {
+                                    viewModel.selectedPlace = location
+                                }
                             
                             Text(location.name)
                                 .fixedSize()
-                        }
-                        .onTapGesture {
-                            viewModel.selectedPlace = location
                         }
                     }
                 }
@@ -73,6 +73,12 @@ struct ContentView: View {
             .background(.blue)
             .foregroundColor(.white)
             .clipShape(Capsule())
+            .alert("Failed to authenitcate with biometrics", isPresented: $viewModel.showAlert) {
+                Button("Try Again") {
+                    viewModel.authenticate()
+                }
+                Button("Cancel", role: .cancel) { }
+            }
         }
     }
 }
