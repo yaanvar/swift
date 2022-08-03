@@ -6,55 +6,73 @@
 //
 
 import SwiftUI
+import MapKit
+import LocalAuthentication
 
-struct User: Identifiable, Comparable {
-    static func < (lhs: User, rhs: User) -> Bool {
-        lhs.lastName < rhs.lastName
-    }
-    
+struct Location: Identifiable {
     let id = UUID()
-    let firstName: String
-    let lastName: String
-}
-
-enum LoadingState {
-    case loading, success, failed
-}
-
-struct LoadingView: View {
-    var body: some View {
-        Text("Loading...")
-    }
-}
-
-struct SuccessView: View {
-    var body: some View {
-        Text("Success!")
-    }
-}
-
-struct FailedView: View {
-    var body: some View {
-        Text("Failed.")
-    }
+    let name: String
+    let coordinate: CLLocationCoordinate2D
 }
 
 struct ContentView: View {
-    let users = [
-        User(firstName: "Arnold", lastName: "Rimmer"),
-        User(firstName: "Kristine", lastName: "Kochanski"),
-        User(firstName: "David", lastName: "Lister")
-    ].sorted()
+   
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     
-    var loadingState = LoadingState.loading
+    let locations = [
+        Location(name: "Buckingham Palace", coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141)),
+        Location(name: "Tower of London", coordinate: CLLocationCoordinate2D(latitude: 51.508, longitude: -0.076))
+    ]
+    
+    @State private var isUnlocked = false
     
     var body: some View {
-        if loadingState == .loading {
-            LoadingView()
-        } else if loadingState == .success {
-            SuccessView()
-        } else if loadingState == .failed {
-            FailedView()
+        
+        VStack {
+            if isUnlocked {
+                Text("Locked")
+            } else {
+                Text("Unlocked")
+            }
+        }
+        .onAppear(perform: authenticate)
+        
+//        NavigationView {
+//            Map(coordinateRegion: $mapRegion, annotationItems: locations) { location in
+//                MapAnnotation(coordinate: location.coordinate) {
+//                    NavigationLink {
+//                        Text(location.name)
+//                    } label: {
+//                        Circle()
+//                            .stroke(.red, lineWidth: 3)
+//                            .frame(width: 44, height: 44)
+//                            .onTapGesture {
+//                                print("Tapped on \(location.name)")
+//                            }
+//                    }
+//                }
+//            }
+//            .navigationTitle("London Explorer")
+//        }
+    }
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "We need to unlock your data."
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+               // authentication has now completed
+               if success {
+                   // authenticated successfully
+               } else {
+                   // there was a problem
+               }
+            }
+        } else {
+            
         }
     }
     
