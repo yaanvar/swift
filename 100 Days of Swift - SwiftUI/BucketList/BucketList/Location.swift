@@ -16,7 +16,7 @@ struct Location: Identifiable, Decodable, Equatable {
     let longtitude: Double
 }
 
-extension Location {
+extension Location: Encodable {
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
     }

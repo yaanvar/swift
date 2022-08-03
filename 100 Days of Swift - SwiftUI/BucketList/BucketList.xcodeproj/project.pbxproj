@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E499F3C0289A770E002679CF /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E499F3BF289A770E002679CF /* ContentView-ViewModel.swift */; };
+		E499F3C2289A7A0E002679CF /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E499F3C1289A7A0E002679CF /* FileManager-DocumentsDirectory.swift */; };
 		E4AE1C11289A57C500E41CD5 /* BucketListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE1C10289A57C500E41CD5 /* BucketListApp.swift */; };
 		E4AE1C13289A57C500E41CD5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE1C12289A57C500E41CD5 /* ContentView.swift */; };
 		E4AE1C15289A57C700E41CD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4AE1C14289A57C700E41CD5 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E499F3BF289A770E002679CF /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		E499F3C1289A7A0E002679CF /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		E4AE1C0D289A57C500E41CD5 /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AE1C10289A57C500E41CD5 /* BucketListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListApp.swift; sourceTree = "<group>"; };
 		E4AE1C12289A57C500E41CD5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				E4AE1C10289A57C500E41CD5 /* BucketListApp.swift */,
+				E499F3BF289A770E002679CF /* ContentView-ViewModel.swift */,
+				E499F3C1289A7A0E002679CF /* FileManager-DocumentsDirectory.swift */,
 				E4AE1C12289A57C500E41CD5 /* ContentView.swift */,
 				E4AE1C22289A711400E41CD5 /* Result.swift */,
 				E4AE1C20289A64A100E41CD5 /* EditView.swift */,
@@ -147,6 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4AE1C13289A57C500E41CD5 /* ContentView.swift in Sources */,
+				E499F3C2289A7A0E002679CF /* FileManager-DocumentsDirectory.swift in Sources */,
+				E499F3C0289A770E002679CF /* ContentView-ViewModel.swift in Sources */,
 				E4AE1C23289A711400E41CD5 /* Result.swift in Sources */,
 				E4AE1C1F289A614300E41CD5 /* Location.swift in Sources */,
 				E4AE1C21289A64A100E41CD5 /* EditView.swift in Sources */,
