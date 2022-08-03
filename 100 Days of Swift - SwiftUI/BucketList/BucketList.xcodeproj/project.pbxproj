@@ -11,6 +11,8 @@
 		E4AE1C13289A57C500E41CD5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE1C12289A57C500E41CD5 /* ContentView.swift */; };
 		E4AE1C15289A57C700E41CD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4AE1C14289A57C700E41CD5 /* Assets.xcassets */; };
 		E4AE1C18289A57C700E41CD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4AE1C17289A57C700E41CD5 /* Preview Assets.xcassets */; };
+		E4AE1C1F289A614300E41CD5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE1C1E289A614300E41CD5 /* Location.swift */; };
+		E4AE1C21289A64A100E41CD5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE1C20289A64A100E41CD5 /* EditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E4AE1C12289A57C500E41CD5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4AE1C14289A57C700E41CD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4AE1C17289A57C700E41CD5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E4AE1C1E289A614300E41CD5 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E4AE1C20289A64A100E41CD5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				E4AE1C10289A57C500E41CD5 /* BucketListApp.swift */,
 				E4AE1C12289A57C500E41CD5 /* ContentView.swift */,
+				E4AE1C20289A64A100E41CD5 /* EditView.swift */,
+				E4AE1C1E289A614300E41CD5 /* Location.swift */,
 				E4AE1C14289A57C700E41CD5 /* Assets.xcassets */,
 				E4AE1C16289A57C700E41CD5 /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4AE1C13289A57C500E41CD5 /* ContentView.swift in Sources */,
+				E4AE1C1F289A614300E41CD5 /* Location.swift in Sources */,
+				E4AE1C21289A64A100E41CD5 /* EditView.swift in Sources */,
 				E4AE1C11289A57C500E41CD5 /* BucketListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
