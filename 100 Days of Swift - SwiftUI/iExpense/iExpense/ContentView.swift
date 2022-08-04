@@ -47,6 +47,9 @@ struct ContentView: View {
                                     Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                                         .foregroundColor(colorForExpense(item))
                                 }
+//                                .accessibilityElement()
+//                                .accessibilityLabel(item.name)
+//                                .accessibilityHint(item.type)
                             }
                         }
                         .onDelete { offsets in
@@ -71,6 +74,9 @@ struct ContentView: View {
                                     Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                                         .foregroundColor(colorForExpense(item))
                                 }
+//                                .accessibilityElement()
+//                                .accessibilityLabel(item.name)
+//                                .accessibilityHint(item.type)
                             }
                         }
                         .onDelete { offsets in
