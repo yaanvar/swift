@@ -39,11 +39,22 @@ struct ProspectsView: View {
         NavigationView {
             List {
                 ForEach(filteredProspects) { prospect in
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundColor(.secondary)
+                    HStack {
+                        if filter == .none {
+                            if prospect.isContacted {
+                                Image(systemName: "person.crop.circle.badge.checkmark")
+                            } else {
+                                Image(systemName: "person.crop.circle.badge.xmark")
+                            }
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundColor(.secondary)
+                        }
                     }
                     .swipeActions {
                         if prospect.isContacted {
@@ -72,10 +83,22 @@ struct ProspectsView: View {
             }
             .navigationTitle(title)
             .toolbar {
-                Button {
-                    isShowingScanner = true
-                } label: {
-                    Label("Scan", systemImage: "qrcode.viewfinder")
+                HStack {
+                    Button {
+                        isShowingScanner = true
+                    } label: {
+                        Label("Scan", systemImage: "qrcode.viewfinder")
+                    }
+                     
+                    Menu("Sort") {
+                        Button("By Name") {
+                            prospects.sortWith(filter: Prospects.SortFilter.byName)
+                        }
+
+                        Button("Most Recent") {
+                            prospects.sortWith(filter: Prospects.SortFilter.mostRecent)
+                        }
+                    }
                 }
             }
             .sheet(isPresented: $isShowingScanner) {

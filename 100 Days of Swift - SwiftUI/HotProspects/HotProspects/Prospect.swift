@@ -11,6 +11,7 @@ class Prospect: Identifiable, Codable {
     var id = UUID()
     var name = "Anonymous"
     var emailAddress = ""
+    var date = Date()
     fileprivate(set) var isContacted = false
 }
 
@@ -19,20 +20,40 @@ class Prospect: Identifiable, Codable {
     
     let saveKey = "SavedData"
     
+    enum SortFilter {
+        case byName, mostRecent
+    }
+    
     init() {
-        if let data = UserDefaults.standard.data(forKey: saveKey) {
-            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
-                people = decoded
-                return
-            }
-        }
+        let filename = getDocumentsDirectory().appendingPathComponent(saveKey)
         
-        people = []
+        do {
+            let data = try Data(contentsOf: filename)
+            people = try JSONDecoder().decode([Prospect].self, from: data)
+        } catch {
+            people = []
+            print("Unable to load people from json.")
+        }
+    }
+    
+    func loadData() {
+        let filename = getDocumentsDirectory().appendingPathComponent(saveKey)
+        
+        do {
+            let data = try Data(contentsOf: filename)
+            people = try JSONDecoder().decode([Prospect].self, from: data)
+        } catch {
+            print("Unable to load people from json.")
+        }
     }
     
     func save() {
-        if let encoded = try? JSONEncoder().encode(people) {
-            UserDefaults.standard.set(encoded, forKey: saveKey)
+        do {
+            let filename = getDocumentsDirectory().appendingPathComponent(saveKey)
+            let data = try JSONEncoder().encode(people)
+            try data.write(to: filename, options: [.atomic, .completeFileProtection])
+        } catch {
+            print("Unable to save people in json.")
         }
     }
     
@@ -47,4 +68,21 @@ class Prospect: Identifiable, Codable {
         save()
     }
     
+    func sortWith(filter: SortFilter) {
+        switch filter {
+        case .byName:
+            people = people.sorted { lhs, rhs in
+                lhs.name < rhs.name
+            }
+        case .mostRecent:
+            people = people.sorted { lhs, rhs in
+                lhs.date > rhs.date
+            }
+        }
+    }
+}
+
+func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
 }
