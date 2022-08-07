@@ -6,30 +6,40 @@
 //
 
 import SwiftUI
-import CoreHaptics
-
-func withOptionalAnimation<Result>(_ animation: Animation? = .default, _ body: () throws -> Result) rethrows -> Result {
-    if UIAccessibility.isReduceMotionEnabled {
-        return try body()
-    } else {
-        return try withAnimation(animation, body)
-    }
-}
 
 struct ContentView: View {
-    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
-
+    
+    @State private var cards = Array<Card>(repeating: Card.example, count: 10)
+    
     var body: some View {
-        Text("Hello, World!")
-            .padding()
-            .background(reduceTransparency ? .black : .black.opacity(0.5))
-            .foregroundColor(.white)
-            .clipShape(Capsule())
+        ZStack {
+            Image("background")
+                .resizable()
+                .ignoresSafeArea()
+            
+            VStack {
+                ZStack {
+                    ForEach(0..<cards.count, id: \.self) { index in
+                        CardView(card: cards[index]) {
+                            withAnimation {
+                                removeCard(at: index)
+                            }
+                        }
+                        .stacked(at: index, in: cards.count)
+                    }
+                }
+            }
+        }
+    }
+    
+    func removeCard(at index: Int) {
+        cards.remove(at: index)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
