@@ -16,7 +16,7 @@ Build a game with stacks, images, and alerts
 
 Dive deep into Swift's rendering system
 
-## ProjectChallenge1 - 
+## ProjectChallenge1 - RockPaperScissors
 
 ## Project4 - BetterRest
 
@@ -30,7 +30,7 @@ Build a letter rearranging game with List
 
 Spruce up your UI with springs, bounces, and more
 
-## PojectChallenge2 - 
+## PojectChallenge2 - iHabit
 
 ## Project7 - iExpense
 
@@ -44,7 +44,7 @@ Teach users about space history with scroll views, Codable, and more
 
 Use shapes, paths, colors, and more to create custom art for your app
 
-## ProjectChallenge3 - 
+## ProjectChallenge3 - Friendface
 
 ## Project10 - Cupcake Corner
 
@@ -72,7 +72,7 @@ Embed maps and make network calls in this life goals app
 
 Learn how to make your apps available to everyone
 
-## PojectChallenge5 - 
+## PojectChallenge5 - NameToFace
 
 ## Project16 - Hot Prospects
 
