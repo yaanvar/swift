@@ -162,6 +162,12 @@ struct ContentView: View {
             isActive = false
         }
     }
+    
+    func backToList() {
+        guard let firstCard = cards.first else { return }
+        
+        cards.append(firstCard)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
