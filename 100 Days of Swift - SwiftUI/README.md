@@ -18,6 +18,8 @@ Dive deep into Swift's rendering system
 
 ## ProjectChallenge1 - RockPaperScissors
 
+Rock-Paper-Scissors game.
+
 ## Project4 - BetterRest
 
 Use machine learning to improve sleep
@@ -31,6 +33,8 @@ Build a letter rearranging game with List
 Spruce up your UI with springs, bounces, and more
 
 ## PojectChallenge2 - iHabit
+
+App to track your habits.
 
 ## Project7 - iExpense
 
@@ -86,7 +90,7 @@ Use gestures and haptics to build a learning app.
 
 Explore the inner workings of SwiftUI's layout system.
 
-## PojectChallenge6 -
+## PojectChallenge6 - RollDice
 
 ## Project19 - SnowSeeker
 
