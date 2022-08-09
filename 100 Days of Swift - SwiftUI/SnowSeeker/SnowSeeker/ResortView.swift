@@ -24,6 +24,7 @@ struct ResortView: View {
                 Image(decorative: resort.id)
                     .resizable()
                     .scaledToFit()
+                    .overlay(ImageOverlay(resort: resort), alignment: .bottom)
                     .cornerRadius(44)
                     .padding()
                 

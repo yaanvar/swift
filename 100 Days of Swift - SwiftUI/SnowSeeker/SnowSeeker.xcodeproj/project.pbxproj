@@ -20,6 +20,7 @@
 		E4B657E328A2A05E002EE14F /* ResortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B657E228A2A05E002EE14F /* ResortDetailsView.swift */; };
 		E4B657E528A2A405002EE14F /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B657E428A2A405002EE14F /* Facility.swift */; };
 		E4B657E728A2A5E4002EE14F /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B657E628A2A5E4002EE14F /* Favorites.swift */; };
+		E4B657E928A2A89D002EE14F /* ImageOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B657E828A2A89D002EE14F /* ImageOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		E4B657E228A2A05E002EE14F /* ResortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortDetailsView.swift; sourceTree = "<group>"; };
 		E4B657E428A2A405002EE14F /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 		E4B657E628A2A5E4002EE14F /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		E4B657E828A2A89D002EE14F /* ImageOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				E4B657E028A2A02A002EE14F /* SkiDetailsView.swift */,
 				E4B657E228A2A05E002EE14F /* ResortDetailsView.swift */,
 				E4B657DE28A29F06002EE14F /* ResortView.swift */,
+				E4B657E828A2A89D002EE14F /* ImageOverlay.swift */,
 				E4B657E628A2A5E4002EE14F /* Favorites.swift */,
 				E4B657E428A2A405002EE14F /* Facility.swift */,
 				E4B657DA28A29DC6002EE14F /* WelcomeView.swift */,
@@ -170,6 +173,7 @@
 				E4B657E328A2A05E002EE14F /* ResortDetailsView.swift in Sources */,
 				E4B657E728A2A5E4002EE14F /* Favorites.swift in Sources */,
 				E4B657E528A2A405002EE14F /* Facility.swift in Sources */,
+				E4B657E928A2A89D002EE14F /* ImageOverlay.swift in Sources */,
 				E4B657DD28A29E70002EE14F /* Extensions.swift in Sources */,
 				E4B657C928A2618B002EE14F /* ContentView.swift in Sources */,
 				E4B657DF28A29F06002EE14F /* ResortView.swift in Sources */,
