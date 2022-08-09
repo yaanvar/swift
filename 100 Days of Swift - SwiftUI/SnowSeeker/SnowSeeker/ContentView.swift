@@ -12,6 +12,8 @@ struct ContentView: View {
 
     @State private var searchText = ""
     
+    @StateObject var favorites = Favorites()
+    
     var body: some View {
         NavigationView {
             List(filteredResorts) { resort in
@@ -36,6 +38,13 @@ struct ContentView: View {
                         Text("\(resort.runs) runs")
                             .foregroundColor(.secondary)
                     }
+                    
+                    if favorites.contains(resort) {
+                        Spacer()
+                        Image(systemName: "heart.fill")
+                            .accessibilityLabel("This is a favorite resort")
+                            .foregroundColor(.red)
+                    }
                 }
             }
             .navigationTitle("Resorts")
@@ -43,6 +52,7 @@ struct ContentView: View {
             
             WelcomeView()
         }
+        .environmentObject(favorites)
     }
     
     var filteredResorts: [Resort] {
@@ -57,6 +67,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewInterfaceOrientation(.landscapeRight)
+            .previewInterfaceOrientation(.portrait)
     }
 }
