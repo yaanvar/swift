@@ -15,6 +15,8 @@
 		E4ECC8D828A3C500005CF573 /* LocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ECC8D728A3C500005CF573 /* LocationMapView.swift */; };
 		E4ECC8DA28A3C5E4005CF573 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ECC8D928A3C5E4005CF573 /* LocationListView.swift */; };
 		E4ECC8DC28A3C603005CF573 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ECC8DB28A3C603005CF573 /* ProfileView.swift */; };
+		E4ECC8DE28A3DAD3005CF573 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ECC8DD28A3DAD3005CF573 /* AvatarView.swift */; };
+		E4ECC8E028A3DB5A005CF573 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ECC8DF28A3DB5A005CF573 /* LocationDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		E4ECC8D728A3C500005CF573 /* LocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapView.swift; sourceTree = "<group>"; };
 		E4ECC8D928A3C5E4005CF573 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		E4ECC8DB28A3C603005CF573 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E4ECC8DD28A3DAD3005CF573 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		E4ECC8DF28A3DB5A005CF573 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				E4ECC8D728A3C500005CF573 /* LocationMapView.swift */,
 				E4ECC8DB28A3C603005CF573 /* ProfileView.swift */,
 				E4ECC8D928A3C5E4005CF573 /* LocationListView.swift */,
+				E4ECC8DF28A3DB5A005CF573 /* LocationDetailView.swift */,
+				E4ECC8DD28A3DAD3005CF573 /* AvatarView.swift */,
 				E4ECC8CB28A3C19B005CF573 /* Preview Content */,
 			);
 			path = DubDubGrub;
@@ -151,6 +157,8 @@
 			files = (
 				E4ECC8C628A3C198005CF573 /* DubDubGrubApp.swift in Sources */,
 				E4ECC8D828A3C500005CF573 /* LocationMapView.swift in Sources */,
+				E4ECC8E028A3DB5A005CF573 /* LocationDetailView.swift in Sources */,
+				E4ECC8DE28A3DAD3005CF573 /* AvatarView.swift in Sources */,
 				E4ECC8DA28A3C5E4005CF573 /* LocationListView.swift in Sources */,
 				E4ECC8D628A3C4C3005CF573 /* AppTabView.swift in Sources */,
 				E4ECC8DC28A3C603005CF573 /* ProfileView.swift in Sources */,
