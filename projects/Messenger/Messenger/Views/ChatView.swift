@@ -17,18 +17,19 @@ struct CustomField: ViewModifier {
 }
 
 struct ChatView: View {
+    @EnvironmentObject var model: AppStateModel
+    
     @State private var message: String = ""
     let otherUserName: String
     
     var body: some View {
         VStack {
             ScrollView {
-                ChatRow(type: .sent, text: "Hello, World!")
-                    .padding(3)
-                ChatRow(type: .received, text: "Hello, Bob!")
-                    .padding(3)
-                ChatRow(type: .sent, text: "Hello!")
-                    .padding(3)
+                ForEach(model.messages, id: \.self) { message in
+                    ChatRow(type: message.type,
+                            text: message.text)
+                        .padding(3)
+                }
             }
             
             HStack {
@@ -40,6 +41,11 @@ struct ChatView: View {
             }
         }
         .navigationTitle(otherUserName)
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            model.otherUserName = otherUserName
+            model.observeChat()
+        }
     }
 }
 

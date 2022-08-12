@@ -28,15 +28,21 @@ struct SignUpView: View {
             VStack {
                 TextField("Email address", text: $emailAddress)
                     .modifier(CustomField())
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
                 TextField("Username", text: $username)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
                     .modifier(CustomField())
                 SecureField("Password", text: $password)
                     .modifier(CustomField())
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
                 
                 Button {
-                    
+                    signUp()
                 } label: {
-                    Text("Sign In")
+                    Text("Sign Up")
                         .foregroundColor(.white)
                         .frame(width: 220, height: 58)
                         .background(Color.green)

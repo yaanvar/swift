@@ -9,10 +9,12 @@ import SwiftUI
 
 struct SearchView: View {
     @Environment(\.dismiss) var dismiss
+    
+    @EnvironmentObject var model: AppStateModel
 
     @State private var text = ""
     
-    let usernames = ["Julia"]
+    @State private var usernames = [String]()
     
     let completion: (String) -> Void
     
@@ -28,7 +30,7 @@ struct SearchView: View {
                     .padding(.leading)
              
                 Button {
-                    
+                    searchUsers()
                 } label: {
                     Image(systemName: "magnifyingglass")
                         .modifier(CustomButtonImage())
@@ -57,6 +59,16 @@ struct SearchView: View {
             Spacer()
         }
         .navigationTitle("Search")
+    }
+    
+    func searchUsers() {
+        guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return
+        }
+        
+        model.searchUsers(queryText: text) { usernames in
+            self.usernames = usernames
+        }
     }
 }
 

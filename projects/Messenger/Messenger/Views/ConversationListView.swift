@@ -11,16 +11,14 @@ struct ConversationListView: View {
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject var model: AppStateModel
-    
-    let userNames = ["Joe", "Jill", "Bob"]
-    
     @State private var otherUserName = ""
     @State private var showChat = false
+    @State private var showSearch = false
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
-                ForEach(userNames, id: \.self) { name in
+                ForEach(model.conversations, id: \.self) { name in
                     NavigationLink {
                         ChatView(otherUserName: name)
                     } label: {
@@ -57,26 +55,35 @@ struct ConversationListView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
+                    NavigationLink(isActive: $showSearch) {
                         SearchView { name in
+                            showSearch = false
                             DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                                otherUserName = name
                                 showChat = true
+                                otherUserName = name
                             }
                         }
                     } label: {
                         Image(systemName: "magnifyingglass")
                     }
+
                 }
             }
             .fullScreenCover(isPresented: $model.showingSignIn) {
                 SignInView()
             }
+            .onAppear() {
+                guard model.auth.currentUser != nil else {
+                    return
+                }
+                
+                model.getConversations()
+            }
         }
     }
     
     func signOut() {
-        
+        model.signOut()
     }
 }
 

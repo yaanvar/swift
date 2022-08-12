@@ -21,6 +21,8 @@ struct CustomButtonImage: ViewModifier {
 }
 
 struct SendButton: View {
+    @EnvironmentObject var model: AppStateModel
+    
     @Binding var text: String
     
     var body: some View {
@@ -34,5 +36,9 @@ struct SendButton: View {
     
     func sendMessage() {
         guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+        
+        model.sendMessage(text: text)
+        
+        text = ""
     }
 }
