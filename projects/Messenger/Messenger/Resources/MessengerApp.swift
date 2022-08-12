@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseCore
 
 @main
 struct MessengerApp: App {
@@ -24,7 +27,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
     
-        
+        FirebaseApp.configure()
         
         return true
     }
