@@ -1,0 +1,26 @@
+PODS:
+  - LBTATools (1.0.12)
+  - SDWebImage (5.12.5):
+    - SDWebImage/Core (= 5.12.5)
+  - SDWebImage/Core (5.12.5)
+  - STTwitter (0.2.6)
+
+DEPENDENCIES:
+  - LBTATools
+  - SDWebImage
+  - STTwitter
+
+SPEC REPOS:
+  trunk:
+    - LBTATools
+    - SDWebImage
+    - STTwitter
+
+SPEC CHECKSUMS:
+  LBTATools: 389a901a01b9a56bea5682c40cd6e23530f40015
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
+  STTwitter: 30ee2f79eff78c3d633a1edc869e97db9c9ead59
+
+PODFILE CHECKSUM: 78784a5dae837ad0d99e9171ad6b783867badad3
+
+COCOAPODS: 1.11.3
