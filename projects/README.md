@@ -18,3 +18,6 @@
 
 # DubDubGrub
 ## yeah. i started it but i don't have apple developer account at the moment (11 august 2022) to complete the course so it will be not finished for a while..
+
+# NewNews SwiftUI
+## New news app made on SwiftUI, Combine, URLImage
