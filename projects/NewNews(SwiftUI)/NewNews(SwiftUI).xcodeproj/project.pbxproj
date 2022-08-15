@@ -26,6 +26,7 @@
 		E4475A2E28A8FCE70024E1B6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4475A2D28A8FCE70024E1B6 /* SettingsView.swift */; };
 		E4475A3028A904E10024E1B6 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4475A2F28A904E10024E1B6 /* Contacts.swift */; };
 		E4475A3328A907AC0024E1B6 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4475A3228A907AC0024E1B6 /* ThemeManager.swift */; };
+		E451D3F128AA419700DB5B94 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451D3F028AA419700DB5B94 /* SafariView.swift */; };
 		E4B723B228A91DD2006874C1 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B723B128A91DD2006874C1 /* Source.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		E4475A2D28A8FCE70024E1B6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E4475A2F28A904E10024E1B6 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		E4475A3228A907AC0024E1B6 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		E451D3F028AA419700DB5B94 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		E4B723B128A91DD2006874C1 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				E4475A2728A8123A0024E1B6 /* ArticleView.swift */,
 				E4475A2928A8F78A0024E1B6 /* ErrorView.swift */,
 				E4475A2D28A8FCE70024E1B6 /* SettingsView.swift */,
+				E451D3F028AA419700DB5B94 /* SafariView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				E4475A2C28A8F8BE0024E1B6 /* NewsFeedView.swift in Sources */,
 				E4475A1228A8091B0024E1B6 /* News.swift in Sources */,
 				E4475A2828A8123A0024E1B6 /* ArticleView.swift in Sources */,
+				E451D3F128AA419700DB5B94 /* SafariView.swift in Sources */,
 				E4475A1028A8090F0024E1B6 /* Article.swift in Sources */,
 				E4475A1828A80AD40024E1B6 /* APIError.swift in Sources */,
 				E4475A2A28A8F78A0024E1B6 /* ErrorView.swift in Sources */,

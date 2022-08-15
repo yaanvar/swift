@@ -21,6 +21,8 @@ final class NewsViewModel: ObservableObject, NewsViewModelProtocol {
     
     @Published private(set) var state: ResultState = .loading
     
+    var selectedArticle: Article?
+    
     var isLoading: Bool {
         state == .loading
     }

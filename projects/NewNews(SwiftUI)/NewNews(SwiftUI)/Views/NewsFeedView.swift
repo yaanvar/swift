@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct NewsFeedView: View {
-    @Environment(\.openURL) var openURL
-    
     @StateObject var newsViewModel = NewsViewModel(service: NewsService())
+    
+    @State private var showSafariView = false
     
     var body: some View {
         Group {
@@ -25,7 +25,14 @@ struct NewsFeedView: View {
                         ArticleView(isLoading: newsViewModel.isLoading,
                                     article: article)
                             .onTapGesture {
-                                load(url: article.url)
+                                newsViewModel.selectedArticle = article
+                                showSafariView = true
+                            }
+                            .sheet(isPresented: $showSafariView) {
+                                if let stringUrl = article.url,
+                                   let url = URL(string: stringUrl) {
+                                    SafariView(url: url)
+                                }
                             }
                     }
                     .navigationBarTitle("News")
@@ -36,14 +43,6 @@ struct NewsFeedView: View {
             self.newsViewModel.getArticles()
             print(newsViewModel.articles.count)
         }
-    }
-    
-    func load(url: String?) {
-        guard let url = url,
-            let linkUrl = URL(string: url) else {
-            return
-        }
-        openURL(linkUrl)
     }
 }
 
