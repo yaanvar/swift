@@ -8,30 +8,33 @@
 import SwiftUI
 
 struct TabBar: View {
-    
     @AppStorage("selectedTab") var selectedTab: Tab = .home
     @State var color: Color = .teal
     @State var tabItemWidth: CGFloat = 0
     
     var body: some View {
-        HStack {
-            buttons
-        }
-        .padding(.horizontal, 8)
-        .padding(.top, 14)
-        .frame(height: 88, alignment: .top)
-        .background(.ultraThinMaterial,
-                    in: RoundedRectangle(cornerRadius: 34, style: .continuous)
-        )
-        .background(
-            background
-        )
-        .overlay(
-            overlay
-        )
-        .strokeStyle(cornerRadius: 34)
-        .frame(maxHeight: .infinity, alignment: .bottomTrailing)
+        GeometryReader { proxy in
+            let hasHomeIndicator = proxy.safeAreaInsets.bottom > 20
+            
+            HStack {
+                buttons
+            }
+            .padding(.horizontal, 8)
+            .padding(.top, 14)
+            .frame(height: hasHomeIndicator ? 88 : 62, alignment: .top)
+            .background(.ultraThinMaterial,
+                        in: RoundedRectangle(cornerRadius: hasHomeIndicator ? 34 : 0,
+                                             style: .continuous))
+            .background(
+                background
+            )
+            .overlay(
+                overlay
+            )
+            .strokeStyle(cornerRadius: hasHomeIndicator ? 34 : 0)
+            .frame(maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
+        }
     }
     
     var buttons: some View {
@@ -46,7 +49,7 @@ struct TabBar: View {
                     Image(systemName: item.icon)
                         .symbolVariant(.fill)
                         .font(.body.bold())
-                        .frame(width: 80, height: 29)
+                        .frame(width: 44, height: 29)
                     Text(item.text)
                         .font(.caption2)
                         .lineLimit(1)
@@ -110,9 +113,9 @@ struct TabBar: View {
     }
 }
 
-struct TabBarView_Previews: PreviewProvider {
+struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
         TabBar()
-            .previewInterfaceOrientation(.portrait)
+.previewInterfaceOrientation(.portrait)
     }
 }
