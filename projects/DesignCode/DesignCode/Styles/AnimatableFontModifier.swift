@@ -14,7 +14,7 @@ struct AnimatableFontModifier: AnimatableModifier {
     
     var animatableData: Double {
         get { size }
-        set { size = newValue}
+        set { size = newValue }
     }
     
     func body(content: Content) -> some View {

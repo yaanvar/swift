@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct TabItem: Identifiable {
-    var id = UUID()
-    var text: String
+    let id = UUID()
+    var name: String
     var icon: String
-    var tab: Tab
     var color: Color
+    var selection: Tab
 }
 
 var tabItems = [
-    TabItem(text: "Learn Now", icon: "house", tab: .home, color: .teal),
-    TabItem(text: "Explore", icon: "magnifyingglass", tab: .explore, color: .blue),
-    TabItem(text: "Notifications", icon: "bell", tab: .notifications, color: .red),
-    TabItem(text: "Library", icon: "rectangle.stack", tab: .library, color: .pink)
+    TabItem(name: "Learn Now", icon: "house", color: .teal, selection: .home),
+    TabItem(name: "Explore", icon: "magnifyingglass", color: .blue, selection: .explore),
+    TabItem(name: "Notifications", icon: "bell", color: .red, selection: .notifications),
+    TabItem(name: "Library", icon: "rectangle.stack", color: .pink, selection: .library)
 ]
 
 enum Tab: String {

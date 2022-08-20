@@ -9,50 +9,99 @@ import SwiftUI
 
 struct NavigationBar: View {
     var title = ""
-    @Binding var hasScrolled: Bool
+    @State var showSheet = false
+    @Binding var contentHasScrolled: Bool
+    
+    @EnvironmentObject var model: Model
+    @AppStorage("showAccount") var showAccount = false
+    @AppStorage("isLogged") var isLogged = false
     
     var body: some View {
         ZStack {
-            Color.clear
+            Rectangle()
+                .frame(maxWidth: .infinity)
+                .frame(height: 100)
                 .background(.ultraThinMaterial)
-                .blur(radius: 10)
-                .opacity(hasScrolled ? 1 : 0)
+                .ignoresSafeArea()
+                .frame(maxHeight: .infinity, alignment: .top)
+                .blur(radius: contentHasScrolled ? 10 : 0)
+                .opacity(contentHasScrolled ? 1 : 0)
             
             Text(title)
-                .animatableFont(size: hasScrolled ? 22 : 34, weight: .bold)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-                .padding(.top, 20)
-                .offset(y: hasScrolled ? -4 : 0)
+                .animatableFont(size: contentHasScrolled ? 22 : 34, weight: .bold)
+                .foregroundStyle(.primary)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .padding(.horizontal, 20)
+                .padding(.top, 24)
+                .opacity(contentHasScrolled ? 0.7 : 1)
             
             HStack(spacing: 16) {
-                Image(systemName: "magnifyingglass")
-                    .font(.body.weight(.bold))
-                    .frame(width: 36, height: 36)
-                    .foregroundColor(.secondary)
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                    .strokeStyle(cornerRadius: 14)
+                Button {
+                    showSheet.toggle()
+                } label: {
+                    Image(systemName: "magnifyingglass")
+                        .font(.system(size: 17, weight: .bold))
+                        .frame(width: 36, height: 36)
+                        .foregroundColor(.secondary)
+                        .background(.ultraThinMaterial)
+                        .backgroundStyle(cornerRadius: 14, opacity: 0.4)
+                }
+                .sheet(isPresented: $showSheet) {
+                    SearchView()
+                }
                 
-                Image("Avatar Default")
-                    .resizable()
-                    .frame(width: 26, height: 26)
-                    .cornerRadius(10)
-                    .padding(8)
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-                    .strokeStyle(cornerRadius: 18)
+                Button {
+                    withAnimation {
+                        if isLogged {
+                            showAccount = true
+                        } else {
+                            model.showModal = true
+                        }
+                    }
+                } label: {
+                    avatar
+                }
+                .accessibilityElement()
+                .accessibilityLabel("Account")
             }
-            .frame(maxWidth: .infinity, alignment: .trailing)
-            .padding(.trailing, 20)
-            .padding(.top, 20)
-            .offset(y: hasScrolled ? -4 : 0)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+            .padding()
         }
-        .frame(height: hasScrolled ? 44 : 70)
-        .frame(maxHeight: .infinity, alignment: .top)
+        .offset(y: model.showNav ? 0 : -120)
+        .accessibility(hidden: !model.showNav)
+        .offset(y: contentHasScrolled ? -16 : 0)
+    }
+    
+    @ViewBuilder
+    var avatar: some View {
+        if isLogged {
+            AsyncImage(url: URL(string: "https://picsum.photos/200"), transaction: .init(animation: .easeOut)) { phase in
+                switch phase {
+                case .empty:
+                    Color.white
+                case .success(let image):
+                    image.resizable()
+                case .failure(_):
+                    Color.gray
+                @unknown default:
+                    Color.gray
+                }
+            }
+            .frame(width: 26, height: 26)
+            .cornerRadius(10)
+            .padding(8)
+            .background(.ultraThinMaterial)
+            .backgroundStyle(cornerRadius: 18, opacity: 0.4)
+            .transition(.scale.combined(with: .slide))
+        } else {
+            LogoView(image: "Avatar Default")
+        }
     }
 }
 
 struct NavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationBar(title: "Featured", hasScrolled: .constant(false))
+        NavigationBar(contentHasScrolled: .constant(false))
+            .environmentObject(Model())
     }
 }
