@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import URLImage
+//import URLImage
 
 struct ArticleView: View {
     
@@ -15,54 +15,65 @@ struct ArticleView: View {
     let article: Article
     
     var body: some View {
+        articleImage
+            .overlay(
+                ZStack {
+                    LinearGradient(colors: [.black.opacity(0.8), .clear],
+                                   startPoint: .bottom,
+                                   endPoint: .top)
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        if let date = article.publishedAt {
+                            Text(date.formatted(.dateTime.month().year().day().hour().minute()))
+                                .foregroundColor(Color(.secondaryLabel))
+                                .font(.system(size: 12, weight: .regular))
+                        }
+                        
+                        Text(article.title ?? "")
+                            .foregroundColor(.white)
+                            .font(.system(size: 18, weight: .semibold))
+                            .lineLimit(3)
+                            .minimumScaleFactor(0.75)
+                            .frame(maxHeight: .infinity, alignment: .bottomLeading)
+                            .padding(.top)
+                        
+                        plaque
+                            .offset(y: 40)
+                    }
+                    
+            
+                           
+                }
+            )
+            .padding(.horizontal)
+            .padding(.vertical, 10)
+            .redacted(reason: isLoading ? .placeholder : [])
+            .allowsHitTesting(!isLoading)
+    }
+    
+    var articleImage: some View {
         HStack {
             if let image = article.urlToImage,
                let url = URL(string: image) {
-                URLImage(url,
-                         failure: { error, retry in
-                            PlaceholderImageView()
-                        },
-                        content: { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                        })
-                        .frame(width: 100, height: 100)
-                        .cornerRadius(10)
-                        .padding(.vertical, 5)
-                        .environment(\.urlImageOptions,
-                                      URLImageOptions(
-                                        fetchPolicy: .returnStoreElseLoad(downloadDelay: 0.25)
-                                        )
-                                    )
-            } else {
+                AsyncImage(url: url) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } placeholder: {
                     PlaceholderImageView()
-            }
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(article.title ?? "")
-                    .foregroundColor(Color(.label))
-                    .font(.system(size: 18, weight: .semibold))
-                    .lineLimit(3)
-                    .minimumScaleFactor(0.75)
-                Text(article.source?.name ?? "")
-                    .foregroundColor(Color(.secondaryLabel))
-                    .font(.system(size: 12, weight: .regular))
-                if let date = article.publishedAt {
-                    Text(date, style: .time)
-                        .foregroundColor(Color(.secondaryLabel))
-                        .font(.system(size: 12, weight: .regular))
-                    +
-                    Text(" ")
-                    +
-                    Text(date, style: .date)
-                        .foregroundColor(Color(.secondaryLabel))
-                        .font(.system(size: 12, weight: .regular))
                 }
+            } else {
+                PlaceholderImageView()
             }
         }
-        .redacted(reason: isLoading ? .placeholder : [])
-        .allowsHitTesting(!isLoading)
+        .frame(maxWidth: .infinity)
+        .frame(height: 200)
+        .cornerRadius(20)
+    }
+    
+    var plaque: some View {
+        Text("plaque")
+            )
     }
 }
 
