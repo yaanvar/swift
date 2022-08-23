@@ -27,6 +27,10 @@
 ### 1 - 100 Days of Swift - UIKit
 ### 2 - 100 Days of Swift - SwiftUI
 
+# Design+Code
+
+## Here are the things that I do according to tutorials of design+code
+
 # Sample (API) projects 
 
 ## This is where i try out new APIs, techniques and stuff, also this is where i keep code samples for the future, nothing special.
