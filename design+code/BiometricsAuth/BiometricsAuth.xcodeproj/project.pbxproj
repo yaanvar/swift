@@ -14,6 +14,7 @@
 		E45F42C728B8AE7B00ADFAD7 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F42C628B8AE7B00ADFAD7 /* Title.swift */; };
 		E45F42CA28B8AED400ADFAD7 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F42C928B8AED400ADFAD7 /* PrimaryButton.swift */; };
 		E45F42CD28B8AF6600ADFAD7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F42CC28B8AF6600ADFAD7 /* LoginView.swift */; };
+		E45F42CF28B8B06E00ADFAD7 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F42CE28B8B06E00ADFAD7 /* AuthenticationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		E45F42C628B8AE7B00ADFAD7 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		E45F42C928B8AED400ADFAD7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E45F42CC28B8AF6600ADFAD7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E45F42CE28B8B06E00ADFAD7 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				E45F42B828B8ADD100ADFAD7 /* BiometricsAuthApp.swift */,
+				E45F42CE28B8B06E00ADFAD7 /* AuthenticationManager.swift */,
 				E45F42CB28B8AF5300ADFAD7 /* Views */,
 				E45F42C828B8AE7E00ADFAD7 /* Components */,
 				E45F42BC28B8ADD400ADFAD7 /* Assets.xcassets */,
@@ -165,6 +168,7 @@
 				E45F42BB28B8ADD100ADFAD7 /* ContentView.swift in Sources */,
 				E45F42C728B8AE7B00ADFAD7 /* Title.swift in Sources */,
 				E45F42CA28B8AED400ADFAD7 /* PrimaryButton.swift in Sources */,
+				E45F42CF28B8B06E00ADFAD7 /* AuthenticationManager.swift in Sources */,
 				E45F42CD28B8AF6600ADFAD7 /* LoginView.swift in Sources */,
 				E45F42B928B8ADD100ADFAD7 /* BiometricsAuthApp.swift in Sources */,
 			);
@@ -298,6 +302,7 @@
 				DEVELOPMENT_TEAM = R2S4TKF2UY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Allow FaceID to login in to the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +332,7 @@
 				DEVELOPMENT_TEAM = R2S4TKF2UY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Allow FaceID to login in to the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
