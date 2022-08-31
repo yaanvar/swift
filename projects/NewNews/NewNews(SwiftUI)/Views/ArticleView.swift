@@ -73,7 +73,6 @@ struct ArticleView: View {
     
     var plaque: some View {
         Text("plaque")
-            )
     }
 }
 
