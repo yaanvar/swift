@@ -37,6 +37,7 @@ class AuthenticationManager: ObservableObject {
                 if success {
                     DispatchQueue.main.async {
                         self.isAuthenticated = true
+                        print("isAuthenticated", self.isAuthenticated)
                     }
                 }
             } catch {
@@ -48,5 +49,18 @@ class AuthenticationManager: ObservableObject {
                 }
             }
         }
+    }
+    
+    func authenticateWithCredentials(username: String, password: String) {
+        if username.lowercased() == "anvar" && password == "password" {
+            isAuthenticated = true
+        } else {
+            errorDescription = "error credentials"
+            showAlert = true
+        }
+    }
+    
+    func logOut() {
+        isAuthenticated = false
     }
 }
