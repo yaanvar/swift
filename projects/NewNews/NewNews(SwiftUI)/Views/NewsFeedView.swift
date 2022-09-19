@@ -34,8 +34,10 @@ struct NewsFeedView: View {
                                     SafariView(url: url)
                                 }
                             }
+                            .listRowSeparator(.hidden)
                     }
                     .navigationBarTitle("News")
+                    .listStyle(.plain)
                 }
             }
         }

@@ -23,12 +23,6 @@ struct ArticleView: View {
                                    endPoint: .top)
                     
                     VStack(alignment: .leading, spacing: 8) {
-                        if let date = article.publishedAt {
-                            Text(date.formatted(.dateTime.month().year().day().hour().minute()))
-                                .foregroundColor(Color(.secondaryLabel))
-                                .font(.system(size: 12, weight: .regular))
-                        }
-                        
                         Text(article.title ?? "")
                             .foregroundColor(.white)
                             .font(.system(size: 18, weight: .semibold))
@@ -37,12 +31,15 @@ struct ArticleView: View {
                             .frame(maxHeight: .infinity, alignment: .bottomLeading)
                             .padding(.top)
                         
-                        plaque
-                            .offset(y: 40)
+                        
+                        if let date = article.publishedAt {
+                            Text(date.formatted(.dateTime.month().year().day().hour().minute()))
+                                .foregroundColor(.white)
+                                .font(.system(size: 12, weight: .regular))
+                                .padding(.bottom)
+                        }
                     }
-                    
-            
-                           
+                    .padding(.horizontal, 20)
                 }
             )
             .padding(.horizontal)
@@ -59,6 +56,8 @@ struct ArticleView: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 200)
                 } placeholder: {
                     PlaceholderImageView()
                 }
@@ -66,8 +65,6 @@ struct ArticleView: View {
                 PlaceholderImageView()
             }
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 200)
         .cornerRadius(20)
     }
     
@@ -81,7 +78,8 @@ struct PlaceholderImageView: View {
         Image(systemName: "photo.fill")
             .foregroundColor(.white)
             .background(Color.gray)
-            .frame(width: 100, height: 100)
+            .frame(maxWidth: .infinity)
+            .frame(height: 200)
             .cornerRadius(10)
     }
 }
