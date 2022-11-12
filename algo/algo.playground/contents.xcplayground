@@ -9,5 +9,6 @@
         <page name='Graph'/>
         <page name='Heap'/>
         <page name='Tests'/>
+        <page name='Trie'/>
     </pages>
 </playground>
