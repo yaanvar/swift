@@ -10,5 +10,8 @@
         <page name='Heap'/>
         <page name='Tests'/>
         <page name='Trie'/>
+        <page name='BinarySearch'/>
+        <page name='PriorityQueue'/>
+        <page name='SortingAlgorithms'/>
     </pages>
 </playground>

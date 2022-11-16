@@ -22,7 +22,7 @@ public struct PriorityQueueArray<T: Equatable>: Queue {
         return true
     }
     
-    mutating func dequeue() -> T? {
+    mutating public func dequeue() -> T? {
         isEmpty ? nil : elements.removeFirst()
     }
     
@@ -30,7 +30,7 @@ public struct PriorityQueueArray<T: Equatable>: Queue {
         elements.isEmpty
     }
     
-    var peek: Element? {
+    public var peek: T? {
         elements.first
     }
     
