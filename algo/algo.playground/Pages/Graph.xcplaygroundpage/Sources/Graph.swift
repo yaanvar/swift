@@ -79,22 +79,22 @@ extension Graph where Element: Hashable {
         pushed.insert(source)
         visited.append(source)
         
-    outer: while let vertex = stack.peek() {
-        let neighbors = edges(from: vertex)
-        guard !neighbors.isEmpty else {
-            stack.pop()
-            continue
-        }
-        for edge in neighbors {
-            if !pushed.contains(edge.destination) {
-                stack.push(edge.destination)
-                pushed.insert(edge.destination)
-                visited.append(edge.destination)
-                continue outer
+        outer: while let vertex = stack.peek() {
+            let neighbors = edges(from: vertex)
+            guard !neighbors.isEmpty else {
+                stack.pop()
+                continue
             }
+            for edge in neighbors {
+                if !pushed.contains(edge.destination) {
+                    stack.push(edge.destination)
+                    pushed.insert(edge.destination)
+                    visited.append(edge.destination)
+                    continue outer
+                }
+            }
+            stack.pop()
         }
-        stack.pop()
-    }
         
         return visited
     }
